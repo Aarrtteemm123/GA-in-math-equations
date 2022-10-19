@@ -11,7 +11,17 @@ app.config['SECRET_KEY'] = Config.SECRET_KEY
 
 @app.get('/')
 def get_main_page():
-    return render_template('index.html')
+    view_data = {
+        'num_generations': Config.NUM_GENERATIONS,
+        'num_parents_mating': Config.NUM_PARENTS_MATING,
+        'num_genes': Config.NUM_GENES,
+        'sol_per_pop': Config.SOL_PER_POP,
+        'crossover_type': Config.CROSSOVER_TYPE,
+        'mutation_probability': Config.MUTATION_PROBABILITY,
+        'parallel_processing': Config.PARALLEL_PROCESSING,
+        'accuracy': Config.ACCURACY
+    }
+    return render_template('index.html', data=view_data)
 
 
 @app.get('/result')

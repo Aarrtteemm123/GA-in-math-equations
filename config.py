@@ -8,6 +8,6 @@ class Config:
     NUM_GENES = 5,
     SOL_PER_POP = 10,
     CROSSOVER_TYPE = 'two_points',
-    MUTATION_PROBABILITY = 0.1,
+    MUTATION_PROBABILITY = 0.15,
     PARALLEL_PROCESSING = 1,
-    STOP_CRITERIA = 'reach_10'
+    ACCURACY = 0.01

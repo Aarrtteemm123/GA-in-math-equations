@@ -16,39 +16,39 @@
         </div>
         <div class="mb-3">
             <label for="numGeneration" class="form-label">Number generations</label>
-            <input type="number" required name="num_generations" class="form-control" id="numGeneration">
+            <input type="number" value="{{ data.num_generations.0 }}" required name="num_generations" class="form-control" id="numGeneration">
         </div>
         <div class="mb-3">
             <label for="populationSize" class="form-label">Population size</label>
-            <input type="number" required name="sol_per_pop" class="form-control" id="populationSize">
+            <input type="number" value="{{ data.sol_per_pop.0 }}" required name="sol_per_pop" class="form-control" id="populationSize">
         </div>
         <div class="mb-3">
             <label for="numGenes" class="form-label">Number genes</label>
-            <input type="number" required name="num_genes" class="form-control" id="numGenes">
+            <input type="number" value="{{ data.num_genes.0 }}" required name="num_genes" class="form-control" id="numGenes">
         </div>
         <div class="mb-3">
             <label for="accuracy" class="form-label">Accuracy</label>
-            <input type="number" required step="any" name="accuracy" class="form-control" id="accuracy">
+            <input type="number" value="{{ data.accuracy }}" required step="any" name="accuracy" class="form-control" id="accuracy">
         </div>
         <div class="mb-3">
             <label for="mutationProbability" class="form-label">Mutation probability</label>
-            <input type="number" required step="any" name="mutation_probability" class="form-control" id="mutationProbability">
+            <input type="number" value="{{ data.mutation_probability.0 }}" required step="any" name="mutation_probability" class="form-control" id="mutationProbability">
         </div>
         <div class="mb-3">
             <label for="numParents" class="form-label">Number parents</label>
-            <input type="number" required name="num_parents_mating" class="form-control" id="numParents">
+            <input type="number" value="{{ data.num_parents_mating.0 }}" required name="num_parents_mating" class="form-control" id="numParents">
         </div>
         <div class="mb-3">
-            <label for="crossoverType" class="form-label">Crossover type</label>
+            <label for="crossoverType" class="form-label">Crossover type {{ data.parallel_processing.0 }}</label>
             <select required name="crossover_type" id="crossoverType" class="form-select" aria-label="Default select example">
-                <option selected value="single_point">single point</option>
-                <option value="two_points">two points</option>
-                <option value="uniform">uniform</option>
-                <option value="scattered">scattered</option>
+                <option value="single_point" {% if data.crossover_type.0 == 'single_point' %} selected {% endif %}>single point</option>
+                <option value="two_points" {% if data.crossover_type.0 == 'two_points' %} selected {% endif %}>two points</option>
+                <option value="uniform" {% if data.crossover_type.0 == 'uniform' %} selected {% endif %}>uniform</option>
+                <option value="scattered" {% if data.crossover_type.0 == 'scattered' %} selected {% endif %}>scattered</option>
             </select>
         </div>
         <div class="mb-3 form-check">
-            <input type="checkbox" name="parallel_processing" class="form-check-input" id="parallelProcessing">
+            <input {% if data.parallel_processing.0 > 1 %} checked {% endif %} type="checkbox" name="parallel_processing" class="form-check-input" id="parallelProcessing">
             <label class="form-check-label" for="parallelProcessing">Parallel processing</label>
         </div>
         <div class="d-grid gap-2 mb-3">
