@@ -33,7 +33,9 @@ def process_data():
     ga.build_solver(**ga_data)
     execution_time = ga.run_solver()
     result_data = ga.get_result()
+    result_data.pop('figure').savefig('static/my_plot.png')
     result_data['execution_time'] = execution_time
+    session['result'] = result_data
     return redirect(url_for('get_result_page'))
 
 

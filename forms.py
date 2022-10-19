@@ -10,4 +10,4 @@ class GAForm(Form):
     mutation_probability = FloatField(validators=[validators.DataRequired(), validators.NumberRange(min=0, max=1)])
     num_parents_mating = IntegerField(validators=[validators.DataRequired()])
     crossover_type = StringField(validators=[validators.DataRequired()])
-    parallel_processing = BooleanField(validators=[validators.DataRequired()])
+    parallel_processing = BooleanField()
