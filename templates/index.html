@@ -12,35 +12,35 @@
     <form method="post" action="/process_data">
         <div class="mb-3">
             <label for="equation" class="form-label">Equation</label>
-            <input type="text" name="equation" class="form-control" id="equation">
+            <input type="text" required name="equation" class="form-control" id="equation">
         </div>
         <div class="mb-3">
             <label for="numGeneration" class="form-label">Number generations</label>
-            <input type="number" name="numGeneration" class="form-control" id="numGeneration">
+            <input type="number" required name="num_generations" class="form-control" id="numGeneration">
         </div>
         <div class="mb-3">
             <label for="populationSize" class="form-label">Population size</label>
-            <input type="number" name="populationSize" class="form-control" id="populationSize">
+            <input type="number" required name="sol_per_pop" class="form-control" id="populationSize">
         </div>
         <div class="mb-3">
             <label for="numGenes" class="form-label">Number genes</label>
-            <input type="number" name="numGenes" class="form-control" id="numGenes">
+            <input type="number" required name="num_genes" class="form-control" id="numGenes">
         </div>
         <div class="mb-3">
             <label for="accuracy" class="form-label">Accuracy</label>
-            <input type="number" step="any" name="accuracy" class="form-control" id="accuracy">
+            <input type="number" required step="any" name="accuracy" class="form-control" id="accuracy">
         </div>
         <div class="mb-3">
             <label for="mutationProbability" class="form-label">Mutation probability</label>
-            <input type="text" name="mutationProbability" class="form-control" id="mutationProbability">
+            <input type="text" required name="mutation_probability" class="form-control" id="mutationProbability">
         </div>
         <div class="mb-3">
             <label for="numParents" class="form-label">Number parents</label>
-            <input type="number" name="numParents" class="form-control" id="numParents">
+            <input type="number" required name="num_parents_mating" class="form-control" id="numParents">
         </div>
         <div class="mb-3">
             <label for="crossoverType" class="form-label">Crossover type</label>
-            <select name="crossoverType" id="crossoverType" class="form-select" aria-label="Default select example">
+            <select required name="crossover_type" id="crossoverType" class="form-select" aria-label="Default select example">
                 <option selected value="single_point">single point</option>
                 <option value="two_points">two points</option>
                 <option value="uniform">uniform</option>
@@ -48,7 +48,7 @@
             </select>
         </div>
         <div class="mb-3 form-check">
-            <input type="checkbox" name="parallelProcessing" class="form-check-input" id="parallelProcessing">
+            <input type="checkbox" name="parallel_processing" class="form-check-input" id="parallelProcessing">
             <label class="form-check-label" for="parallelProcessing">Parallel processing</label>
         </div>
         <div class="d-grid gap-2 mb-3">
