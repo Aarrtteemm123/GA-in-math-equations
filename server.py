@@ -40,6 +40,8 @@ def process_data():
     ga_data = ga_form.data
     ga = GAInterface(ga_data.pop('equation'))
     ga_data['parallel_processing'] = os.cpu_count() if ga_data.pop('parallel_processing') else 1
+    if Config.PARALLEL_PROCESSING > 1 and ga_data['parallel_processing'] > 1:
+        ga_data['parallel_processing'] = Config.PARALLEL_PROCESSING
     ga.build_solver(**ga_data)
     execution_time = ga.run_solver()
     result_data = ga.get_result()

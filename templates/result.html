@@ -11,38 +11,56 @@
 <div class="container border rounded">
     <div class="mb-3">
         <label for="equation" class="form-label">Equation</label>
-        <input type="text" readonly name="equation" class="form-control" id="equation">
+        <input type="text" readonly value="{{ data.equation }}" name="equation" class="form-control" id="equation">
+    </div>
+    <div class="mb-3">
+        <label for="x" class="form-label">x</label>
+        <input type="number" readonly value="{{ data.x }}" name="x" class="form-control" id="x">
+    </div>
+    <div class="mb-3">
+        <label for="error" class="form-label">Error</label>
+        <input type="number" readonly value="{{ data.error }}" name="error" class="form-control" id="error">
+    </div>
+    <div class="mb-3">
+        <label for="time" class="form-label">Time (s)</label>
+        <input type="number" readonly value="{{ data.execution_time }}" name="time" class="form-control" id="time">
+    </div>
+    <div class="mb-3">
+        <label for="fitness" class="form-label">Fitness</label>
+        <input type="number" readonly value="{{ data.fitness }}" name="fitness" class="form-control" id="fitness">
     </div>
     <div class="mb-3">
         <label for="numGeneration" class="form-label">Number generations</label>
-        <input type="number" readonly name="numGeneration" class="form-control" id="numGeneration">
+        <input type="number" readonly value="{{ data.num_generations }}" name="numGeneration" class="form-control" id="numGeneration">
     </div>
     <div class="mb-3">
         <label for="populationSize" class="form-label">Population size</label>
-        <input type="number" readonly name="populationSize" class="form-control" id="populationSize">
+        <input type="number" readonly value="{{ data.sol_per_pop }}" name="populationSize" class="form-control" id="populationSize">
     </div>
     <div class="mb-3">
         <label for="numGenes" class="form-label">Number genes</label>
-        <input type="number" readonly name="numGenes" class="form-control" id="numGenes">
+        <input type="number" readonly value="{{ data.num_genes }}" name="numGenes" class="form-control" id="numGenes">
     </div>
     <div class="mb-3">
         <label for="accuracy" class="form-label">Accuracy</label>
-        <input type="text" readonly name="accuracy" class="form-control" id="accuracy">
+        <input type="text" readonly value="{{ data.accuracy }}" name="accuracy" class="form-control" id="accuracy">
     </div>
     <div class="mb-3">
         <label for="mutationProbability" class="form-label">Mutation probability</label>
-        <input type="text" readonly name="mutationProbability" class="form-control" id="mutationProbability">
+        <input type="text" readonly value="{{ data.mutation_probability }}" name="mutationProbability" class="form-control" id="mutationProbability">
     </div>
     <div class="mb-3">
         <label for="numParents" class="form-label">Number parents</label>
-        <input type="number" readonly name="numParents" class="form-control" id="numParents">
+        <input type="number" readonly value="{{ data.num_parents_mating }}" name="numParents" class="form-control" id="numParents">
     </div>
     <div class="mb-3">
         <label for="crossoverType" class="form-label">Crossover type</label>
-        <input type="number" readonly name="crossoverType" class="form-control" id="crossoverType">
+        <input type="text" readonly value="{{ data.crossover_type }}" name="crossoverType" class="form-control" id="crossoverType">
     </div>
     <div class="mb-3">
-        <label class="form-check-label">Parallel processing ON</label>
+        <label class="form-check-label">Parallel processing
+            {% if data.parallel_processing > 1  %} [On], threads {{ data.parallel_processing }} {% else %} [Off] {% endif %}
+        </label>
     </div>
     <div class="mb-3 text-center">
         <p>Progress</p>
