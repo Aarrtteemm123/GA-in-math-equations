@@ -1,6 +1,5 @@
 import json
 
-import sympy
 from sympy import Symbol, solve, Pow, exp, sin, cos, tan
 
 from config import Config
@@ -27,6 +26,21 @@ class AnalyserGA:
                         parallel_processing=1)
         result = self._run(ga)
         self.result['linear_equation'] = result
+
+    def sqrt_x(self, a, b, c):
+        equation = f'{a}*math.sqrt(x*{b})+{c}'
+        ga = GAInterface(equation)
+        ga.build_solver(num_generations=1000,
+                        num_parents_mating=2,
+                        sol_per_pop=50,
+                        num_genes=8,
+                        accuracy=0.01,
+                        gene_space={"low": 1, "high": 30},
+                        crossover_type='two_points',
+                        mutation_probability=0.15,
+                        parallel_processing=1)
+        result = self._run(ga)
+        self.result['sqrt_x'] = result
 
     def polynomial_2(self, a, b, c):
         equation = f'{a}*(x**2)+{b}*x+{c}'
@@ -162,7 +176,7 @@ class AnalyserGA:
         execution_times, generations, ga_result = [], [], {}
         fails = 0
         for _ in range(self.num_loop):
-            execution_time = ga.run_solver()
+            execution_time = ga.run_solver()['execution_time']
             ga_result = ga.get_result()
             if ga_result.get('error') > ga_result.get('accuracy'):
                 fails += 1
@@ -196,6 +210,11 @@ class AnalyzerComputerAlgebra:
         return [float(res) for res in res_lst]
 
     @benchmark
+    def sqrt_x(self, a, b, c):
+        res_lst = solve(a * Pow(self.x * b, 0.5) + c, self.x)
+        return [float(res) for res in res_lst]
+
+    @benchmark
     def polynomial_2(self, a, b, c):
         res_lst = solve(a * Pow(self.x, 2) + b * self.x + c, self.x)
         return [float(res) for res in res_lst]
@@ -212,7 +231,8 @@ class AnalyzerComputerAlgebra:
 
     @benchmark
     def polynomial_5(self, a, b, c, d, e, f):
-        res_lst = solve(a * Pow(self.x, 5) + b * Pow(self.x, 4) + c * Pow(self.x, 3) + d * Pow(self.x, 2) + e * self.x + f, self.x)
+        res_lst = solve(
+            a * Pow(self.x, 5) + b * Pow(self.x, 4) + c * Pow(self.x, 3) + d * Pow(self.x, 2) + e * self.x + f, self.x)
         return [float(res) for res in res_lst]
 
     @benchmark
@@ -244,8 +264,9 @@ class AnalyzerComputerAlgebra:
 def run_statistic():
     analyser = AnalyserGA(Config.PATH_TO_STATISTIC, Config.NUM_LOOPS)
     anal_comp_alg = AnalyzerComputerAlgebra()
-    print(anal_comp_alg.polynomial_2(4, 2, -5))
-    # analyser.linear_equation(5, -3)
+    #print(anal_comp_alg.sqrt_x(4, 2, -50))
+    analyser.linear_equation(5, -3)
+    #analyser.sqrt_x(4, 2, -50)
     # analyser.polynomial_2(2, 5, -15)
     # analyser.polynomial_3(4, 2, 7, -5)
     # analyser.polynomial_4(-4, -7, 5, 5, 1)
@@ -255,7 +276,7 @@ def run_statistic():
     # analyser.cos_x(7, 1, 1)
     # analyser.tg_x(-5, 3, -2)
     # analyser.ctg_x(4, 8, -10)
-    #analyser.save()
+    analyser.save()
 
 
 if __name__ == '__main__':
