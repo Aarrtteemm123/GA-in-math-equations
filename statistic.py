@@ -155,7 +155,7 @@ class Analyser:
             file.write(json.dumps(self.result, indent=4))
 
     def _run(self, ga):
-        execution_times, ga_result = [], {}
+        execution_times, generations, ga_result = [], [], {}
         fails = 0
         for _ in range(self.num_loop):
             execution_time = ga.run_solver()
@@ -164,14 +164,17 @@ class Analyser:
                 fails += 1
                 continue
             execution_times.append(execution_time)
+            generations.append(ga_result.pop('generations_completed'))
 
         avg_time = sum(execution_times) / len(execution_times) if execution_times else 0
         min_time = min(execution_times) if execution_times else 0
         max_time = max(execution_times) if execution_times else 0
+        avg_generations_completed = sum(generations) / len(generations) if generations else 0
         return {
             'avg_time': avg_time,
             'min_time': min_time,
             'max_time': max_time,
+            'avg_generations_completed': avg_generations_completed,
             'attempts': self.num_loop,
             'fails': fails,
             'percent_fails': 100 * fails / self.num_loop,
@@ -182,15 +185,15 @@ class Analyser:
 def run_statistic():
     analyser = Analyser(Config.PATH_TO_STATISTIC, Config.NUM_LOOPS)
     analyser.linear_equation(5, -3)
-    analyser.polynomial_2(2, 5, -15)
-    analyser.polynomial_3(4, 2, 7, -5)
-    analyser.polynomial_4(7, -2, -6, -3, 10)
-    analyser.polynomial_5(-3, -4, -7, 5, 5, 1)
-    analyser.exponential_equation(4, 3, 2)
-    analyser.sin_x(4, 2, 2)
-    analyser.cos_x(7, 1, 1)
-    analyser.tg_x(-5, 3, -2)
-    analyser.ctg_x(1, 1, 1)
+    # analyser.polynomial_2(2, 5, -15)
+    # analyser.polynomial_3(4, 2, 7, -5)
+    # analyser.polynomial_4(7, -2, -6, -3, 10)
+    # analyser.polynomial_5(-3, -4, -7, 5, 5, 1)
+    # analyser.exponential_equation(4, 3, 2)
+    # analyser.sin_x(4, 2, 2)
+    # analyser.cos_x(7, 1, 1)
+    # analyser.tg_x(-5, 3, -2)
+    # analyser.ctg_x(1, 1, 1)
     analyser.save()
 
 

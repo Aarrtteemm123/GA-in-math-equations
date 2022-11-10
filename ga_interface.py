@@ -1,5 +1,4 @@
 import pygad, math
-
 from tools import benchmark
 
 
@@ -35,8 +34,11 @@ class GAInterface:
         return {
             'x': x,
             'fitness': sol_fitness,
-            'figure': self.ga_instance.plot_fitness(),
             'equation': self.equation,
             'error': eval(self.equation),
+            'generations_completed': self.ga_instance.generations_completed,
             **self.kwargs
         }
+
+    def get_progress_figure(self):
+        return self.ga_instance.plot_fitness()

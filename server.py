@@ -33,7 +33,6 @@ def get_result_page():
 
 @app.route('/process_data', methods=['POST'])
 def process_data():
-    print(request.form)
     ga_form = GAForm(request.form)
     if not ga_form.validate():
         return redirect(url_for('get_main_page'))
@@ -45,7 +44,7 @@ def process_data():
     ga.build_solver(**ga_data)
     execution_time = ga.run_solver()
     result_data = ga.get_result()
-    result_data.pop('figure').savefig('static/my_plot.png')
+    ga.get_progress_figure().savefig('static/my_plot.png')
     result_data['execution_time'] = execution_time
     session['result'] = result_data
     return redirect(url_for('get_result_page'))
