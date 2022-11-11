@@ -8,8 +8,7 @@ from tools import benchmark
 
 
 class AnalyserGA:
-    def __init__(self, path_to_result, num_loop):
-        self.path_to_result = path_to_result
+    def __init__(self, num_loop):
         self.num_loop = num_loop
         self.result = {}
 
@@ -168,8 +167,8 @@ class AnalyserGA:
         result = self._run(ga)
         self.result['ctg_x'] = result
 
-    def save(self):
-        with open(self.path_to_result + 'AnalyserGA.json', 'w') as file:
+    def save(self, path_to_result):
+        with open(path_to_result + 'AnalyserGA.json', 'w') as file:
             file.write(json.dumps(self.result, indent=4))
 
     def _run(self, ga):
@@ -201,9 +200,8 @@ class AnalyserGA:
 
 
 class AnalyzerComputerAlgebra:
-    def __init__(self, path_to_result):
+    def __init__(self):
         self.x = Symbol('x')
-        self.path_to_result = path_to_result
         self.result = {}
 
     @benchmark
@@ -255,13 +253,13 @@ class AnalyzerComputerAlgebra:
         res = self._run(solve, a / tan(b * self.x) + c, self.x)
         self.result['ctg_x'] = res
 
-    def save(self):
-        with open(self.path_to_result + 'AnalyzerComputerAlgebra.json', 'w') as file:
+    def save(self, path_to_result):
+        with open(path_to_result + 'AnalyzerComputerAlgebra.json', 'w') as file:
             file.write(json.dumps(self.result, indent=4))
 
 
 def run_statistic():
-    analyser = AnalyserGA(Config.PATH_TO_STATISTIC, Config.NUM_LOOPS)
+    analyser = AnalyserGA(Config.NUM_LOOPS)
     analyser.linear_equation(5, -3)
     analyser.sqrt_x(4, 2, -50)
     analyser.polynomial_2(2, 5, -15)
@@ -273,9 +271,9 @@ def run_statistic():
     analyser.cos_x(7, 2, 3)
     analyser.tg_x(-5, 3, -2)
     analyser.ctg_x(4, 8, -10)
-    analyser.save()
+    analyser.save(Config.PATH_TO_STATISTIC)
 
-    anal_comp_alg = AnalyzerComputerAlgebra(Config.PATH_TO_STATISTIC)
+    anal_comp_alg = AnalyzerComputerAlgebra()
     anal_comp_alg.linear_equation(5, -3)
     anal_comp_alg.sqrt_x(4, 2, -50)
     anal_comp_alg.polynomial_2(2, 5, -15)
@@ -287,7 +285,7 @@ def run_statistic():
     anal_comp_alg.cos_x(7, 2, 3)
     anal_comp_alg.tg_x(-5, 3, -2)
     anal_comp_alg.ctg_x(4, 8, -10)
-    anal_comp_alg.save()
+    anal_comp_alg.save(Config.PATH_TO_STATISTIC)
 
 
 if __name__ == '__main__':
