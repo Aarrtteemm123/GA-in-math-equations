@@ -8,8 +8,8 @@ from tools import benchmark
 
 
 class AnalyserGA:
-    def __init__(self, num_loop):
-        self.num_loop = num_loop
+    def __init__(self, attempts):
+        self.attempts = attempts
         self.result = {}
 
     def linear_equation(self, a, b):
@@ -174,7 +174,7 @@ class AnalyserGA:
     def _run(self, ga):
         execution_times, generations, ga_result = [], [], {}
         fails = 0
-        for _ in range(self.num_loop):
+        for _ in range(self.attempts):
             execution_time = ga.run_solver()['execution_time']
             ga_result = ga.get_result()
             if ga_result.get('error') > ga_result.get('accuracy'):
@@ -192,9 +192,9 @@ class AnalyserGA:
             'min_time': min_time,
             'max_time': max_time,
             'avg_generations_completed': avg_generations_completed,
-            'attempts': self.num_loop,
+            'attempts': self.attempts,
             'fails': fails,
-            'percent_fails': 100 * fails / self.num_loop,
+            'percent_fails': 100 * fails / self.attempts,
             **ga_result
         }
 
@@ -230,7 +230,9 @@ class AnalyzerComputerAlgebra:
         self.result['polynomial_4'] = res
 
     def polynomial_5(self, a, b, c, d, e, f):
-        res = self._run(solve, a * Pow(self.x, 5) + b * Pow(self.x, 4) + c * Pow(self.x, 3) + d * Pow(self.x, 2) + e * self.x + f, self.x)
+        res = self._run(solve, a * Pow(self.x, 5) + b * Pow(self.x, 4) + c * Pow(self.x, 3) + d * Pow(self.x,
+                                                                                                      2) + e * self.x + f,
+                        self.x)
         self.result['polynomial_5'] = res
 
     def exponential_equation(self, a, b, c):
@@ -258,34 +260,103 @@ class AnalyzerComputerAlgebra:
             file.write(json.dumps(self.result, indent=4))
 
 
-def run_statistic():
-    analyser = AnalyserGA(Config.NUM_LOOPS)
-    analyser.linear_equation(5, -3)
-    analyser.sqrt_x(4, 2, -50)
-    analyser.polynomial_2(2, 5, -15)
-    analyser.polynomial_3(10, -1, -10, 4)
-    analyser.polynomial_4(-4, -7, 5, 4, -2)
-    analyser.polynomial_5(-3, -4, -7, 5, 5, 1)
-    analyser.exponential_equation(5, 1, -10)
-    analyser.sin_x(4, -2, 2)
-    analyser.cos_x(7, 2, 3)
-    analyser.tg_x(-5, 3, -2)
-    analyser.ctg_x(4, 8, -10)
-    analyser.save(Config.PATH_TO_STATISTIC)
+class DepthAnalyzerGA:
+    def __init__(self, attempts):
+        self.attempts = attempts
+        self.result = {}
 
-    anal_comp_alg = AnalyzerComputerAlgebra()
-    anal_comp_alg.linear_equation(5, -3)
-    anal_comp_alg.sqrt_x(4, 2, -50)
-    anal_comp_alg.polynomial_2(2, 5, -15)
-    anal_comp_alg.polynomial_3(10, -1, -10, 4)
-    anal_comp_alg.polynomial_4(-4, -7, 5, 4, -2)
-    anal_comp_alg.polynomial_5(-3, -4, -7, 5, 5, 1)
-    anal_comp_alg.exponential_equation(5, 1, -10)
-    anal_comp_alg.sin_x(4, -2, 2)
-    anal_comp_alg.cos_x(7, 2, 3)
-    anal_comp_alg.tg_x(-5, 3, -2)
-    anal_comp_alg.ctg_x(4, 8, -10)
-    anal_comp_alg.save(Config.PATH_TO_STATISTIC)
+    def linear_equation(self, a, b):
+        equation = f'{a}*x+{b}'
+        ga = GAInterface(equation)
+        ga_const_config = {
+            'num_parents_mating': 2,
+            'sol_per_pop': 20,
+            'num_genes': 6,
+            'accuracy': 0.01,
+            'crossover_type': 'single_point',
+            'mutation_probability': 0.15,
+            'parallel_processing': 1
+        }
+        self.result['linear_equation'] = dict(base_config={'attempts': self.attempts, **ga_const_config},
+                                              generations=[])
+
+        for num_generation in range(10, 1010, 10):
+            print(num_generation)
+            ga.build_solver(num_generations=num_generation, **ga_const_config)
+            result = self._run(ga)
+            needed_data = {
+                'num_generations': num_generation,
+                'error': result.get('error'),
+                'fails': result.get('fails'),
+                'percent_fails': result.get('percent_fails'),
+                'avg_time': result.get('avg_time')
+            }
+            self.result['linear_equation']['generations'].append(needed_data)
+
+    def _run(self, ga):
+        execution_times, generations, ga_result = [], [], {}
+        fails = 0
+        for _ in range(self.attempts):
+            execution_time = ga.run_solver()['execution_time']
+            ga_result = ga.get_result()
+            if ga_result.get('error') > ga_result.get('accuracy'):
+                fails += 1
+                continue
+            execution_times.append(execution_time)
+            generations.append(ga_result.pop('generations_completed'))
+
+        avg_time = sum(execution_times) / len(execution_times) if execution_times else 0
+        min_time = min(execution_times) if execution_times else 0
+        max_time = max(execution_times) if execution_times else 0
+        avg_generations_completed = sum(generations) / len(generations) if generations else 0
+        return {
+            'avg_time': avg_time,
+            'min_time': min_time,
+            'max_time': max_time,
+            'avg_generations_completed': avg_generations_completed,
+            'attempts': self.attempts,
+            'fails': fails,
+            'percent_fails': 100 * fails / self.attempts,
+            **ga_result
+        }
+
+    def save(self, path_to_result):
+        with open(path_to_result + 'DepthAnalyzerGA.json', 'w') as file:
+            file.write(json.dumps(self.result, indent=4))
+
+
+def run_statistic():
+    # analyser = AnalyserGA(Config.ATTEMPTS)
+    # analyser.linear_equation(5, -3)
+    # analyser.sqrt_x(4, 2, -50)
+    # analyser.polynomial_2(2, 5, -15)
+    # analyser.polynomial_3(10, -1, -10, 4)
+    # analyser.polynomial_4(-4, -7, 5, 4, -2)
+    # analyser.polynomial_5(-3, -4, -7, 5, 5, 1)
+    # analyser.exponential_equation(5, 1, -10)
+    # analyser.sin_x(4, -2, 2)
+    # analyser.cos_x(7, 2, 3)
+    # analyser.tg_x(-5, 3, -2)
+    # analyser.ctg_x(4, 8, -10)
+    # analyser.save(Config.PATH_TO_STATISTIC)
+    #
+    # anal_comp_alg = AnalyzerComputerAlgebra()
+    # anal_comp_alg.linear_equation(5, -3)
+    # anal_comp_alg.sqrt_x(4, 2, -50)
+    # anal_comp_alg.polynomial_2(2, 5, -15)
+    # anal_comp_alg.polynomial_3(10, -1, -10, 4)
+    # anal_comp_alg.polynomial_4(-4, -7, 5, 4, -2)
+    # anal_comp_alg.polynomial_5(-3, -4, -7, 5, 5, 1)
+    # anal_comp_alg.exponential_equation(5, 1, -10)
+    # anal_comp_alg.sin_x(4, -2, 2)
+    # anal_comp_alg.cos_x(7, 2, 3)
+    # anal_comp_alg.tg_x(-5, 3, -2)
+    # anal_comp_alg.ctg_x(4, 8, -10)
+    # anal_comp_alg.save(Config.PATH_TO_STATISTIC)
+
+    depth_analyzer_ga = DepthAnalyzerGA(Config.ATTEMPTS)
+    depth_analyzer_ga.linear_equation(5, -3)
+    depth_analyzer_ga.save(Config.PATH_TO_STATISTIC)
 
 
 if __name__ == '__main__':

@@ -10,4 +10,3 @@ def benchmark(func):
         #print('Execution time: ', execution_time)
         return {'execution_time': execution_time, 'func_res': res}
     return wrapper
-
