@@ -323,6 +323,34 @@ class LinerEquationAnalyzerGA:
             }
             self.result['analyze_population_size']['population_size'].append(needed_data)
 
+    def analyze_num_genes(self):
+        ga = GAInterface(self.equation)
+        ga_const_config = {
+            'num_generations': 1000,
+            'num_parents_mating': 2,
+            'sol_per_pop': 20,
+            'accuracy': 0.01,
+            'crossover_type': 'single_point',
+            'mutation_probability': 0.15,
+            'parallel_processing': 1
+        }
+        self.result['analyze_num_genes'] = dict(base_config={'attempts': self.attempts, **ga_const_config},
+                                                num_genes=[])
+
+        for num_genes in range(2, 100, 1):
+            print(num_genes)
+            ga.build_solver(num_genes=num_genes, **ga_const_config)
+            result = self._run(ga)
+            needed_data = {
+                'num_genes': num_genes,
+                'avg_generation': result.get('avg_generations_completed'),
+                'error': result.get('error'),
+                'fails': result.get('fails'),
+                'percent_fails': result.get('percent_fails'),
+                'avg_time': result.get('avg_time')
+            }
+            self.result['analyze_num_genes']['num_genes'].append(needed_data)
+
     def _run(self, ga):
         execution_times, generations, ga_result = [], [], {}
         fails = 0
@@ -385,8 +413,9 @@ def run_statistic():
     # anal_comp_alg.save(Config.PATH_TO_STATISTIC)
 
     liner_analyzer = LinerEquationAnalyzerGA(Config.ATTEMPTS, 5, -3)
-    #liner_analyzer.analyze_generations()
-    liner_analyzer.analyze_population_size()
+    # liner_analyzer.analyze_generations()
+    # liner_analyzer.analyze_population_size()
+    #liner_analyzer.analyze_num_genes()
     liner_analyzer.save(Config.PATH_TO_STATISTIC)
 
 
