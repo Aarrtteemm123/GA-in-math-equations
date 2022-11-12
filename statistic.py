@@ -260,14 +260,16 @@ class AnalyzerComputerAlgebra:
             file.write(json.dumps(self.result, indent=4))
 
 
-class DepthAnalyzerGA:
-    def __init__(self, attempts):
+class LinerEquationAnalyzerGA:
+    def __init__(self, attempts, a, b):
         self.attempts = attempts
+        self.a = a
+        self.b = b
+        self.equation = f'{self.a}*x+{self.b}'
         self.result = {}
 
-    def linear_equation(self, a, b):
-        equation = f'{a}*x+{b}'
-        ga = GAInterface(equation)
+    def analyze_generations(self):
+        ga = GAInterface(self.equation)
         ga_const_config = {
             'num_parents_mating': 2,
             'sol_per_pop': 20,
@@ -277,8 +279,8 @@ class DepthAnalyzerGA:
             'mutation_probability': 0.15,
             'parallel_processing': 1
         }
-        self.result['linear_equation'] = dict(base_config={'attempts': self.attempts, **ga_const_config},
-                                              generations=[])
+        self.result['analyze_generation'] = dict(base_config={'attempts': self.attempts, **ga_const_config},
+                                                 generations=[])
 
         for num_generation in range(10, 1010, 10):
             print(num_generation)
@@ -291,7 +293,35 @@ class DepthAnalyzerGA:
                 'percent_fails': result.get('percent_fails'),
                 'avg_time': result.get('avg_time')
             }
-            self.result['linear_equation']['generations'].append(needed_data)
+            self.result['analyze_generation']['generations'].append(needed_data)
+
+    def analyze_population_size(self):
+        ga = GAInterface(self.equation)
+        ga_const_config = {
+            'num_generations': 1000,
+            'num_parents_mating': 2,
+            'num_genes': 6,
+            'accuracy': 0.01,
+            'crossover_type': 'single_point',
+            'mutation_probability': 0.15,
+            'parallel_processing': 1
+        }
+        self.result['analyze_population_size'] = dict(base_config={'attempts': self.attempts, **ga_const_config},
+                                                      population_size=[])
+
+        for population_size in range(4, 200, 1):
+            print(population_size)
+            ga.build_solver(sol_per_pop=population_size, **ga_const_config)
+            result = self._run(ga)
+            needed_data = {
+                'population_size': population_size,
+                'avg_generation': result.get('avg_generations_completed'),
+                'error': result.get('error'),
+                'fails': result.get('fails'),
+                'percent_fails': result.get('percent_fails'),
+                'avg_time': result.get('avg_time')
+            }
+            self.result['analyze_population_size']['population_size'].append(needed_data)
 
     def _run(self, ga):
         execution_times, generations, ga_result = [], [], {}
@@ -321,7 +351,7 @@ class DepthAnalyzerGA:
         }
 
     def save(self, path_to_result):
-        with open(path_to_result + 'DepthAnalyzerGA.json', 'w') as file:
+        with open(path_to_result + 'LinerEquationAnalyzerGA.json', 'w') as file:
             file.write(json.dumps(self.result, indent=4))
 
 
@@ -354,9 +384,10 @@ def run_statistic():
     # anal_comp_alg.ctg_x(4, 8, -10)
     # anal_comp_alg.save(Config.PATH_TO_STATISTIC)
 
-    depth_analyzer_ga = DepthAnalyzerGA(Config.ATTEMPTS)
-    depth_analyzer_ga.linear_equation(5, -3)
-    depth_analyzer_ga.save(Config.PATH_TO_STATISTIC)
+    liner_analyzer = LinerEquationAnalyzerGA(Config.ATTEMPTS, 5, -3)
+    #liner_analyzer.analyze_generations()
+    liner_analyzer.analyze_population_size()
+    liner_analyzer.save(Config.PATH_TO_STATISTIC)
 
 
 if __name__ == '__main__':
