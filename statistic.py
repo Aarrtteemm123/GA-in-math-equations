@@ -1,5 +1,6 @@
 import json
 
+import numpy as np
 from sympy import Symbol, solve, Pow, exp, sin, cos, tan
 
 from config import Config
@@ -381,6 +382,63 @@ class LinerEquationAnalyzerGA:
             }
             self.result['analyze_crossover_types']['crossover_types'].append(needed_data)
 
+    def analyze_mutation_probability(self):
+        ga = GAInterface(self.equation)
+        ga_const_config = {
+            'num_generations': 1000,
+            'num_parents_mating': 2,
+            'num_genes': 4,
+            'sol_per_pop': 10,
+            'accuracy': 0.01,
+            'crossover_type': 'two_points',
+            'parallel_processing': 1
+        }
+        self.result['analyze_mutation_probability'] = dict(base_config={'attempts': self.attempts, **ga_const_config},
+                                                           mutation_probabilities=[])
+
+        for value in range(100):
+            mutation_probability = value / 100
+            print(mutation_probability)
+            ga.build_solver(mutation_probability=mutation_probability, **ga_const_config)
+            result = self._run(ga)
+            needed_data = {
+                'mutation_probability': mutation_probability,
+                'avg_generation': result.get('avg_generations_completed'),
+                'error': result.get('error'),
+                'fails': result.get('fails'),
+                'percent_fails': result.get('percent_fails'),
+                'avg_time': result.get('avg_time')
+            }
+            self.result['analyze_mutation_probability']['mutation_probabilities'].append(needed_data)
+
+    def analyze_accuracy(self):
+        ga = GAInterface(self.equation)
+        ga_const_config = {
+            'num_generations': 1000,
+            'num_parents_mating': 2,
+            'num_genes': 6,
+            'sol_per_pop': 50,
+            'crossover_type': 'two_points',
+            'mutation_probability': 0.2,
+            'parallel_processing': 1,
+        }
+        self.result['analyze_accuracy'] = dict(base_config={'attempts': self.attempts, **ga_const_config},
+                                               accuracy=[])
+
+        for accuracy in np.arange(0.001, 1.0, 0.001):
+            print(accuracy)
+            ga.build_solver(accuracy=accuracy, **ga_const_config)
+            result = self._run(ga)
+            needed_data = {
+                'accuracy': accuracy,
+                'avg_generation': result.get('avg_generations_completed'),
+                'error': result.get('error'),
+                'fails': result.get('fails'),
+                'percent_fails': result.get('percent_fails'),
+                'avg_time': result.get('avg_time')
+            }
+            self.result['analyze_accuracy']['accuracy'].append(needed_data)
+
     def _run(self, ga):
         execution_times, generations, ga_result = [], [], {}
         fails = 0
@@ -446,7 +504,9 @@ def run_statistic():
     # liner_analyzer.analyze_generations()
     # liner_analyzer.analyze_population_size()
     # liner_analyzer.analyze_num_genes()
-    liner_analyzer.analyze_crossover_types()
+    # liner_analyzer.analyze_crossover_types()
+    # liner_analyzer.analyze_mutation_probability()
+    liner_analyzer.analyze_accuracy()
     liner_analyzer.save(Config.PATH_TO_STATISTIC)
 
 
