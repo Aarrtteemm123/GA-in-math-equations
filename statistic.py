@@ -1,19 +1,25 @@
 import json
+import math
 
-import numpy as np
+import numpy
 from sympy import Symbol, solve, Pow, exp, sin, cos, tan
 
 from config import Config
 from ga_interface import GAInterface
 from tools import benchmark
 
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 class AnalyserGA:
-    def __init__(self, attempts):
+    def __init__(self, attempts, path_to_result):
         self.attempts = attempts
         self.result = {}
+        self.path_to_result = path_to_result
 
-    def linear_equation(self, a, b):
+    def linear_equation(self, a, b, save=False):
         equation = f'{a}*x+{b}'
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
@@ -26,8 +32,10 @@ class AnalyserGA:
                         parallel_processing=1)
         result = self._run(ga)
         self.result['linear_equation'] = result
+        if save:
+            self.save(self.path_to_result+'linear_equation.json', result)
 
-    def sqrt_x(self, a, b, c):
+    def sqrt_x(self, a, b, c, save=False):
         equation = f'{a}*math.sqrt(x*{b})+{c}'
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
@@ -41,8 +49,10 @@ class AnalyserGA:
                         parallel_processing=1)
         result = self._run(ga)
         self.result['sqrt_x'] = result
+        if save:
+            self.save(self.path_to_result+'sqrt_x.json')
 
-    def polynomial_2(self, a, b, c):
+    def polynomial_2(self, a, b, c, save=False):
         equation = f'{a}*(x**2)+{b}*x+{c}'
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
@@ -55,8 +65,10 @@ class AnalyserGA:
                         parallel_processing=1)
         result = self._run(ga)
         self.result['polynomial_2'] = result
+        if save:
+            self.save(self.path_to_result+'polynomial_2.json', result)
 
-    def polynomial_3(self, a, b, c, d):
+    def polynomial_3(self, a, b, c, d, save=False):
         equation = f'{a}*(x**3)+{b}*(x**2)+{c}*x+{d}'
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
@@ -69,8 +81,10 @@ class AnalyserGA:
                         parallel_processing=1)
         result = self._run(ga)
         self.result['polynomial_3'] = result
+        if save:
+            self.save(self.path_to_result+'polynomial_3.json', result)
 
-    def polynomial_4(self, a, b, c, d, e):
+    def polynomial_4(self, a, b, c, d, e, save=False):
         equation = f'{a}*(x**4)+{b}*(x**3)+{c}*(x**2)+{d}*x+{e}'
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
@@ -83,8 +97,10 @@ class AnalyserGA:
                         parallel_processing=1)
         result = self._run(ga)
         self.result['polynomial_4'] = result
+        if save:
+            self.save(self.path_to_result+'polynomial_4.json', result)
 
-    def polynomial_5(self, a, b, c, d, e, f):
+    def polynomial_5(self, a, b, c, d, e, f, save=False):
         equation = f'{a}*(x**5)+{b}*(x**4)+{c}*(x**3)+{d}*(x**2)+{e}*x+{f}'
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
@@ -97,8 +113,10 @@ class AnalyserGA:
                         parallel_processing=1)
         result = self._run(ga)
         self.result['polynomial_5'] = result
+        if save:
+            self.save(self.path_to_result+'polynomial_5.json', result)
 
-    def exponential_equation(self, a, b, c):
+    def exponential_equation(self, a, b, c, save=False):
         equation = f'{a}*(math.e**(x*{b}))+{c}'
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
@@ -111,8 +129,10 @@ class AnalyserGA:
                         parallel_processing=1)
         result = self._run(ga)
         self.result['exponential_equation'] = result
+        if save:
+            self.save(self.path_to_result+'exponential_equation.json', result)
 
-    def sin_x(self, a, b, c):
+    def sin_x(self, a, b, c, save=False):
         equation = f'{a}*math.sin({b}*x)+{c}'
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
@@ -125,8 +145,10 @@ class AnalyserGA:
                         parallel_processing=1)
         result = self._run(ga)
         self.result['sin_x'] = result
+        if save:
+            self.save(self.path_to_result+'sin_x.json', result)
 
-    def cos_x(self, a, b, c):
+    def cos_x(self, a, b, c, save=False):
         equation = f'{a}*math.cos({b}*x)+{c}'
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
@@ -139,8 +161,10 @@ class AnalyserGA:
                         parallel_processing=1)
         result = self._run(ga)
         self.result['cos_x'] = result
+        if save:
+            self.save(self.path_to_result + 'cos_x.json', result)
 
-    def tg_x(self, a, b, c):
+    def tg_x(self, a, b, c, save=False):
         equation = f'{a}*math.tan({b}*x)+{c}'
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
@@ -153,8 +177,10 @@ class AnalyserGA:
                         parallel_processing=1)
         result = self._run(ga)
         self.result['tg_x'] = result
+        if save:
+            self.save(self.path_to_result + 'tg_x.json', result)
 
-    def ctg_x(self, a, b, c):
+    def ctg_x(self, a, b, c, save=False):
         equation = f'{a}/math.tan({b}*x)+{c}'
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
@@ -167,13 +193,15 @@ class AnalyserGA:
                         parallel_processing=1)
         result = self._run(ga)
         self.result['ctg_x'] = result
+        if save:
+            self.save(self.path_to_result + 'ctg_x.json', result)
 
-    def save(self, path_to_result):
-        with open(path_to_result + 'AnalyserGA.json', 'w') as file:
-            file.write(json.dumps(self.result, indent=4))
+    def save(self, path_to_result, data=None):
+        with open(path_to_result, 'w') as file:
+            file.write(json.dumps(data if data else self.result, indent=4))
 
     def _run(self, ga):
-        execution_times, generations, ga_result = [], [], {}
+        execution_times, generations, ga_result, errors = [], [], {}, []
         fails = 0
         for _ in range(self.attempts):
             execution_time = ga.run_solver()['execution_time']
@@ -183,16 +211,19 @@ class AnalyserGA:
                 continue
             execution_times.append(execution_time)
             generations.append(ga_result.pop('generations_completed'))
+            errors.append(ga_result.get('error'))
 
         avg_time = sum(execution_times) / len(execution_times) if execution_times else 0
         min_time = min(execution_times) if execution_times else 0
         max_time = max(execution_times) if execution_times else 0
         avg_generations_completed = sum(generations) / len(generations) if generations else 0
+        avg_error = sum(errors) / len(errors) if errors else 0
         return {
             'avg_time': avg_time,
             'min_time': min_time,
             'max_time': max_time,
             'avg_generations_completed': avg_generations_completed,
+            'avg_error': avg_error,
             'attempts': self.attempts,
             'fails': fails,
             'percent_fails': 100 * fails / self.attempts,
@@ -262,22 +293,23 @@ class AnalyzerComputerAlgebra:
 
 
 class LinerEquationAnalyzerGA:
-    def __init__(self, attempts, a, b):
+    def __init__(self, attempts, a, b, path_to_result):
         self.attempts = attempts
         self.a = a
         self.b = b
         self.equation = f'{self.a}*x+{self.b}'
         self.result = {}
+        self.path_to_result = path_to_result
 
-    def analyze_generations(self):
+    def analyze_generations(self, save=False):
         ga = GAInterface(self.equation)
         ga_const_config = {
             'num_parents_mating': 2,
             'sol_per_pop': 20,
             'num_genes': 6,
-            'accuracy': 0.01,
+            'accuracy': 0.005,
             'crossover_type': 'single_point',
-            'mutation_probability': 0.15,
+            'mutation_probability': 0.1,
             'parallel_processing': 1
         }
         self.result['analyze_generation'] = dict(base_config={'attempts': self.attempts, **ga_const_config},
@@ -289,6 +321,8 @@ class LinerEquationAnalyzerGA:
             result = self._run(ga)
             needed_data = {
                 'num_generations': num_generation,
+                'avg_generation': result.get('avg_generations_completed'),
+                'avg_error': result.get('avg_error'),
                 'error': result.get('error'),
                 'fails': result.get('fails'),
                 'percent_fails': result.get('percent_fails'),
@@ -296,7 +330,10 @@ class LinerEquationAnalyzerGA:
             }
             self.result['analyze_generation']['generations'].append(needed_data)
 
-    def analyze_population_size(self):
+        if save:
+            self.save(self.path_to_result + 'analyze_generations.json', self.result['analyze_generation'])
+
+    def analyze_population_size(self, save=False):
         ga = GAInterface(self.equation)
         ga_const_config = {
             'num_generations': 1000,
@@ -317,6 +354,7 @@ class LinerEquationAnalyzerGA:
             needed_data = {
                 'population_size': population_size,
                 'avg_generation': result.get('avg_generations_completed'),
+                'avg_error': result.get('avg_error'),
                 'error': result.get('error'),
                 'fails': result.get('fails'),
                 'percent_fails': result.get('percent_fails'),
@@ -324,7 +362,10 @@ class LinerEquationAnalyzerGA:
             }
             self.result['analyze_population_size']['population_size'].append(needed_data)
 
-    def analyze_num_genes(self):
+        if save:
+            self.save(self.path_to_result + 'analyze_population_size.json', self.result['analyze_population_size'])
+
+    def analyze_num_genes(self, save=False):
         ga = GAInterface(self.equation)
         ga_const_config = {
             'num_generations': 1000,
@@ -345,6 +386,7 @@ class LinerEquationAnalyzerGA:
             needed_data = {
                 'num_genes': num_genes,
                 'avg_generation': result.get('avg_generations_completed'),
+                'avg_error': result.get('avg_error'),
                 'error': result.get('error'),
                 'fails': result.get('fails'),
                 'percent_fails': result.get('percent_fails'),
@@ -352,7 +394,10 @@ class LinerEquationAnalyzerGA:
             }
             self.result['analyze_num_genes']['num_genes'].append(needed_data)
 
-    def analyze_crossover_types(self):
+        if save:
+            self.save(self.path_to_result + 'analyze_num_genes.json', self.result['analyze_num_genes'])
+
+    def analyze_crossover_types(self, save=False):
         ga = GAInterface(self.equation)
         crossover_types = ['single_point', 'two_points', 'uniform', 'scattered']
         ga_const_config = {
@@ -375,6 +420,7 @@ class LinerEquationAnalyzerGA:
                 'crossover_type': crossover_type,
                 'num_genes': result.get('num_genes'),
                 'avg_generation': result.get('avg_generations_completed'),
+                'avg_error': result.get('avg_error'),
                 'error': result.get('error'),
                 'fails': result.get('fails'),
                 'percent_fails': result.get('percent_fails'),
@@ -382,7 +428,10 @@ class LinerEquationAnalyzerGA:
             }
             self.result['analyze_crossover_types']['crossover_types'].append(needed_data)
 
-    def analyze_mutation_probability(self):
+        if save:
+            self.save(self.path_to_result + 'analyze_crossover_types.json', self.result['analyze_crossover_types'])
+
+    def analyze_mutation_probability(self, save=False):
         ga = GAInterface(self.equation)
         ga_const_config = {
             'num_generations': 1000,
@@ -404,6 +453,7 @@ class LinerEquationAnalyzerGA:
             needed_data = {
                 'mutation_probability': mutation_probability,
                 'avg_generation': result.get('avg_generations_completed'),
+                'avg_error': result.get('avg_error'),
                 'error': result.get('error'),
                 'fails': result.get('fails'),
                 'percent_fails': result.get('percent_fails'),
@@ -411,7 +461,10 @@ class LinerEquationAnalyzerGA:
             }
             self.result['analyze_mutation_probability']['mutation_probabilities'].append(needed_data)
 
-    def analyze_accuracy(self):
+        if save:
+            self.save(self.path_to_result + 'analyze_mutation_probability.json', self.result['analyze_mutation_probability'])
+
+    def analyze_accuracy(self, save=False):
         ga = GAInterface(self.equation)
         ga_const_config = {
             'num_generations': 1000,
@@ -432,6 +485,7 @@ class LinerEquationAnalyzerGA:
             needed_data = {
                 'accuracy': accuracy,
                 'avg_generation': result.get('avg_generations_completed'),
+                'avg_error': result.get('avg_error'),
                 'error': result.get('error'),
                 'fails': result.get('fails'),
                 'percent_fails': result.get('percent_fails'),
@@ -439,8 +493,11 @@ class LinerEquationAnalyzerGA:
             }
             self.result['analyze_accuracy']['accuracy'].append(needed_data)
 
+        if save:
+            self.save(self.path_to_result + 'analyze_accuracy.json', self.result['analyze_accuracy'])
+
     def _run(self, ga):
-        execution_times, generations, ga_result = [], [], {}
+        execution_times, generations, ga_result, errors = [], [], {}, []
         fails = 0
         for _ in range(self.attempts):
             execution_time = ga.run_solver()['execution_time']
@@ -450,42 +507,49 @@ class LinerEquationAnalyzerGA:
                 continue
             execution_times.append(execution_time)
             generations.append(ga_result.pop('generations_completed'))
+            errors.append(ga_result.get('error'))
 
         avg_time = sum(execution_times) / len(execution_times) if execution_times else 0
         min_time = min(execution_times) if execution_times else 0
         max_time = max(execution_times) if execution_times else 0
         avg_generations_completed = sum(generations) / len(generations) if generations else 0
+        avg_error = sum(errors) / len(errors) if errors else 0
         return {
             'avg_time': avg_time,
             'min_time': min_time,
             'max_time': max_time,
             'avg_generations_completed': avg_generations_completed,
+            'avg_error': avg_error,
             'attempts': self.attempts,
             'fails': fails,
             'percent_fails': 100 * fails / self.attempts,
             **ga_result
         }
 
-    def save(self, path_to_result):
-        with open(path_to_result + 'LinerEquationAnalyzerGA.json', 'w') as file:
-            file.write(json.dumps(self.result, indent=4))
+    def save(self, path_to_result, data=None):
+        with open(path_to_result, 'w') as file:
+            file.write(json.dumps(data if data else self.result, indent=4))
+
+
+def build_graphs():
+    pass
 
 
 def run_statistic():
-    # analyser = AnalyserGA(Config.ATTEMPTS)
-    # analyser.linear_equation(5, -3)
-    # analyser.sqrt_x(4, 2, -50)
-    # analyser.polynomial_2(2, 5, -15)
-    # analyser.polynomial_3(10, -1, -10, 4)
-    # analyser.polynomial_4(-4, -7, 5, 4, -2)
-    # analyser.polynomial_5(-3, -4, -7, 5, 5, 1)
-    # analyser.exponential_equation(5, 1, -10)
-    # analyser.sin_x(4, -2, 2)
-    # analyser.cos_x(7, 2, 3)
-    # analyser.tg_x(-5, 3, -2)
-    # analyser.ctg_x(4, 8, -10)
-    # analyser.save(Config.PATH_TO_STATISTIC)
-    #
+    # analyser = AnalyserGA(Config.ATTEMPTS, Config.PATH_TO_STATISTIC)
+    # analyser.linear_equation(5, -3, save=True)
+    # analyser.sqrt_x(4, 2, -50, save=True)
+    # analyser.polynomial_2(2, 5, -15, save=True)
+    # analyser.polynomial_3(10, -1, -10, 4, save=True)
+    # analyser.polynomial_4(-4, -7, 5, 4, -2, save=True)
+    # analyser.polynomial_5(-3, -4, -7, 5, 5, 1, save=True)
+    # analyser.exponential_equation(5, 1, -10, save=True)
+    # analyser.sin_x(4, -2, 2, save=True)
+    # analyser.cos_x(7, 2, 3, save=True)
+    # analyser.tg_x(-5, 3, -2, save=True)
+    # analyser.ctg_x(4, 8, -10, save=True)
+
+
     # anal_comp_alg = AnalyzerComputerAlgebra()
     # anal_comp_alg.linear_equation(5, -3)
     # anal_comp_alg.sqrt_x(4, 2, -50)
@@ -500,15 +564,22 @@ def run_statistic():
     # anal_comp_alg.ctg_x(4, 8, -10)
     # anal_comp_alg.save(Config.PATH_TO_STATISTIC)
 
-    liner_analyzer = LinerEquationAnalyzerGA(Config.ATTEMPTS, 5, -3)
-    # liner_analyzer.analyze_generations()
-    # liner_analyzer.analyze_population_size()
-    # liner_analyzer.analyze_num_genes()
-    # liner_analyzer.analyze_crossover_types()
-    # liner_analyzer.analyze_mutation_probability()
-    liner_analyzer.analyze_accuracy()
-    liner_analyzer.save(Config.PATH_TO_STATISTIC)
+    liner_analyzer = LinerEquationAnalyzerGA(Config.ATTEMPTS, 5, -3, Config.PATH_TO_STATISTIC)
+    from multiprocessing import Process
+    # Process(target=liner_analyzer.analyze_generations, args=(True, )).start()
+    # Process(target=liner_analyzer.analyze_population_size, args=(True, )).start()
+    # Process(target=liner_analyzer.analyze_num_genes, args=(True, )).start()
+    # Process(target=liner_analyzer.analyze_crossover_types, args=(True, )).start()
+    # Process(target=liner_analyzer.analyze_mutation_probability, args=(True, )).start()
+    # Process(target=liner_analyzer.analyze_accuracy, args=(True, )).start()
+    # liner_analyzer.analyze_generations(save=True)
+    # liner_analyzer.analyze_population_size(save=True)
+    # liner_analyzer.analyze_num_genes(save=True)
+    # liner_analyzer.analyze_crossover_types(save=True)
+    # liner_analyzer.analyze_mutation_probability(save=True)
+    # liner_analyzer.analyze_accuracy(save=True)
 
 
 if __name__ == '__main__':
     run_statistic()
+    build_graphs()
