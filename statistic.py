@@ -1,6 +1,6 @@
 import json
 import math
-
+from multiprocessing import Process
 import numpy
 from sympy import Symbol, solve, Pow, exp, sin, cos, tan
 
@@ -536,7 +536,18 @@ def build_graphs():
 
 
 def run_statistic():
-    # analyser = AnalyserGA(Config.ATTEMPTS, Config.PATH_TO_STATISTIC)
+    analyser = AnalyserGA(Config.ATTEMPTS, Config.PATH_TO_STATISTIC)
+    Process(target=analyser.linear_equation, args=(5, -3, True)).start()
+    Process(target=analyser.sqrt_x, args=(4, 2, -50, True)).start()
+    Process(target=analyser.polynomial_2, args=(2, 5, -15, True)).start()
+    Process(target=analyser.polynomial_3, args=(10, -1, -10, 4, True)).start()
+    Process(target=analyser.polynomial_4, args=(-4, -7, 5, 4, -2, True)).start()
+    Process(target=analyser.polynomial_5, args=(-3, -4, -7, 5, 5, 1, True)).start()
+    Process(target=analyser.exponential_equation, args=(5, 1, -10, True)).start()
+    Process(target=analyser.sin_x, args=(4, -2, 2, True)).start()
+    Process(target=analyser.cos_x, args=(7, 2, 3, True)).start()
+    Process(target=analyser.tg_x, args=(-5, 3, -2, True)).start()
+    Process(target=analyser.ctg_x, args=(4, 8, -10, True)).start()
     # analyser.linear_equation(5, -3, save=True)
     # analyser.sqrt_x(4, 2, -50, save=True)
     # analyser.polynomial_2(2, 5, -15, save=True)
@@ -565,7 +576,6 @@ def run_statistic():
     # anal_comp_alg.save(Config.PATH_TO_STATISTIC)
 
     liner_analyzer = LinerEquationAnalyzerGA(Config.ATTEMPTS, 5, -3, Config.PATH_TO_STATISTIC)
-    from multiprocessing import Process
     # Process(target=liner_analyzer.analyze_generations, args=(True, )).start()
     # Process(target=liner_analyzer.analyze_population_size, args=(True, )).start()
     # Process(target=liner_analyzer.analyze_num_genes, args=(True, )).start()
