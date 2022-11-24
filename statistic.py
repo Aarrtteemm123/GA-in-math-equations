@@ -1,5 +1,6 @@
 import json
 import math
+import os
 from multiprocessing import Process
 import numpy
 from sympy import Symbol, solve, Pow, exp, sin, cos, tan
@@ -11,6 +12,19 @@ from tools import benchmark
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
+
+import json
+import math
+import random
+
+from numpy import sin
+from numpy import sqrt
+from numpy import arange
+from pandas import read_csv
+from scipy.optimize import curve_fit
+from matplotlib import pyplot
+import random
+from config import Config
 
 
 class AnalyserGA:
@@ -33,7 +47,7 @@ class AnalyserGA:
         result = self._run(ga)
         self.result['linear_equation'] = result
         if save:
-            self.save(self.path_to_result+'linear_equation.json', result)
+            self.save(self.path_to_result + 'linear_equation.json', result)
 
     def sqrt_x(self, a, b, c, save=False):
         equation = f'{a}*math.sqrt(x*{b})+{c}'
@@ -50,7 +64,7 @@ class AnalyserGA:
         result = self._run(ga)
         self.result['sqrt_x'] = result
         if save:
-            self.save(self.path_to_result+'sqrt_x.json')
+            self.save(self.path_to_result + 'sqrt_x.json')
 
     def polynomial_2(self, a, b, c, save=False):
         equation = f'{a}*(x**2)+{b}*x+{c}'
@@ -66,7 +80,7 @@ class AnalyserGA:
         result = self._run(ga)
         self.result['polynomial_2'] = result
         if save:
-            self.save(self.path_to_result+'polynomial_2.json', result)
+            self.save(self.path_to_result + 'polynomial_2.json', result)
 
     def polynomial_3(self, a, b, c, d, save=False):
         equation = f'{a}*(x**3)+{b}*(x**2)+{c}*x+{d}'
@@ -82,7 +96,7 @@ class AnalyserGA:
         result = self._run(ga)
         self.result['polynomial_3'] = result
         if save:
-            self.save(self.path_to_result+'polynomial_3.json', result)
+            self.save(self.path_to_result + 'polynomial_3.json', result)
 
     def polynomial_4(self, a, b, c, d, e, save=False):
         equation = f'{a}*(x**4)+{b}*(x**3)+{c}*(x**2)+{d}*x+{e}'
@@ -98,7 +112,7 @@ class AnalyserGA:
         result = self._run(ga)
         self.result['polynomial_4'] = result
         if save:
-            self.save(self.path_to_result+'polynomial_4.json', result)
+            self.save(self.path_to_result + 'polynomial_4.json', result)
 
     def polynomial_5(self, a, b, c, d, e, f, save=False):
         equation = f'{a}*(x**5)+{b}*(x**4)+{c}*(x**3)+{d}*(x**2)+{e}*x+{f}'
@@ -114,7 +128,7 @@ class AnalyserGA:
         result = self._run(ga)
         self.result['polynomial_5'] = result
         if save:
-            self.save(self.path_to_result+'polynomial_5.json', result)
+            self.save(self.path_to_result + 'polynomial_5.json', result)
 
     def exponential_equation(self, a, b, c, save=False):
         equation = f'{a}*(math.e**(x*{b}))+{c}'
@@ -130,7 +144,7 @@ class AnalyserGA:
         result = self._run(ga)
         self.result['exponential_equation'] = result
         if save:
-            self.save(self.path_to_result+'exponential_equation.json', result)
+            self.save(self.path_to_result + 'exponential_equation.json', result)
 
     def sin_x(self, a, b, c, save=False):
         equation = f'{a}*math.sin({b}*x)+{c}'
@@ -146,7 +160,7 @@ class AnalyserGA:
         result = self._run(ga)
         self.result['sin_x'] = result
         if save:
-            self.save(self.path_to_result+'sin_x.json', result)
+            self.save(self.path_to_result + 'sin_x.json', result)
 
     def cos_x(self, a, b, c, save=False):
         equation = f'{a}*math.cos({b}*x)+{c}'
@@ -462,7 +476,8 @@ class LinerEquationAnalyzerGA:
             self.result['analyze_mutation_probability']['mutation_probabilities'].append(needed_data)
 
         if save:
-            self.save(self.path_to_result + 'analyze_mutation_probability.json', self.result['analyze_mutation_probability'])
+            self.save(self.path_to_result + 'analyze_mutation_probability.json',
+                      self.result['analyze_mutation_probability'])
 
     def analyze_accuracy(self, save=False):
         ga = GAInterface(self.equation)
@@ -531,35 +546,68 @@ class LinerEquationAnalyzerGA:
             file.write(json.dumps(data if data else self.result, indent=4))
 
 
-def build_graphs():
-    pass
+def build_graphs_line(data_x, data_y):
+    def objective(x, a, b, c):
+        return a * np.log(b * x) + c
+
+    popt = curve_fit(objective, data_x, data_y)
+    x_line = arange(min(data_x), max(data_y), 1)
+    y_line = objective(x_line, *popt)
+    return x_line, y_line
+
+
+def create_images():
+    files = os.listdir(Config.PATH_TO_STATISTIC)
+    for file in files:
+        if file == 'analyze_accuracy.json':
+            pass
+        elif file == 'analyze_crossover_types.json':
+            pass
+        elif file == 'analyze_generations.json':
+            pass
+        elif file == 'analyze_mutation_probability.json':
+            pass
+        elif file == 'analyze_num_genes.json':
+            pass
+        elif file == 'analyze_population_size.json':
+            pass
+        elif file == 'cos_x.json':
+            pass
+        elif file == 'ctg_x.json':
+            pass
+        elif file == 'exponential_equation.json':
+            pass
+        elif file == 'linear_equation.json':
+            pass
+        elif file == 'polynomial_2.json':
+            pass
+        elif file == 'polynomial_3.json':
+            pass
+        elif file == 'polynomial_4.json':
+            pass
+        elif file == 'polynomial_5.json':
+            pass
+        elif file == 'sin_x.json':
+            pass
+        elif file == 'sqrt_x.json':
+            pass
+        elif file == 'tg_x.json':
+            pass
 
 
 def run_statistic():
-    analyser = AnalyserGA(Config.ATTEMPTS, Config.PATH_TO_STATISTIC)
-    Process(target=analyser.linear_equation, args=(5, -3, True)).start()
-    Process(target=analyser.sqrt_x, args=(4, 2, -50, True)).start()
-    Process(target=analyser.polynomial_2, args=(2, 5, -15, True)).start()
-    Process(target=analyser.polynomial_3, args=(10, -1, -10, 4, True)).start()
-    Process(target=analyser.polynomial_4, args=(-4, -7, 5, 4, -2, True)).start()
-    Process(target=analyser.polynomial_5, args=(-3, -4, -7, 5, 5, 1, True)).start()
-    Process(target=analyser.exponential_equation, args=(5, 1, -10, True)).start()
-    Process(target=analyser.sin_x, args=(4, -2, 2, True)).start()
-    Process(target=analyser.cos_x, args=(7, 2, 3, True)).start()
-    Process(target=analyser.tg_x, args=(-5, 3, -2, True)).start()
-    Process(target=analyser.ctg_x, args=(4, 8, -10, True)).start()
-    # analyser.linear_equation(5, -3, save=True)
-    # analyser.sqrt_x(4, 2, -50, save=True)
-    # analyser.polynomial_2(2, 5, -15, save=True)
-    # analyser.polynomial_3(10, -1, -10, 4, save=True)
-    # analyser.polynomial_4(-4, -7, 5, 4, -2, save=True)
-    # analyser.polynomial_5(-3, -4, -7, 5, 5, 1, save=True)
-    # analyser.exponential_equation(5, 1, -10, save=True)
-    # analyser.sin_x(4, -2, 2, save=True)
-    # analyser.cos_x(7, 2, 3, save=True)
-    # analyser.tg_x(-5, 3, -2, save=True)
-    # analyser.ctg_x(4, 8, -10, save=True)
-
+    # analyser = AnalyserGA(Config.ATTEMPTS, Config.PATH_TO_STATISTIC)
+    # Process(target=analyser.linear_equation, args=(5, -3, True)).start()
+    # Process(target=analyser.sqrt_x, args=(4, 2, -50, True)).start()
+    # Process(target=analyser.polynomial_2, args=(2, 5, -15, True)).start()
+    # Process(target=analyser.polynomial_3, args=(10, -1, -10, 4, True)).start()
+    # Process(target=analyser.polynomial_4, args=(-4, -7, 5, 4, -2, True)).start()
+    # Process(target=analyser.polynomial_5, args=(-3, -4, -7, 5, 5, 1, True)).start()
+    # Process(target=analyser.exponential_equation, args=(5, 1, -10, True)).start()
+    # Process(target=analyser.sin_x, args=(4, -2, 2, True)).start()
+    # Process(target=analyser.cos_x, args=(7, 2, 3, True)).start()
+    # Process(target=analyser.tg_x, args=(-5, 3, -2, True)).start()
+    # Process(target=analyser.ctg_x, args=(4, 8, -10, True)).start()
 
     # anal_comp_alg = AnalyzerComputerAlgebra()
     # anal_comp_alg.linear_equation(5, -3)
@@ -582,14 +630,8 @@ def run_statistic():
     # Process(target=liner_analyzer.analyze_crossover_types, args=(True, )).start()
     # Process(target=liner_analyzer.analyze_mutation_probability, args=(True, )).start()
     # Process(target=liner_analyzer.analyze_accuracy, args=(True, )).start()
-    # liner_analyzer.analyze_generations(save=True)
-    # liner_analyzer.analyze_population_size(save=True)
-    # liner_analyzer.analyze_num_genes(save=True)
-    # liner_analyzer.analyze_crossover_types(save=True)
-    # liner_analyzer.analyze_mutation_probability(save=True)
-    # liner_analyzer.analyze_accuracy(save=True)
 
 
 if __name__ == '__main__':
     run_statistic()
-    build_graphs()
+    create_images()
