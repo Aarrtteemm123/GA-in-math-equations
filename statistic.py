@@ -7,7 +7,7 @@ from sympy import Symbol, solve, Pow, exp, sin, cos, tan
 
 from config import Config
 from ga_interface import GAInterface
-from tools import benchmark
+from tools import benchmark, read_json_from_file
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -352,10 +352,10 @@ class LinerEquationAnalyzerGA:
         ga_const_config = {
             'num_generations': 1000,
             'num_parents_mating': 2,
-            'num_genes': 6,
+            'num_genes': 4,
             'accuracy': 0.01,
-            'crossover_type': 'single_point',
-            'mutation_probability': 0.15,
+            'crossover_type': 'uniform',
+            'mutation_probability': 0.1,
             'parallel_processing': 1
         }
         self.result['analyze_population_size'] = dict(base_config={'attempts': self.attempts, **ga_const_config},
@@ -485,7 +485,7 @@ class LinerEquationAnalyzerGA:
             'num_generations': 1000,
             'num_parents_mating': 2,
             'num_genes': 6,
-            'sol_per_pop': 50,
+            'sol_per_pop': 20,
             'crossover_type': 'two_points',
             'mutation_probability': 0.2,
             'parallel_processing': 1,
@@ -493,7 +493,7 @@ class LinerEquationAnalyzerGA:
         self.result['analyze_accuracy'] = dict(base_config={'attempts': self.attempts, **ga_const_config},
                                                accuracy=[])
 
-        for accuracy in np.arange(0.001, 1.0, 0.001):
+        for accuracy in np.arange(0.001, 0.5, 0.001):
             print(accuracy)
             ga.build_solver(accuracy=accuracy, **ga_const_config)
             result = self._run(ga)
@@ -546,31 +546,180 @@ class LinerEquationAnalyzerGA:
             file.write(json.dumps(data if data else self.result, indent=4))
 
 
-def build_graphs_line(data_x, data_y):
-    def objective(x, a, b, c):
-        return a * np.log(b * x) + c
+def build_graphs_line(data_x, data_y, func_type='pol'):
+    """func type: pol, exp, log, lin"""
 
-    popt = curve_fit(objective, data_x, data_y)
-    x_line = arange(min(data_x), max(data_y), 1)
-    y_line = objective(x_line, *popt)
+    def fit_func(x, a, b, c, d, e):
+        if func_type == 'pol':
+            return a * x ** 4 + b * x ** 3 + c * x ** 2 + d * x + e
+        if func_type == 'exp':
+            return (a - c) * np.exp(-x / b) + c
+        if func_type == 'log':
+            return a * np.log(b * x) + c
+        if func_type == 'lin':
+            return a * x + b
+        raise Exception('func type not found, choose one of next ["pol", "exp", "log", "lin"]')
+
+    popt, _ = curve_fit(fit_func, data_x, data_y, maxfev=8000)
+    x_line = arange(min(data_x), max(data_x), 0.01)
+    y_line = fit_func(x_line, *popt)
     return x_line, y_line
 
 
+def create_plot(path_to_save, data_x, data_y, title, label_x, label_y, fit_func='pol', scale_x=False, scale_y=False,
+                include_fit_func=True, scatter=False):
+    x_line, y_line = build_graphs_line(data_x, data_y, fit_func)
+    fig, ax = pyplot.subplots()
+    if scale_y:
+        ax.set_yscale('log')
+    if scale_x:
+        ax.set_xscale('log')
+
+    if scatter:
+        ax.scatter(data_x, data_y)
+    if not scatter:
+        ax.plot(data_x, data_y)
+
+    if include_fit_func:
+        ax.plot(x_line, y_line, '--', color='red')
+    pyplot.title(title)
+    pyplot.xlabel(label_x)
+    pyplot.ylabel(label_y)
+    pyplot.draw()
+    pyplot.savefig(path_to_save)
+
+
+def create_bar(path_to_save, data_x, data_y, title, label_x, label_y):
+    fig, ax = pyplot.subplots()
+    ax.bar(data_x, data_y)
+    pyplot.title(title)
+    pyplot.xlabel(label_x)
+    pyplot.ylabel(label_y)
+    pyplot.draw()
+    pyplot.savefig(path_to_save)
+
+
+def get_formatted_data(path, list_key, x_data_key):
+    data = read_json_from_file(path)
+    data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = [], [], [], [], []
+    for item in data[list_key]:
+        data_x.append(item[x_data_key])
+        data_avg_gen.append(item['avg_generation'])
+        data_avg_error.append(item['avg_error'])
+        data_per_fails.append(item['percent_fails'])
+        data_avg_time.append(item['avg_time'] * 1000)
+    return data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time
+
+
 def create_images():
-    files = os.listdir(Config.PATH_TO_STATISTIC)
+    files = os.listdir(Config.PATH_TO_STATISTIC_DATA)
     for file in files:
         if file == 'analyze_accuracy.json':
-            pass
+            data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = get_formatted_data(
+                Config.PATH_TO_STATISTIC_DATA + file, 'accuracy', 'accuracy')
+
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'accuracy-avg_generation.png', data_x, data_avg_gen,
+            #             'Average generations vs accuracy', 'accuracy', 'avg.generation', 'exp')
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'accuracy-avg_generation2.png', data_x, data_avg_gen,
+            #             'Average generations vs accuracy',
+            #             'accuracy', 'avg.generation', 'exp', scale_y=True, include_fit_func=False)
+            #
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'accuracy-error.png', data_x, data_avg_error,
+            #             'Average error vs accuracy', 'accuracy', 'avg.error', 'exp')
+            #
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'accuracy-fails.png', data_x, data_per_fails,
+            #             'Percent fails vs accuracy', 'accuracy', 'fails (%)', 'lin')
+            #
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'accuracy-time.png', data_x, data_avg_time,
+            #             'Average time vs accuracy', 'accuracy', 'avg.time (ms)', 'exp')
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'accuracy-time2.png', data_x, data_avg_time,
+            #             'Average time vs accuracy', 'accuracy', 'avg.time (ms)', scale_y=True, include_fit_func=False)
+
         elif file == 'analyze_crossover_types.json':
-            pass
+            data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = get_formatted_data(
+                Config.PATH_TO_STATISTIC_DATA + file, 'crossover_types', 'crossover_type')
+
+            # create_bar(Config.PATH_TO_STATISTIC_IMG + 'crossover_type-avg_generation.png', data_x, data_avg_gen,
+            #            'Average generations vs crossover type', 'crossover type', 'avg.generation')
+            #
+            # create_bar(Config.PATH_TO_STATISTIC_IMG + 'crossover_type-avg_error.png', data_x, data_avg_error,
+            #            'Average error vs crossover type', 'crossover type', 'avg.error')
+            #
+            # create_bar(Config.PATH_TO_STATISTIC_IMG + 'crossover_type-per_fails.png', data_x, data_per_fails,
+            #            'Fails vs crossover type', 'crossover type', 'fails')
+            #
+            # create_bar(Config.PATH_TO_STATISTIC_IMG + 'crossover_type-avg_time.png', data_x, data_avg_time,
+            #            'Average time vs crossover type', 'crossover type', 'avg.time (ms)')
+
         elif file == 'analyze_generations.json':
-            pass
+            data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = get_formatted_data(
+                Config.PATH_TO_STATISTIC_DATA + file, 'generations', 'num_generations')
+
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'generations-error.png', data_x, data_avg_error,
+                        'Average error vs generations', 'generations', 'avg.error', 'lin')
+
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'generations-fails.png', data_x, data_per_fails,
+                        'Percent fails vs generations', 'generations', 'fails (%)', 'exp')
+
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'generations-time.png', data_x, data_avg_time,
+                        'Average time vs generations', 'generations', 'avg.time (ms)', 'exp')
+
+
         elif file == 'analyze_mutation_probability.json':
-            pass
+            data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = get_formatted_data(
+                Config.PATH_TO_STATISTIC_DATA + file, 'mutation_probabilities', 'mutation_probability')
+
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'mutation_probabilities-avg_generation.png', data_x, data_avg_gen,
+                        'Average generations vs mutation probabilities', 'mutation probability', 'avg.generation', 'lin')
+
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'mutation_probabilities-per_fails.png', data_x, data_per_fails,
+                        'Percent fails vs mutation probabilities', 'mutation probability', 'fails (%)', 'exp')
+
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'mutation_probabilities-avg_time.png', data_x, data_avg_time,
+                        'Average time vs mutation probabilities', 'mutation probability', 'avg.time (ms)', 'lin', scatter=True)
+
         elif file == 'analyze_num_genes.json':
-            pass
+            data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = get_formatted_data(
+                Config.PATH_TO_STATISTIC_DATA + file, 'num_genes', 'num_genes')
+
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'num_genes-avg_generation.png', data_x,
+                        data_avg_gen,
+                        'Average generations vs number genes', 'number genes', 'avg.generation',
+                        'pol')
+
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'num_genes-avg_error.png', data_x,
+                        data_avg_error,
+                        'Average error vs number genes', 'number genes', 'avg.error',
+                        'pol')
+
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'num_genes-per_fails.png', data_x, data_per_fails,
+                        'Percent fails vs number genes', 'number genes', 'fails (%)', 'pol')
+
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'num_genes-avg_time.png', data_x, data_avg_time,
+                        'Average time vs number genes', 'number genes', 'avg.time (ms)', 'pol',
+                        scatter=False)
+
         elif file == 'analyze_population_size.json':
-            pass
+            data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = get_formatted_data(
+                Config.PATH_TO_STATISTIC_DATA + file, 'population_size', 'population_size')
+
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'population_size-avg_generation.png', data_x,
+                        data_avg_gen,
+                        'Average generations vs population size', 'population size', 'avg.generation',
+                        'exp')
+
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'population_size-avg_error.png', data_x,
+                        data_avg_error,
+                        'Average error vs population size', 'population size', 'avg.error',
+                        'lin')
+
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'population_size-per_fails.png', data_x, data_per_fails,
+                        'Percent fails vs population size', 'population size', 'fails (%)', 'log')
+
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'population_size-avg_time.png', data_x, data_avg_time,
+                        'Average time vs population size', 'population size', 'avg.time (ms)', 'log',
+                        scatter=False)
+
         elif file == 'cos_x.json':
             pass
         elif file == 'ctg_x.json':
@@ -596,7 +745,7 @@ def create_images():
 
 
 def run_statistic():
-    # analyser = AnalyserGA(Config.ATTEMPTS, Config.PATH_TO_STATISTIC)
+    # analyser = AnalyserGA(Config.ATTEMPTS, Config.PATH_TO_STATISTIC_DATA)
     # Process(target=analyser.linear_equation, args=(5, -3, True)).start()
     # Process(target=analyser.sqrt_x, args=(4, 2, -50, True)).start()
     # Process(target=analyser.polynomial_2, args=(2, 5, -15, True)).start()
@@ -621,9 +770,9 @@ def run_statistic():
     # anal_comp_alg.cos_x(7, 2, 3)
     # anal_comp_alg.tg_x(-5, 3, -2)
     # anal_comp_alg.ctg_x(4, 8, -10)
-    # anal_comp_alg.save(Config.PATH_TO_STATISTIC)
+    # anal_comp_alg.save(Config.PATH_TO_STATISTIC_DATA)
 
-    liner_analyzer = LinerEquationAnalyzerGA(Config.ATTEMPTS, 5, -3, Config.PATH_TO_STATISTIC)
+    liner_analyzer = LinerEquationAnalyzerGA(Config.ATTEMPTS, 5, -3, Config.PATH_TO_STATISTIC_DATA)
     # Process(target=liner_analyzer.analyze_generations, args=(True, )).start()
     # Process(target=liner_analyzer.analyze_population_size, args=(True, )).start()
     # Process(target=liner_analyzer.analyze_num_genes, args=(True, )).start()
