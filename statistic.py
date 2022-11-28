@@ -3,6 +3,7 @@ import math
 import os
 from multiprocessing import Process
 import numpy
+import sympy
 from sympy import Symbol, solve, Pow, exp, sin, cos, tan
 
 from config import Config
@@ -38,10 +39,10 @@ class AnalyserGA:
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
                         num_parents_mating=2,
-                        sol_per_pop=100,
+                        sol_per_pop=50,
                         num_genes=8,
                         accuracy=0.05,
-                        crossover_type='single_point',
+                        crossover_type='two_points',
                         mutation_probability=0.15,
                         parallel_processing=1)
         result = self._run(ga)
@@ -56,13 +57,13 @@ class AnalyserGA:
                         num_parents_mating=2,
                         sol_per_pop=50,
                         num_genes=8,
-                        accuracy=0.01,
+                        accuracy=0.05,
                         gene_space={"low": 1, "high": 30},
                         crossover_type='two_points',
                         mutation_probability=0.15,
                         parallel_processing=1)
         result = self._run(ga)
-        self.result['sqrt_x'] = result
+        self.result = result
         if save:
             self.save(self.path_to_result + 'sqrt_x.json')
 
@@ -71,9 +72,9 @@ class AnalyserGA:
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
                         num_parents_mating=2,
-                        sol_per_pop=10,
-                        num_genes=6,
-                        accuracy=0.1,
+                        sol_per_pop=50,
+                        num_genes=8,
+                        accuracy=0.05,
                         crossover_type='two_points',
                         mutation_probability=0.2,
                         parallel_processing=1)
@@ -87,9 +88,9 @@ class AnalyserGA:
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
                         num_parents_mating=3,
-                        sol_per_pop=10,
+                        sol_per_pop=50,
                         num_genes=8,
-                        accuracy=0.1,
+                        accuracy=0.05,
                         crossover_type='two_points',
                         mutation_probability=0.2,
                         parallel_processing=1)
@@ -103,10 +104,10 @@ class AnalyserGA:
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
                         num_parents_mating=3,
-                        sol_per_pop=10,
+                        sol_per_pop=50,
                         num_genes=10,
-                        accuracy=0.1,
-                        crossover_type='single_point',
+                        accuracy=0.05,
+                        crossover_type='two_points',
                         mutation_probability=0.2,
                         parallel_processing=1)
         result = self._run(ga)
@@ -119,11 +120,11 @@ class AnalyserGA:
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
                         num_parents_mating=2,
-                        sol_per_pop=10,
+                        sol_per_pop=50,
                         num_genes=10,
                         accuracy=0.1,
                         crossover_type='two_points',
-                        mutation_probability=0.15,
+                        mutation_probability=0.2,
                         parallel_processing=1)
         result = self._run(ga)
         self.result['polynomial_5'] = result
@@ -135,11 +136,11 @@ class AnalyserGA:
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
                         num_parents_mating=2,
-                        sol_per_pop=20,
+                        sol_per_pop=50,
                         num_genes=10,
-                        accuracy=0.01,
+                        accuracy=0.05,
                         crossover_type='two_points',
-                        mutation_probability=0.15,
+                        mutation_probability=0.2,
                         parallel_processing=1)
         result = self._run(ga)
         self.result['exponential_equation'] = result
@@ -151,11 +152,11 @@ class AnalyserGA:
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
                         num_parents_mating=2,
-                        sol_per_pop=10,
-                        num_genes=10,
-                        accuracy=0.1,
+                        sol_per_pop=50,
+                        num_genes=8,
+                        accuracy=0.01,
                         crossover_type='two_points',
-                        mutation_probability=0.15,
+                        mutation_probability=0.2,
                         parallel_processing=1)
         result = self._run(ga)
         self.result['sin_x'] = result
@@ -167,11 +168,11 @@ class AnalyserGA:
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
                         num_parents_mating=2,
-                        sol_per_pop=10,
+                        sol_per_pop=50,
                         num_genes=10,
-                        accuracy=0.1,
+                        accuracy=0.01,
                         crossover_type='two_points',
-                        mutation_probability=0.15,
+                        mutation_probability=0.2,
                         parallel_processing=1)
         result = self._run(ga)
         self.result['cos_x'] = result
@@ -183,11 +184,11 @@ class AnalyserGA:
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
                         num_parents_mating=2,
-                        sol_per_pop=10,
+                        sol_per_pop=50,
                         num_genes=10,
-                        accuracy=0.1,
+                        accuracy=0.01,
                         crossover_type='two_points',
-                        mutation_probability=0.15,
+                        mutation_probability=0.2,
                         parallel_processing=1)
         result = self._run(ga)
         self.result['tg_x'] = result
@@ -199,11 +200,11 @@ class AnalyserGA:
         ga = GAInterface(equation)
         ga.build_solver(num_generations=1000,
                         num_parents_mating=2,
-                        sol_per_pop=10,
+                        sol_per_pop=50,
                         num_genes=10,
-                        accuracy=0.1,
+                        accuracy=0.01,
                         crossover_type='two_points',
-                        mutation_probability=0.15,
+                        mutation_probability=0.2,
                         parallel_processing=1)
         result = self._run(ga)
         self.result['ctg_x'] = result
@@ -286,7 +287,7 @@ class AnalyzerComputerAlgebra:
         self.result['exponential_equation'] = res
 
     def sin_x(self, a, b, c):
-        res = self._run(solve, a * sin(b * self.x) + c, self.x)
+        res = self._run(solve, a * cos((sympy.pi/2) - b * self.x) + c, self.x)
         self.result['sin_x'] = res
 
     def cos_x(self, a, b, c):
@@ -599,6 +600,30 @@ def create_bar(path_to_save, data_x, data_y, title, label_x, label_y):
     pyplot.savefig(path_to_save)
 
 
+def create_multibar(path_to_save, min_time, avg_time, max_time, comp_alg_time, title):
+    x = np.arange(1)  # the label locations
+    width = 0.25  # the width of the bars
+
+    fig, ax = pyplot.subplots()
+    rects1 = ax.bar(x - 0.5 * width, round(min_time, 2), width, color='g', alpha=0.6, label='min ga')
+    rects2 = ax.bar(x + 0.5 * width, round(avg_time, 2), width, color='b', alpha=0.6, label='avg ga')
+    rects3 = ax.bar(x + 1.5 * width, round(max_time, 2), width, color='r', alpha=0.6, label='max ga')
+    rects4 = ax.bar(x + 4 * width, round(comp_alg_time, 2), width, alpha=0.6, color='m', label='comp.alg')
+
+    ax.set_ylabel('Time (ms)')
+    ax.set_title(title)
+    ax.set_xticks([], [])
+    ax.legend()
+
+    ax.bar_label(rects1, padding=3)
+    ax.bar_label(rects2, padding=3)
+    ax.bar_label(rects3, padding=3)
+    ax.bar_label(rects4, padding=3)
+    fig.tight_layout()
+    pyplot.draw()
+    pyplot.savefig(path_to_save)
+
+
 def get_formatted_data(path, list_key, x_data_key):
     data = read_json_from_file(path)
     data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = [], [], [], [], []
@@ -611,8 +636,17 @@ def get_formatted_data(path, list_key, x_data_key):
     return data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time
 
 
+def get_multibar_formatted_data(file, data_comp_alg):
+    data_ga = read_json_from_file(Config.PATH_TO_STATISTIC_DATA + file)
+    avg_time, min_time, max_time = data_ga['avg_time'] * 1000, data_ga['min_time'] * 1000, data_ga['max_time'] * 1000
+    accuracy = data_ga['accuracy']
+    comp_alg_time = data_comp_alg[file.removesuffix('.json')]['execution_time'] * 1000
+    return min_time, avg_time, max_time, comp_alg_time, accuracy
+
+
 def create_images():
     files = os.listdir(Config.PATH_TO_STATISTIC_DATA)
+    data_comp_alg = read_json_from_file(Config.PATH_TO_STATISTIC_DATA + 'AnalyzerComputerAlgebra.json')
     for file in files:
         if file == 'analyze_accuracy.json':
             data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = get_formatted_data(
@@ -655,97 +689,131 @@ def create_images():
             data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = get_formatted_data(
                 Config.PATH_TO_STATISTIC_DATA + file, 'generations', 'num_generations')
 
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'generations-error.png', data_x, data_avg_error,
-                        'Average error vs generations', 'generations', 'avg.error', 'lin')
-
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'generations-fails.png', data_x, data_per_fails,
-                        'Percent fails vs generations', 'generations', 'fails (%)', 'exp')
-
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'generations-time.png', data_x, data_avg_time,
-                        'Average time vs generations', 'generations', 'avg.time (ms)', 'exp')
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'generations-error.png', data_x, data_avg_error,
+            #             'Average error vs generations', 'generations', 'avg.error', 'lin')
+            #
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'generations-fails.png', data_x, data_per_fails,
+            #             'Percent fails vs generations', 'generations', 'fails (%)', 'exp')
+            #
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'generations-time.png', data_x, data_avg_time,
+            #             'Average time vs generations', 'generations', 'avg.time (ms)', 'exp')
 
 
         elif file == 'analyze_mutation_probability.json':
             data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = get_formatted_data(
                 Config.PATH_TO_STATISTIC_DATA + file, 'mutation_probabilities', 'mutation_probability')
 
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'mutation_probabilities-avg_generation.png', data_x, data_avg_gen,
-                        'Average generations vs mutation probabilities', 'mutation probability', 'avg.generation', 'lin')
-
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'mutation_probabilities-per_fails.png', data_x, data_per_fails,
-                        'Percent fails vs mutation probabilities', 'mutation probability', 'fails (%)', 'exp')
-
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'mutation_probabilities-avg_time.png', data_x, data_avg_time,
-                        'Average time vs mutation probabilities', 'mutation probability', 'avg.time (ms)', 'lin', scatter=True)
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'mutation_probabilities-avg_generation.png', data_x, data_avg_gen,
+            #             'Average generations vs mutation probabilities', 'mutation probability', 'avg.generation', 'lin')
+            #
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'mutation_probabilities-per_fails.png', data_x, data_per_fails,
+            #             'Percent fails vs mutation probabilities', 'mutation probability', 'fails (%)', 'exp')
+            #
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'mutation_probabilities-avg_time.png', data_x, data_avg_time,
+            #             'Average time vs mutation probabilities', 'mutation probability', 'avg.time (ms)', 'lin', scatter=True)
 
         elif file == 'analyze_num_genes.json':
             data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = get_formatted_data(
                 Config.PATH_TO_STATISTIC_DATA + file, 'num_genes', 'num_genes')
 
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'num_genes-avg_generation.png', data_x,
-                        data_avg_gen,
-                        'Average generations vs number genes', 'number genes', 'avg.generation',
-                        'pol')
-
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'num_genes-avg_error.png', data_x,
-                        data_avg_error,
-                        'Average error vs number genes', 'number genes', 'avg.error',
-                        'pol')
-
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'num_genes-per_fails.png', data_x, data_per_fails,
-                        'Percent fails vs number genes', 'number genes', 'fails (%)', 'pol')
-
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'num_genes-avg_time.png', data_x, data_avg_time,
-                        'Average time vs number genes', 'number genes', 'avg.time (ms)', 'pol',
-                        scatter=False)
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'num_genes-avg_generation.png', data_x,
+            #             data_avg_gen,
+            #             'Average generations vs number genes', 'number genes', 'avg.generation',
+            #             'pol')
+            #
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'num_genes-avg_error.png', data_x,
+            #             data_avg_error,
+            #             'Average error vs number genes', 'number genes', 'avg.error',
+            #             'pol')
+            #
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'num_genes-per_fails.png', data_x, data_per_fails,
+            #             'Percent fails vs number genes', 'number genes', 'fails (%)', 'pol')
+            #
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'num_genes-avg_time.png', data_x, data_avg_time,
+            #             'Average time vs number genes', 'number genes', 'avg.time (ms)', 'pol',
+            #             scatter=False)
 
         elif file == 'analyze_population_size.json':
             data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = get_formatted_data(
                 Config.PATH_TO_STATISTIC_DATA + file, 'population_size', 'population_size')
 
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'population_size-avg_generation.png', data_x,
-                        data_avg_gen,
-                        'Average generations vs population size', 'population size', 'avg.generation',
-                        'exp')
-
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'population_size-avg_error.png', data_x,
-                        data_avg_error,
-                        'Average error vs population size', 'population size', 'avg.error',
-                        'lin')
-
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'population_size-per_fails.png', data_x, data_per_fails,
-                        'Percent fails vs population size', 'population size', 'fails (%)', 'log')
-
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'population_size-avg_time.png', data_x, data_avg_time,
-                        'Average time vs population size', 'population size', 'avg.time (ms)', 'log',
-                        scatter=False)
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'population_size-avg_generation.png', data_x,
+            #             data_avg_gen,
+            #             'Average generations vs population size', 'population size', 'avg.generation',
+            #             'exp')
+            #
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'population_size-avg_error.png', data_x,
+            #             data_avg_error,
+            #             'Average error vs population size', 'population size', 'avg.error',
+            #             'lin')
+            #
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'population_size-per_fails.png', data_x, data_per_fails,
+            #             'Percent fails vs population size', 'population size', 'fails (%)', 'log')
+            #
+            # create_plot(Config.PATH_TO_STATISTIC_IMG + 'population_size-avg_time.png', data_x, data_avg_time,
+            #             'Average time vs population size', 'population size', 'avg.time (ms)', 'log',
+            #             scatter=False)
 
         elif file == 'cos_x.json':
-            pass
+            min_time, avg_time, max_time, comp_alg_time, accuracy = get_multibar_formatted_data(file, data_comp_alg)
+
+            create_multibar(Config.PATH_TO_STATISTIC_IMG + file.replace('.json', '.png'), min_time, avg_time, max_time,
+                            comp_alg_time, f'Speed solve cos equation (acc={accuracy})')
         elif file == 'ctg_x.json':
-            pass
+            min_time, avg_time, max_time, comp_alg_time, accuracy = get_multibar_formatted_data(file, data_comp_alg)
+
+            create_multibar(Config.PATH_TO_STATISTIC_IMG + file.replace('.json', '.png'), min_time, avg_time, max_time,
+                            comp_alg_time, f'Speed solve ctg equation (acc={accuracy})')
         elif file == 'exponential_equation.json':
-            pass
+            min_time, avg_time, max_time, comp_alg_time, accuracy = get_multibar_formatted_data(file, data_comp_alg)
+
+            create_multibar(Config.PATH_TO_STATISTIC_IMG + file.replace('.json', '.png'), min_time, avg_time, max_time,
+                            comp_alg_time, f'Speed solve exponential equation (acc={accuracy})')
         elif file == 'linear_equation.json':
-            pass
+            min_time, avg_time, max_time, comp_alg_time, accuracy = get_multibar_formatted_data(file, data_comp_alg)
+
+            create_multibar(Config.PATH_TO_STATISTIC_IMG + file.replace('.json', '.png'), min_time, avg_time, max_time,
+                            comp_alg_time, f'Speed solve linear equation (acc={accuracy})')
+
         elif file == 'polynomial_2.json':
-            pass
+            min_time, avg_time, max_time, comp_alg_time, accuracy = get_multibar_formatted_data(file, data_comp_alg)
+
+            create_multibar(Config.PATH_TO_STATISTIC_IMG + file.replace('.json', '.png'), min_time, avg_time, max_time,
+                            comp_alg_time, f'Speed solve n=2 polynomial equation (acc={accuracy})')
         elif file == 'polynomial_3.json':
-            pass
+            min_time, avg_time, max_time, comp_alg_time, accuracy = get_multibar_formatted_data(file, data_comp_alg)
+
+            create_multibar(Config.PATH_TO_STATISTIC_IMG + file.replace('.json', '.png'), min_time, avg_time, max_time,
+                            comp_alg_time, f'Speed solve n=3 polynomial equation (acc={accuracy})')
         elif file == 'polynomial_4.json':
-            pass
+            min_time, avg_time, max_time, comp_alg_time, accuracy = get_multibar_formatted_data(file, data_comp_alg)
+
+            create_multibar(Config.PATH_TO_STATISTIC_IMG + file.replace('.json', '.png'), min_time, avg_time, max_time,
+                            comp_alg_time, f'Speed solve n=4 polynomial equation (acc={accuracy})')
         elif file == 'polynomial_5.json':
-            pass
+            min_time, avg_time, max_time, comp_alg_time, accuracy = get_multibar_formatted_data(file, data_comp_alg)
+
+            create_multibar(Config.PATH_TO_STATISTIC_IMG + file.replace('.json', '.png'), min_time, avg_time, max_time,
+                            comp_alg_time, f'Speed solve n=5 polynomial equation (acc={accuracy})')
         elif file == 'sin_x.json':
-            pass
+            min_time, avg_time, max_time, comp_alg_time, accuracy = get_multibar_formatted_data(file, data_comp_alg)
+
+            create_multibar(Config.PATH_TO_STATISTIC_IMG + file.replace('.json', '.png'), min_time, avg_time, max_time,
+                            comp_alg_time, f'Speed solve sin equation (acc={accuracy})')
         elif file == 'sqrt_x.json':
-            pass
+            min_time, avg_time, max_time, comp_alg_time, accuracy = get_multibar_formatted_data(file, data_comp_alg)
+
+            create_multibar(Config.PATH_TO_STATISTIC_IMG + file.replace('.json', '.png'), min_time, avg_time, max_time,
+                            comp_alg_time, f'Speed solve square root equation (acc={accuracy})')
         elif file == 'tg_x.json':
-            pass
+            min_time, avg_time, max_time, comp_alg_time, accuracy = get_multibar_formatted_data(file, data_comp_alg)
+
+            create_multibar(Config.PATH_TO_STATISTIC_IMG + file.replace('.json', '.png'), min_time, avg_time, max_time,
+                            comp_alg_time, f'Speed solve tg equation (acc={accuracy})')
 
 
 def run_statistic():
-    # analyser = AnalyserGA(Config.ATTEMPTS, Config.PATH_TO_STATISTIC_DATA)
+    analyser = AnalyserGA(Config.ATTEMPTS, Config.PATH_TO_STATISTIC_DATA)
     # Process(target=analyser.linear_equation, args=(5, -3, True)).start()
     # Process(target=analyser.sqrt_x, args=(4, 2, -50, True)).start()
     # Process(target=analyser.polynomial_2, args=(2, 5, -15, True)).start()

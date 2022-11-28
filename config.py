@@ -11,6 +11,6 @@ class Config:
     MUTATION_PROBABILITY = 0.15
     PARALLEL_PROCESSING = 1
     ACCURACY = 0.01
-    ATTEMPTS = 10
+    ATTEMPTS = 100
     PATH_TO_STATISTIC_DATA = 'statistics/data/'
     PATH_TO_STATISTIC_IMG = 'statistics/images/'
