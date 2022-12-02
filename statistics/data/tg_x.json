@@ -1,0 +1,22 @@
+{
+    "avg_time": 0.015047734664994882,
+    "min_time": 0.0034837722778320312,
+    "max_time": 0.18980121612548828,
+    "avg_generations_completed": 4.3297968171354215,
+    "avg_error": 0.023835107963180748,
+    "attempts": 10000,
+    "fails": 9,
+    "percent_fails": 0.09,
+    "x": -81.81094427265472,
+    "fitness": 21.217639373672434,
+    "equation": "-5*math.tan(3*x)+-2",
+    "error": 0.04713059649987761,
+    "num_generations": 1000,
+    "num_parents_mating": 3,
+    "sol_per_pop": 50,
+    "num_genes": 12,
+    "crossover_type": "two_points",
+    "mutation_probability": 0.35,
+    "parallel_processing": 1,
+    "accuracy": 0.05
+}

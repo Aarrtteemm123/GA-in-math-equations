@@ -271,7 +271,7 @@ class AnalyzerComputerAlgebra:
         self.result['exponential_equation'] = res
 
     def sin_x(self, a, b, c):
-        res = self._run(solve, a * cos((sympy.pi/2) - b * self.x) + c, self.x)
+        res = self._run(solve, a * cos((sympy.pi / 2) - b * self.x) + c, self.x)
         self.result['sin_x'] = res
 
     def cos_x(self, a, b, c):
@@ -315,7 +315,7 @@ class LinerEquationAnalyzerGA:
                                                  generations=[])
 
         for num_generation in range(10, 1010, 10):
-            print(num_generation)
+            print('Generation:', num_generation)
             ga.build_solver(num_generations=num_generation, **ga_const_config)
             result = self._run(ga)
             needed_data = {
@@ -347,7 +347,7 @@ class LinerEquationAnalyzerGA:
                                                       population_size=[])
 
         for population_size in range(4, 200, 1):
-            print(population_size)
+            print('Pop.size:', population_size)
             ga.build_solver(sol_per_pop=population_size, **ga_const_config)
             result = self._run(ga)
             needed_data = {
@@ -379,7 +379,7 @@ class LinerEquationAnalyzerGA:
                                                 num_genes=[])
 
         for num_genes in range(2, 100, 1):
-            print(num_genes)
+            print('Num.genes:', num_genes)
             ga.build_solver(num_genes=num_genes, **ga_const_config)
             result = self._run(ga)
             needed_data = {
@@ -412,7 +412,7 @@ class LinerEquationAnalyzerGA:
                                                       crossover_types=[])
 
         for crossover_type in crossover_types:
-            print(crossover_type)
+            print('Crossover type:', crossover_type)
             ga.build_solver(crossover_type=crossover_type, **ga_const_config)
             result = self._run(ga)
             needed_data = {
@@ -446,7 +446,7 @@ class LinerEquationAnalyzerGA:
 
         for value in range(100):
             mutation_probability = value / 100
-            print(mutation_probability)
+            print('Mutation probability:', mutation_probability)
             ga.build_solver(mutation_probability=mutation_probability, **ga_const_config)
             result = self._run(ga)
             needed_data = {
@@ -479,7 +479,7 @@ class LinerEquationAnalyzerGA:
                                                accuracy=[])
 
         for accuracy in np.arange(0.001, 0.5, 0.001):
-            print(accuracy)
+            print('Accuracy:', accuracy)
             ga.build_solver(accuracy=accuracy, **ga_const_config)
             result = self._run(ga)
             needed_data = {
@@ -687,14 +687,17 @@ def create_images():
             data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = get_formatted_data(
                 Config.PATH_TO_STATISTIC_DATA + file, 'mutation_probabilities', 'mutation_probability')
 
-            create_plot(Config.PATH_TO_STATISTIC_IMG + 'mutation_probabilities-avg_generation.png', data_x, data_avg_gen,
-                        'Average generations vs mutation probabilities', 'mutation probability', 'avg.generation', 'lin')
+            create_plot(Config.PATH_TO_STATISTIC_IMG + 'mutation_probabilities-avg_generation.png', data_x,
+                        data_avg_gen,
+                        'Average generations vs mutation probabilities', 'mutation probability', 'avg.generation',
+                        'exp')
 
             create_plot(Config.PATH_TO_STATISTIC_IMG + 'mutation_probabilities-per_fails.png', data_x, data_per_fails,
                         'Percent fails vs mutation probabilities', 'mutation probability', 'fails (%)', 'exp')
 
             create_plot(Config.PATH_TO_STATISTIC_IMG + 'mutation_probabilities-avg_time.png', data_x, data_avg_time,
-                        'Average time vs mutation probabilities', 'mutation probability', 'avg.time (ms)', 'lin', scatter=True)
+                        'Average time vs mutation probabilities', 'mutation probability', 'avg.time (ms)', 'exp',
+                        scatter=True)
 
         elif file == 'analyze_num_genes.json':
             data_x, data_avg_gen, data_avg_error, data_per_fails, data_avg_time = get_formatted_data(
@@ -798,6 +801,17 @@ def create_images():
 
 def run_statistic():
     analyser = AnalyserGA(Config.ATTEMPTS, Config.PATH_TO_STATISTIC_DATA)
+    # analyser.linear_equation(5, -3, save=True)
+    # analyser.sqrt_x(4, 2, -50, save=True)
+    # analyser.polynomial_2(2, 5, -15, save=True)
+    # analyser.polynomial_3(10, -1, -10, 4, save=True)
+    # analyser.polynomial_4(-4, -7, 5, 4, -2, save=True)
+    # analyser.polynomial_5(-3, -4, -7, 5, 5, 1, save=True)
+    # analyser.exponential_equation(5, 1, -10, save=True)
+    # analyser.sin_x(4, -2, 2, save=True)
+    # analyser.cos_x(7, 2, 3, save=True)
+    # analyser.tg_x(-5, 3, -2, save=True)
+    # analyser.ctg_x(4, 8, -10, save=True)
     # Process(target=analyser.linear_equation, args=(5, -3, True)).start()
     # Process(target=analyser.sqrt_x, args=(4, 2, -50, True)).start()
     # Process(target=analyser.polynomial_2, args=(2, 5, -15, True)).start()
@@ -810,7 +824,7 @@ def run_statistic():
     # Process(target=analyser.tg_x, args=(-5, 3, -2, True)).start()
     # Process(target=analyser.ctg_x, args=(4, 8, -10, True)).start()
 
-    anal_comp_alg = AnalyzerComputerAlgebra()
+    # anal_comp_alg = AnalyzerComputerAlgebra()
     # anal_comp_alg.linear_equation(5, -3)
     # anal_comp_alg.sqrt_x(4, 2, -50)
     # anal_comp_alg.polynomial_2(2, 5, -15)
@@ -825,7 +839,7 @@ def run_statistic():
     # anal_comp_alg.save(Config.PATH_TO_STATISTIC_DATA)
 
     liner_analyzer = LinerEquationAnalyzerGA(Config.ATTEMPTS, 5, -3, Config.PATH_TO_STATISTIC_DATA)
-    # Process(target=liner_analyzer.analyze_generations, args=(True, )).start()
+    # Process(target=liner_analyzer.analyze_generations, args=(True,)).start()
     # Process(target=liner_analyzer.analyze_population_size, args=(True, )).start()
     # Process(target=liner_analyzer.analyze_num_genes, args=(True, )).start()
     # Process(target=liner_analyzer.analyze_crossover_types, args=(True, )).start()
@@ -834,5 +848,5 @@ def run_statistic():
 
 
 if __name__ == '__main__':
-    run_statistic()
+    #run_statistic()
     create_images()

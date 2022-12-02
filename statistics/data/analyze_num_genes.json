@@ -1,0 +1,896 @@
+{
+    "base_config": {
+        "attempts": 100,
+        "num_generations": 1000,
+        "num_parents_mating": 2,
+        "sol_per_pop": 20,
+        "accuracy": 0.01,
+        "crossover_type": "single_point",
+        "mutation_probability": 0.15,
+        "parallel_processing": 1
+    },
+    "num_genes": [
+        {
+            "num_genes": 2,
+            "avg_generation": 36.2,
+            "avg_error": -0.03266493375972757,
+            "error": 0.0035514688613829115,
+            "fails": 10,
+            "percent_fails": 10.0,
+            "avg_time": 0.029277245203653973
+        },
+        {
+            "num_genes": 3,
+            "avg_generation": 39.86206896551724,
+            "avg_error": 0.006322048469980616,
+            "error": 0.00996922804456446,
+            "fails": 13,
+            "percent_fails": 13.0,
+            "avg_time": 0.036591825814082705
+        },
+        {
+            "num_genes": 4,
+            "avg_generation": 32.82142857142857,
+            "avg_error": 0.00429227860709246,
+            "error": 0.006135657438377962,
+            "fails": 16,
+            "percent_fails": 16.0,
+            "avg_time": 0.029456950369335357
+        },
+        {
+            "num_genes": 5,
+            "avg_generation": 29.921348314606742,
+            "avg_error": 0.0036192999165322874,
+            "error": 0.004080786212636411,
+            "fails": 11,
+            "percent_fails": 11.0,
+            "avg_time": 0.028519231281923445
+        },
+        {
+            "num_genes": 6,
+            "avg_generation": 28.175824175824175,
+            "avg_error": 0.005062374025996084,
+            "error": 0.003288104872838815,
+            "fails": 9,
+            "percent_fails": 9.0,
+            "avg_time": 0.026304436253977347
+        },
+        {
+            "num_genes": 7,
+            "avg_generation": 23.5625,
+            "avg_error": 0.005268158376811193,
+            "error": 0.008902681912433152,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.022938641409079235
+        },
+        {
+            "num_genes": 8,
+            "avg_generation": 33.520833333333336,
+            "avg_error": 0.004319632493698604,
+            "error": 0.0004516590005247956,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.03320284187793732
+        },
+        {
+            "num_genes": 9,
+            "avg_generation": 38.52127659574468,
+            "avg_error": 0.004231791470931344,
+            "error": 0.0040174509217743015,
+            "fails": 6,
+            "percent_fails": 6.0,
+            "avg_time": 0.038736812611843675
+        },
+        {
+            "num_genes": 10,
+            "avg_generation": 32.197916666666664,
+            "avg_error": 0.004256412205992775,
+            "error": 0.0005715675601951631,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.033171698451042175
+        },
+        {
+            "num_genes": 11,
+            "avg_generation": 30.32,
+            "avg_error": 0.004579155553767919,
+            "error": 0.0013542546572358205,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.03275238513946533
+        },
+        {
+            "num_genes": 12,
+            "avg_generation": 28.03125,
+            "avg_error": 0.0038805091339060988,
+            "error": 0.007930275587353819,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.030013499160607655
+        },
+        {
+            "num_genes": 13,
+            "avg_generation": 37.83505154639175,
+            "avg_error": 0.005394592244976744,
+            "error": 0.007138055513212116,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.044077983836537785
+        },
+        {
+            "num_genes": 14,
+            "avg_generation": 36.479166666666664,
+            "avg_error": 0.005259046739046952,
+            "error": 0.007292579386098286,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.0423346608877182
+        },
+        {
+            "num_genes": 15,
+            "avg_generation": 30.03061224489796,
+            "avg_error": 0.004368970367800326,
+            "error": 0.0024284639136613606,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.034662424301614564
+        },
+        {
+            "num_genes": 16,
+            "avg_generation": 44.98924731182796,
+            "avg_error": 0.004862673527112573,
+            "error": 0.005422084928954796,
+            "fails": 7,
+            "percent_fails": 7.0,
+            "avg_time": 0.05188276947185557
+        },
+        {
+            "num_genes": 17,
+            "avg_generation": 29.908163265306122,
+            "avg_error": 0.0045799057331394845,
+            "error": 0.0047859311816758066,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.03631098173102554
+        },
+        {
+            "num_genes": 18,
+            "avg_generation": 31.666666666666668,
+            "avg_error": 0.004685349665699695,
+            "error": 0.0028150961342481295,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.03758696963389715
+        },
+        {
+            "num_genes": 19,
+            "avg_generation": 30.408163265306122,
+            "avg_error": 0.004664042633984394,
+            "error": 0.0019447755006689604,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.0362703410946593
+        },
+        {
+            "num_genes": 20,
+            "avg_generation": 35.28125,
+            "avg_error": 0.0054780395411718015,
+            "error": 0.0003664411164763237,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.04218920816977819
+        },
+        {
+            "num_genes": 21,
+            "avg_generation": 33.92783505154639,
+            "avg_error": 0.004628064442997583,
+            "error": 0.009829355470348133,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.04111679804693792
+        },
+        {
+            "num_genes": 22,
+            "avg_generation": 31.93877551020408,
+            "avg_error": 0.00573134368435685,
+            "error": 0.0016237700233672214,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.03910966065465188
+        },
+        {
+            "num_genes": 23,
+            "avg_generation": 47.39795918367347,
+            "avg_error": 0.005306420046372602,
+            "error": 0.0030899718659198605,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.058588193387401344
+        },
+        {
+            "num_genes": 24,
+            "avg_generation": 39.46938775510204,
+            "avg_error": 0.004333457159579519,
+            "error": 0.00722492671670949,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.04959183566424311
+        },
+        {
+            "num_genes": 25,
+            "avg_generation": 33.89473684210526,
+            "avg_error": 0.005086031865466498,
+            "error": 0.006487079789512684,
+            "fails": 5,
+            "percent_fails": 5.0,
+            "avg_time": 0.04112163091960706
+        },
+        {
+            "num_genes": 26,
+            "avg_generation": 54.04040404040404,
+            "avg_error": 0.004882720499428637,
+            "error": 0.009667244822264998,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.065793711729724
+        },
+        {
+            "num_genes": 27,
+            "avg_generation": 33.72727272727273,
+            "avg_error": 0.004824977849111788,
+            "error": 0.0028117117688513105,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.041636093698366725
+        },
+        {
+            "num_genes": 28,
+            "avg_generation": 36.52040816326531,
+            "avg_error": 0.0046833034002530865,
+            "error": 0.008050006832898582,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.045561805063364456
+        },
+        {
+            "num_genes": 29,
+            "avg_generation": 43.785714285714285,
+            "avg_error": 0.005555387315599175,
+            "error": 0.0005527662833983982,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.054883791475879906
+        },
+        {
+            "num_genes": 30,
+            "avg_generation": 53.494949494949495,
+            "avg_error": 0.004752759801618405,
+            "error": 0.008045274769617361,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.06753653709334556
+        },
+        {
+            "num_genes": 31,
+            "avg_generation": 53.15151515151515,
+            "avg_error": 0.004781191303182113,
+            "error": 0.009656146255696996,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.06781857182281185
+        },
+        {
+            "num_genes": 32,
+            "avg_generation": 58.89,
+            "avg_error": 0.005294871335218931,
+            "error": 0.00971455780381314,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.07585708379745483
+        },
+        {
+            "num_genes": 33,
+            "avg_generation": 51.34,
+            "avg_error": 0.004304836252895666,
+            "error": 0.0064876124327399864,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.06671153783798217
+        },
+        {
+            "num_genes": 34,
+            "avg_generation": 51.494949494949495,
+            "avg_error": 0.005030157809081421,
+            "error": 0.0048183386794011795,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.06778835768651481
+        },
+        {
+            "num_genes": 35,
+            "avg_generation": 51.01020408163265,
+            "avg_error": 0.004764302008357365,
+            "error": 0.007839737773316813,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.06758450731939199
+        },
+        {
+            "num_genes": 36,
+            "avg_generation": 57.97979797979798,
+            "avg_error": 0.004590198522823875,
+            "error": 0.0016573011095015744,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.07741922079914748
+        },
+        {
+            "num_genes": 37,
+            "avg_generation": 41.88,
+            "avg_error": 0.0046244155885614814,
+            "error": 0.007105134799288315,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.05633930206298828
+        },
+        {
+            "num_genes": 38,
+            "avg_generation": 58.62,
+            "avg_error": 0.00508588070287396,
+            "error": 0.004519501444997687,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.07937767505645751
+        },
+        {
+            "num_genes": 39,
+            "avg_generation": 45.27,
+            "avg_error": 0.004875673132285363,
+            "error": 0.006204262678240369,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.06222355842590332
+        },
+        {
+            "num_genes": 40,
+            "avg_generation": 67.23,
+            "avg_error": 0.004875847117984487,
+            "error": 0.0008026647417906929,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.0925424861907959
+        },
+        {
+            "num_genes": 41,
+            "avg_generation": 44.696969696969695,
+            "avg_error": 0.005012401829472633,
+            "error": 0.007329972179462185,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.062439046724878176
+        },
+        {
+            "num_genes": 42,
+            "avg_generation": 49.5,
+            "avg_error": 0.005558948438973692,
+            "error": 0.007943759699365227,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.0698332118988037
+        },
+        {
+            "num_genes": 43,
+            "avg_generation": 44.47,
+            "avg_error": 0.005156919456613722,
+            "error": 0.007605339293770719,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.06323084831237794
+        },
+        {
+            "num_genes": 44,
+            "avg_generation": 57.65,
+            "avg_error": 0.004871523372676938,
+            "error": 0.009505488199106793,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.08238962650299073
+        },
+        {
+            "num_genes": 45,
+            "avg_generation": 55.76,
+            "avg_error": 0.005466156546527046,
+            "error": 0.006908708227205018,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.08039498090744018
+        },
+        {
+            "num_genes": 46,
+            "avg_generation": 60.81,
+            "avg_error": 0.004588720327100919,
+            "error": 0.0011607466761525131,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.08833370923995972
+        },
+        {
+            "num_genes": 47,
+            "avg_generation": 75.18,
+            "avg_error": 0.004812953848662182,
+            "error": 0.0004900108503251843,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.10980626344680786
+        },
+        {
+            "num_genes": 48,
+            "avg_generation": 63.96,
+            "avg_error": 0.004614054491699981,
+            "error": 0.005733526003794509,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.09430771112442017
+        },
+        {
+            "num_genes": 49,
+            "avg_generation": 67.15,
+            "avg_error": 0.004950580735359589,
+            "error": 0.009255096053147227,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.0981175422668457
+        },
+        {
+            "num_genes": 50,
+            "avg_generation": 72.27,
+            "avg_error": 0.004559055515434718,
+            "error": 0.00840216878718536,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.10500912189483642
+        },
+        {
+            "num_genes": 51,
+            "avg_generation": 64.04,
+            "avg_error": 0.005421885698462124,
+            "error": 0.009274475550709482,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.09401850938796998
+        },
+        {
+            "num_genes": 52,
+            "avg_generation": 62.67,
+            "avg_error": 0.005033076340662399,
+            "error": 0.009118122139392781,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.09227319002151489
+        },
+        {
+            "num_genes": 53,
+            "avg_generation": 82.51,
+            "avg_error": 0.005687995647857558,
+            "error": 0.008776287555932072,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.12256215810775757
+        },
+        {
+            "num_genes": 54,
+            "avg_generation": 63.29,
+            "avg_error": 0.005051344682272942,
+            "error": 0.0015240454904557055,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.0967412281036377
+        },
+        {
+            "num_genes": 55,
+            "avg_generation": 70.08,
+            "avg_error": 0.005143561012603781,
+            "error": 0.0029645925530967787,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.10587679386138917
+        },
+        {
+            "num_genes": 56,
+            "avg_generation": 54.22,
+            "avg_error": 0.005375320701697311,
+            "error": 0.003080603066516918,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.08375594854354858
+        },
+        {
+            "num_genes": 57,
+            "avg_generation": 71.62,
+            "avg_error": 0.004961347821804587,
+            "error": 0.0031029446767831814,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.10994589805603028
+        },
+        {
+            "num_genes": 58,
+            "avg_generation": 59.67,
+            "avg_error": 0.00525528286527833,
+            "error": 0.008799966973755069,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.09220330953598023
+        },
+        {
+            "num_genes": 59,
+            "avg_generation": 42.64,
+            "avg_error": 0.005390718121459645,
+            "error": 0.007187750718948394,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.06669160366058349
+        },
+        {
+            "num_genes": 60,
+            "avg_generation": 51.23,
+            "avg_error": 0.005238815322991135,
+            "error": 0.0005380780639168137,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.08022538661956786
+        },
+        {
+            "num_genes": 61,
+            "avg_generation": 60.25,
+            "avg_error": 0.005734230372723709,
+            "error": 0.005245851220008646,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.09496597051620484
+        },
+        {
+            "num_genes": 62,
+            "avg_generation": 60.07,
+            "avg_error": 0.005044767904337996,
+            "error": 0.0023727810418190387,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.0951454472541809
+        },
+        {
+            "num_genes": 63,
+            "avg_generation": 58.41,
+            "avg_error": 0.005466226798067879,
+            "error": 0.0009456530549583064,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.0932305669784546
+        },
+        {
+            "num_genes": 64,
+            "avg_generation": 81.48,
+            "avg_error": 0.0043931212330437395,
+            "error": 0.0004951474906427222,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.13067046403884888
+        },
+        {
+            "num_genes": 65,
+            "avg_generation": 78.71717171717172,
+            "avg_error": 0.005249633367468161,
+            "error": 0.008945671724108095,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.12692314928228204
+        },
+        {
+            "num_genes": 66,
+            "avg_generation": 69.75,
+            "avg_error": 0.005804820450274652,
+            "error": 0.0023159997124038156,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.1133268690109253
+        },
+        {
+            "num_genes": 67,
+            "avg_generation": 56.34,
+            "avg_error": 0.004800944749131313,
+            "error": 0.0041567883241970804,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.0927319312095642
+        },
+        {
+            "num_genes": 68,
+            "avg_generation": 62.71,
+            "avg_error": 0.004354520788205285,
+            "error": 0.008846227478993995,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.10353306293487549
+        },
+        {
+            "num_genes": 69,
+            "avg_generation": 66.02,
+            "avg_error": 0.005312268418535133,
+            "error": 0.0037364644356134846,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.10964667320251464
+        },
+        {
+            "num_genes": 70,
+            "avg_generation": 66.5,
+            "avg_error": 0.004922292737718444,
+            "error": 0.008860789611103037,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.11365596055984498
+        },
+        {
+            "num_genes": 71,
+            "avg_generation": 68.56,
+            "avg_error": 0.004255556440537704,
+            "error": 0.004230921765524975,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.11695715188980102
+        },
+        {
+            "num_genes": 72,
+            "avg_generation": 80.93,
+            "avg_error": 0.004444008505132224,
+            "error": 0.0012299535681163931,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.13832084894180297
+        },
+        {
+            "num_genes": 73,
+            "avg_generation": 84.8,
+            "avg_error": 0.0044259542223026305,
+            "error": 0.0018419833268250585,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.14410437107086183
+        },
+        {
+            "num_genes": 74,
+            "avg_generation": 74.88,
+            "avg_error": 0.005323317792493842,
+            "error": 0.0014076288318314312,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.1274214792251587
+        },
+        {
+            "num_genes": 75,
+            "avg_generation": 57.54,
+            "avg_error": 0.004647114274456676,
+            "error": 0.005797338551182918,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.09841635227203369
+        },
+        {
+            "num_genes": 76,
+            "avg_generation": 74.53,
+            "avg_error": 0.0056485332287353794,
+            "error": 0.0010157250098279391,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.12790825366973876
+        },
+        {
+            "num_genes": 77,
+            "avg_generation": 68.33,
+            "avg_error": 0.0051379352965614175,
+            "error": 0.0023362461257576683,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.11853296518325805
+        },
+        {
+            "num_genes": 78,
+            "avg_generation": 86.08,
+            "avg_error": 0.005325205235986546,
+            "error": 0.0003739322289169067,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.15039759635925293
+        },
+        {
+            "num_genes": 79,
+            "avg_generation": 66.24,
+            "avg_error": 0.005138792042286777,
+            "error": 0.006665243330406412,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.11692718267440796
+        },
+        {
+            "num_genes": 80,
+            "avg_generation": 76.86,
+            "avg_error": 0.005152572181544182,
+            "error": 0.000808968822905598,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.13653476476669313
+        },
+        {
+            "num_genes": 81,
+            "avg_generation": 90.73,
+            "avg_error": 0.004886778656327894,
+            "error": 0.006536455417074816,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.16098946332931519
+        },
+        {
+            "num_genes": 82,
+            "avg_generation": 73.35,
+            "avg_error": 0.004918952416119833,
+            "error": 0.007120974462230478,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.13112928867340087
+        },
+        {
+            "num_genes": 83,
+            "avg_generation": 72.1,
+            "avg_error": 0.00471106516400849,
+            "error": 0.002013375953784813,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.1310295844078064
+        },
+        {
+            "num_genes": 84,
+            "avg_generation": 78.91,
+            "avg_error": 0.0053128410955392,
+            "error": 0.003569451984287042,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.1425687074661255
+        },
+        {
+            "num_genes": 85,
+            "avg_generation": 72.94,
+            "avg_error": 0.005340629907282235,
+            "error": 1.2360679029654875e-05,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.13301408290863037
+        },
+        {
+            "num_genes": 86,
+            "avg_generation": 76.58,
+            "avg_error": 0.0048337721423183,
+            "error": 0.00010028821612184657,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.1399758005142212
+        },
+        {
+            "num_genes": 87,
+            "avg_generation": 64.29,
+            "avg_error": 0.005075926303994152,
+            "error": 0.0020685145948045047,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.1189516830444336
+        },
+        {
+            "num_genes": 88,
+            "avg_generation": 82.11,
+            "avg_error": 0.004901430093896684,
+            "error": 0.00590899466797179,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.15252224922180177
+        },
+        {
+            "num_genes": 89,
+            "avg_generation": 73.93,
+            "avg_error": 0.004642055573639396,
+            "error": 0.0026490315789589047,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.1377009606361389
+        },
+        {
+            "num_genes": 90,
+            "avg_generation": 79.32,
+            "avg_error": 0.005419999127808248,
+            "error": 0.006370895262271414,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.14861227750778197
+        },
+        {
+            "num_genes": 91,
+            "avg_generation": 86.89,
+            "avg_error": 0.0049671808704350616,
+            "error": 0.00022681665844004328,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.16329325675964357
+        },
+        {
+            "num_genes": 92,
+            "avg_generation": 86.61,
+            "avg_error": 0.00497991909447542,
+            "error": 0.006183038960642762,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.1636222267150879
+        },
+        {
+            "num_genes": 93,
+            "avg_generation": 68.53,
+            "avg_error": 0.004968699095054982,
+            "error": 0.005381747161113282,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.13001227855682373
+        },
+        {
+            "num_genes": 94,
+            "avg_generation": 75.91919191919192,
+            "avg_error": 0.005482013493261191,
+            "error": 0.003572187149863293,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.14539892745740485
+        },
+        {
+            "num_genes": 95,
+            "avg_generation": 71.05,
+            "avg_error": 0.004406757778196932,
+            "error": 0.00901470008033689,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.13566710710525512
+        },
+        {
+            "num_genes": 96,
+            "avg_generation": 73.8,
+            "avg_error": 0.004853583864835773,
+            "error": 0.0016785402390100401,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.14189051389694213
+        },
+        {
+            "num_genes": 97,
+            "avg_generation": 81.23,
+            "avg_error": 0.004045843713895358,
+            "error": 0.00626309891001231,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.15732910871505737
+        },
+        {
+            "num_genes": 98,
+            "avg_generation": 83.06,
+            "avg_error": 0.004792567986550296,
+            "error": 0.00993660938474017,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.16110907554626464
+        },
+        {
+            "num_genes": 99,
+            "avg_generation": 101.93,
+            "avg_error": 0.005497935612754556,
+            "error": 0.0029350489546757785,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.1984591031074524
+        }
+    ]
+}

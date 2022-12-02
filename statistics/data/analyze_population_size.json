@@ -1,0 +1,1778 @@
+{
+    "base_config": {
+        "attempts": 100,
+        "num_generations": 1000,
+        "num_parents_mating": 2,
+        "num_genes": 4,
+        "accuracy": 0.01,
+        "crossover_type": "uniform",
+        "mutation_probability": 0.1,
+        "parallel_processing": 1
+    },
+    "population_size": [
+        {
+            "population_size": 4,
+            "avg_generation": 902.1530612244898,
+            "avg_error": -45694.019456487265,
+            "error": -101856.84443329634,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.2840259537404897
+        },
+        {
+            "population_size": 5,
+            "avg_generation": 184.73076923076923,
+            "avg_error": -697.3327376609285,
+            "error": -12017.051350739663,
+            "fails": 22,
+            "percent_fails": 22.0,
+            "avg_time": 0.06733268040877122
+        },
+        {
+            "population_size": 6,
+            "avg_generation": 123.78947368421052,
+            "avg_error": -0.05618114404932697,
+            "error": 0.007494021910903648,
+            "fails": 24,
+            "percent_fails": 24.0,
+            "avg_time": 0.04867247531288549
+        },
+        {
+            "population_size": 7,
+            "avg_generation": 772.2637362637363,
+            "avg_error": -53307.62930327581,
+            "error": -139679.4307346145,
+            "fails": 9,
+            "percent_fails": 9.0,
+            "avg_time": 0.35027182233202586
+        },
+        {
+            "population_size": 8,
+            "avg_generation": 126.0340909090909,
+            "avg_error": 0.0031644945210377914,
+            "error": 7.000793352851531e-05,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.05952255021442066
+        },
+        {
+            "population_size": 9,
+            "avg_generation": 71.87777777777778,
+            "avg_error": 0.0037380295619285487,
+            "error": 0.003535506556009871,
+            "fails": 10,
+            "percent_fails": 10.0,
+            "avg_time": 0.03554937574598524
+        },
+        {
+            "population_size": 10,
+            "avg_generation": 64.86363636363636,
+            "avg_error": -31.368277876043955,
+            "error": -2757.8722045044597,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.033933008258992974
+        },
+        {
+            "population_size": 11,
+            "avg_generation": 87.68181818181819,
+            "avg_error": 0.00523781726339713,
+            "error": 0.0042323766678267205,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.04826864329251376
+        },
+        {
+            "population_size": 12,
+            "avg_generation": 56.170731707317074,
+            "avg_error": 0.005150012209790684,
+            "error": 0.005000691753418884,
+            "fails": 18,
+            "percent_fails": 18.0,
+            "avg_time": 0.03246200375440644
+        },
+        {
+            "population_size": 13,
+            "avg_generation": 61.675324675324674,
+            "avg_error": 0.006255523894617683,
+            "error": 0.0014848313942179558,
+            "fails": 23,
+            "percent_fails": 23.0,
+            "avg_time": 0.037315811429704936
+        },
+        {
+            "population_size": 14,
+            "avg_generation": 39.42045454545455,
+            "avg_error": 0.004114238611403157,
+            "error": 0.0034864861224042087,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.025148659944534302
+        },
+        {
+            "population_size": 15,
+            "avg_generation": 49.76543209876543,
+            "avg_error": -0.045859175289766976,
+            "error": 0.007870081868444512,
+            "fails": 19,
+            "percent_fails": 19.0,
+            "avg_time": 0.032961259653538834
+        },
+        {
+            "population_size": 16,
+            "avg_generation": 46.9873417721519,
+            "avg_error": 0.004135466282001631,
+            "error": 0.012943727252657133,
+            "fails": 21,
+            "percent_fails": 21.0,
+            "avg_time": 0.03244479094879537
+        },
+        {
+            "population_size": 17,
+            "avg_generation": 65.7840909090909,
+            "avg_error": 0.00543101848240129,
+            "error": 0.006306459074541415,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.0469426539811221
+        },
+        {
+            "population_size": 18,
+            "avg_generation": 22.67948717948718,
+            "avg_error": 0.00499041888621659,
+            "error": 0.003300245618505393,
+            "fails": 22,
+            "percent_fails": 22.0,
+            "avg_time": 0.017184822987287473
+        },
+        {
+            "population_size": 19,
+            "avg_generation": 46.02564102564103,
+            "avg_error": 0.0036156268253909464,
+            "error": 0.002085286239943862,
+            "fails": 22,
+            "percent_fails": 22.0,
+            "avg_time": 0.035545945167541504
+        },
+        {
+            "population_size": 20,
+            "avg_generation": 33.45569620253165,
+            "avg_error": 0.004874664391407982,
+            "error": 0.0034165732584061637,
+            "fails": 21,
+            "percent_fails": 21.0,
+            "avg_time": 0.02691533897496477
+        },
+        {
+            "population_size": 21,
+            "avg_generation": 25.86315789473684,
+            "avg_error": 0.006402827335131122,
+            "error": 0.009361463396087455,
+            "fails": 5,
+            "percent_fails": 5.0,
+            "avg_time": 0.0215843727714137
+        },
+        {
+            "population_size": 22,
+            "avg_generation": 27.593023255813954,
+            "avg_error": 0.005505251450698073,
+            "error": 0.004259823249653127,
+            "fails": 14,
+            "percent_fails": 14.0,
+            "avg_time": 0.023657662923945937
+        },
+        {
+            "population_size": 23,
+            "avg_generation": 25.919540229885058,
+            "avg_error": 0.004760494560676591,
+            "error": 0.007612556107690516,
+            "fails": 13,
+            "percent_fails": 13.0,
+            "avg_time": 0.022950145019882028
+        },
+        {
+            "population_size": 24,
+            "avg_generation": 21.470588235294116,
+            "avg_error": 0.005179075697292187,
+            "error": 0.0022035555068482537,
+            "fails": 15,
+            "percent_fails": 15.0,
+            "avg_time": 0.019817548639634076
+        },
+        {
+            "population_size": 25,
+            "avg_generation": 41.05952380952381,
+            "avg_error": 0.005854259984933078,
+            "error": 0.020168681464091343,
+            "fails": 16,
+            "percent_fails": 16.0,
+            "avg_time": 0.03817170574551537
+        },
+        {
+            "population_size": 26,
+            "avg_generation": 26.318681318681318,
+            "avg_error": 0.005414649407495755,
+            "error": 0.036203402413419905,
+            "fails": 9,
+            "percent_fails": 9.0,
+            "avg_time": 0.025481294799637007
+        },
+        {
+            "population_size": 27,
+            "avg_generation": 34.1125,
+            "avg_error": 0.005083842244110792,
+            "error": 0.005674265252678001,
+            "fails": 20,
+            "percent_fails": 20.0,
+            "avg_time": 0.03373472988605499
+        },
+        {
+            "population_size": 28,
+            "avg_generation": 40.88,
+            "avg_error": 0.005231035252071935,
+            "error": 0.004149516047211144,
+            "fails": 25,
+            "percent_fails": 25.0,
+            "avg_time": 0.04114323298136393
+        },
+        {
+            "population_size": 29,
+            "avg_generation": 22.488095238095237,
+            "avg_error": 0.004474551136428637,
+            "error": 0.002767456693737902,
+            "fails": 16,
+            "percent_fails": 16.0,
+            "avg_time": 0.02366284245536441
+        },
+        {
+            "population_size": 30,
+            "avg_generation": 23.118279569892472,
+            "avg_error": 0.004288250099480003,
+            "error": 0.008236906866907923,
+            "fails": 7,
+            "percent_fails": 7.0,
+            "avg_time": 0.024826052368328137
+        },
+        {
+            "population_size": 31,
+            "avg_generation": 31.026666666666667,
+            "avg_error": 0.00484021287367329,
+            "error": 0.0048976653390733205,
+            "fails": 25,
+            "percent_fails": 25.0,
+            "avg_time": 0.03394912719726562
+        },
+        {
+            "population_size": 32,
+            "avg_generation": 18.346938775510203,
+            "avg_error": 0.005310158800342058,
+            "error": 0.009745158140129107,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.02081167697906494
+        },
+        {
+            "population_size": 33,
+            "avg_generation": 18.13095238095238,
+            "avg_error": 0.004453963461446896,
+            "error": 0.004697458535331656,
+            "fails": 16,
+            "percent_fails": 16.0,
+            "avg_time": 0.021169614224206833
+        },
+        {
+            "population_size": 34,
+            "avg_generation": 29.488372093023255,
+            "avg_error": 0.005888987316565648,
+            "error": 0.004948475524726881,
+            "fails": 14,
+            "percent_fails": 14.0,
+            "avg_time": 0.03453549673390943
+        },
+        {
+            "population_size": 35,
+            "avg_generation": 29.955882352941178,
+            "avg_error": 0.005986169317898036,
+            "error": 0.0031464658584239302,
+            "fails": 32,
+            "percent_fails": 32.0,
+            "avg_time": 0.03603597949532902
+        },
+        {
+            "population_size": 36,
+            "avg_generation": 14.344444444444445,
+            "avg_error": 0.004354429177148224,
+            "error": 0.009965837664241306,
+            "fails": 10,
+            "percent_fails": 10.0,
+            "avg_time": 0.018051722314622667
+        },
+        {
+            "population_size": 37,
+            "avg_generation": 17.377551020408163,
+            "avg_error": 0.0032274496019344535,
+            "error": 0.002124476368341899,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.022226233871615663
+        },
+        {
+            "population_size": 38,
+            "avg_generation": 16.054945054945055,
+            "avg_error": 0.005238641864469234,
+            "error": 4.892505735121233e-05,
+            "fails": 9,
+            "percent_fails": 9.0,
+            "avg_time": 0.02098783817920056
+        },
+        {
+            "population_size": 39,
+            "avg_generation": 27.342105263157894,
+            "avg_error": 0.006298303750835896,
+            "error": 0.008382882631924993,
+            "fails": 24,
+            "percent_fails": 24.0,
+            "avg_time": 0.03579897943295931
+        },
+        {
+            "population_size": 40,
+            "avg_generation": 8.929411764705883,
+            "avg_error": 0.005812861998329378,
+            "error": 0.00911122918949614,
+            "fails": 15,
+            "percent_fails": 15.0,
+            "avg_time": 0.012601628023035386
+        },
+        {
+            "population_size": 41,
+            "avg_generation": 11.474226804123711,
+            "avg_error": 0.004064903385253296,
+            "error": 0.007331109568064598,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.01624518817233056
+        },
+        {
+            "population_size": 42,
+            "avg_generation": 20.51578947368421,
+            "avg_error": 0.0031308071703520382,
+            "error": 0.0014978071339148968,
+            "fails": 5,
+            "percent_fails": 5.0,
+            "avg_time": 0.02881765365600586
+        },
+        {
+            "population_size": 43,
+            "avg_generation": 17.195652173913043,
+            "avg_error": 0.006348130088871878,
+            "error": 0.00818888165553222,
+            "fails": 8,
+            "percent_fails": 8.0,
+            "avg_time": 0.024694859981536865
+        },
+        {
+            "population_size": 44,
+            "avg_generation": 13.376344086021506,
+            "avg_error": 0.004403643569914447,
+            "error": 0.000921333051653761,
+            "fails": 7,
+            "percent_fails": 7.0,
+            "avg_time": 0.019828663077405703
+        },
+        {
+            "population_size": 45,
+            "avg_generation": 15.471264367816092,
+            "avg_error": 0.00597231931600263,
+            "error": 0.0037079841607927655,
+            "fails": 13,
+            "percent_fails": 13.0,
+            "avg_time": 0.023144946701225192
+        },
+        {
+            "population_size": 46,
+            "avg_generation": 15.954022988505747,
+            "avg_error": 0.004726313581267548,
+            "error": 0.0035374227453983664,
+            "fails": 13,
+            "percent_fails": 13.0,
+            "avg_time": 0.02425691999238113
+        },
+        {
+            "population_size": 47,
+            "avg_generation": 16.463917525773194,
+            "avg_error": 0.005502660403627281,
+            "error": 0.00021703809050466205,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.025426835128941488
+        },
+        {
+            "population_size": 48,
+            "avg_generation": 10.455555555555556,
+            "avg_error": 0.007138470365455242,
+            "error": 0.0174815654965359,
+            "fails": 10,
+            "percent_fails": 10.0,
+            "avg_time": 0.016865992546081544
+        },
+        {
+            "population_size": 49,
+            "avg_generation": 12.32258064516129,
+            "avg_error": 0.004673370042367843,
+            "error": 0.003375483012114877,
+            "fails": 7,
+            "percent_fails": 7.0,
+            "avg_time": 0.019968099491570586
+        },
+        {
+            "population_size": 50,
+            "avg_generation": 10.578947368421053,
+            "avg_error": 0.005880957188614443,
+            "error": 0.00921908351542422,
+            "fails": 24,
+            "percent_fails": 24.0,
+            "avg_time": 0.017453312873840332
+        },
+        {
+            "population_size": 51,
+            "avg_generation": 14.517241379310345,
+            "avg_error": 0.0038938465456093037,
+            "error": 0.0005968171234709274,
+            "fails": 13,
+            "percent_fails": 13.0,
+            "avg_time": 0.024130873296452665
+        },
+        {
+            "population_size": 52,
+            "avg_generation": 13.728395061728396,
+            "avg_error": 0.005027991710168542,
+            "error": 0.002416846679142104,
+            "fails": 19,
+            "percent_fails": 19.0,
+            "avg_time": 0.023271077944908614
+        },
+        {
+            "population_size": 53,
+            "avg_generation": 5.351063829787234,
+            "avg_error": 0.005515541322530109,
+            "error": 0.0031291256108372245,
+            "fails": 6,
+            "percent_fails": 6.0,
+            "avg_time": 0.009930907411778227
+        },
+        {
+            "population_size": 54,
+            "avg_generation": 12.625,
+            "avg_error": 0.005683532204340226,
+            "error": 1.0747644269018766,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.022117907802263897
+        },
+        {
+            "population_size": 55,
+            "avg_generation": 11.614285714285714,
+            "avg_error": 0.003885718718309101,
+            "error": 0.014959699431569717,
+            "fails": 30,
+            "percent_fails": 30.0,
+            "avg_time": 0.020701772826058524
+        },
+        {
+            "population_size": 56,
+            "avg_generation": 12.086021505376344,
+            "avg_error": 0.0029750322922957716,
+            "error": 0.003133708576530836,
+            "fails": 7,
+            "percent_fails": 7.0,
+            "avg_time": 0.0218233395648259
+        },
+        {
+            "population_size": 57,
+            "avg_generation": 19.76388888888889,
+            "avg_error": 0.003991286460045682,
+            "error": 0.00011504771672576908,
+            "fails": 28,
+            "percent_fails": 28.0,
+            "avg_time": 0.03561309973398844
+        },
+        {
+            "population_size": 58,
+            "avg_generation": 13.505747126436782,
+            "avg_error": 0.0045011221224953695,
+            "error": 0.0006537371231090106,
+            "fails": 13,
+            "percent_fails": 13.0,
+            "avg_time": 0.025082368960325747
+        },
+        {
+            "population_size": 59,
+            "avg_generation": 10.055555555555555,
+            "avg_error": 0.004264067791360738,
+            "error": 0.22614444889001462,
+            "fails": 10,
+            "percent_fails": 10.0,
+            "avg_time": 0.01914880010816786
+        },
+        {
+            "population_size": 60,
+            "avg_generation": 12.821428571428571,
+            "avg_error": 0.003150743085166428,
+            "error": 0.00263945694984713,
+            "fails": 16,
+            "percent_fails": 16.0,
+            "avg_time": 0.024541494392213366
+        },
+        {
+            "population_size": 61,
+            "avg_generation": 11.572916666666666,
+            "avg_error": 0.0055790424794282855,
+            "error": 0.009274841786486743,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.02258540193239848
+        },
+        {
+            "population_size": 62,
+            "avg_generation": 17.123595505617978,
+            "avg_error": 0.005702878453032731,
+            "error": 0.0015369193707264195,
+            "fails": 11,
+            "percent_fails": 11.0,
+            "avg_time": 0.0331921148835943
+        },
+        {
+            "population_size": 63,
+            "avg_generation": 4.27906976744186,
+            "avg_error": 0.006697329086474215,
+            "error": 0.0047699581824893755,
+            "fails": 14,
+            "percent_fails": 14.0,
+            "avg_time": 0.009532673414363417
+        },
+        {
+            "population_size": 64,
+            "avg_generation": 11.11111111111111,
+            "avg_error": 0.00552243390021988,
+            "error": 0.003931327855964284,
+            "fails": 10,
+            "percent_fails": 10.0,
+            "avg_time": 0.022617292404174805
+        },
+        {
+            "population_size": 65,
+            "avg_generation": 9.845238095238095,
+            "avg_error": 0.006434489456559593,
+            "error": 0.9967370842037497,
+            "fails": 16,
+            "percent_fails": 16.0,
+            "avg_time": 0.020789620422181628
+        },
+        {
+            "population_size": 66,
+            "avg_generation": 11.954545454545455,
+            "avg_error": 0.003979652339354534,
+            "error": 0.006519543481538381,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.024933308362960815
+        },
+        {
+            "population_size": 67,
+            "avg_generation": 7.021052631578947,
+            "avg_error": 0.004703959423473012,
+            "error": 0.008241619642866294,
+            "fails": 5,
+            "percent_fails": 5.0,
+            "avg_time": 0.015411434675517834
+        },
+        {
+            "population_size": 68,
+            "avg_generation": 10.733333333333333,
+            "avg_error": 0.0046206637981782706,
+            "error": 0.9134054423769804,
+            "fails": 10,
+            "percent_fails": 10.0,
+            "avg_time": 0.023071614901224773
+        },
+        {
+            "population_size": 69,
+            "avg_generation": 11.74074074074074,
+            "avg_error": 0.004829098615738483,
+            "error": 0.001797167491777607,
+            "fails": 19,
+            "percent_fails": 19.0,
+            "avg_time": 0.02535198058611081
+        },
+        {
+            "population_size": 70,
+            "avg_generation": 8.3125,
+            "avg_error": 0.003978343924936826,
+            "error": 0.0036308360612751223,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.01866879314184189
+        },
+        {
+            "population_size": 71,
+            "avg_generation": 15.938271604938272,
+            "avg_error": 0.0044031423908174145,
+            "error": 0.009464226841549461,
+            "fails": 19,
+            "percent_fails": 19.0,
+            "avg_time": 0.03482043595961583
+        },
+        {
+            "population_size": 72,
+            "avg_generation": 8.31764705882353,
+            "avg_error": 0.004908842779609767,
+            "error": 0.0065754027622562106,
+            "fails": 15,
+            "percent_fails": 15.0,
+            "avg_time": 0.019230971616857193
+        },
+        {
+            "population_size": 73,
+            "avg_generation": 7.575757575757576,
+            "avg_error": 0.005866968858131775,
+            "error": 0.007058485496662215,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.01795199423125296
+        },
+        {
+            "population_size": 74,
+            "avg_generation": 6.819148936170213,
+            "avg_error": 0.005063705169896983,
+            "error": 0.004085135177074761,
+            "fails": 6,
+            "percent_fails": 6.0,
+            "avg_time": 0.016402977578183438
+        },
+        {
+            "population_size": 75,
+            "avg_generation": 4.52808988764045,
+            "avg_error": 0.00517583834380381,
+            "error": 0.0033025836685811605,
+            "fails": 11,
+            "percent_fails": 11.0,
+            "avg_time": 0.011486131153749616
+        },
+        {
+            "population_size": 76,
+            "avg_generation": 10.176470588235293,
+            "avg_error": 0.004813375088970454,
+            "error": 0.008756177100893048,
+            "fails": 15,
+            "percent_fails": 15.0,
+            "avg_time": 0.024205824908088234
+        },
+        {
+            "population_size": 77,
+            "avg_generation": 7.041666666666667,
+            "avg_error": 0.004354853346779153,
+            "error": 0.005760683856808502,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.017494864761829376
+        },
+        {
+            "population_size": 78,
+            "avg_generation": 10.215909090909092,
+            "avg_error": 0.00497287020449775,
+            "error": 0.006905477285581885,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.02486526695164767
+        },
+        {
+            "population_size": 79,
+            "avg_generation": 9.365853658536585,
+            "avg_error": 0.005890973687769945,
+            "error": 0.00779494055410801,
+            "fails": 18,
+            "percent_fails": 18.0,
+            "avg_time": 0.023376511364448363
+        },
+        {
+            "population_size": 80,
+            "avg_generation": 10.91566265060241,
+            "avg_error": 0.002814427672757257,
+            "error": 0.0007041182913596344,
+            "fails": 17,
+            "percent_fails": 17.0,
+            "avg_time": 0.027084169617618423
+        },
+        {
+            "population_size": 81,
+            "avg_generation": 9.685714285714285,
+            "avg_error": 0.0058452899485344125,
+            "error": 0.0022489413571085137,
+            "fails": 30,
+            "percent_fails": 30.0,
+            "avg_time": 0.024406092507498606
+        },
+        {
+            "population_size": 82,
+            "avg_generation": 9.11111111111111,
+            "avg_error": 0.005126523501657212,
+            "error": 0.0078912060350671,
+            "fails": 10,
+            "percent_fails": 10.0,
+            "avg_time": 0.023326534695095488
+        },
+        {
+            "population_size": 83,
+            "avg_generation": 8.831325301204819,
+            "avg_error": 0.004452702754802463,
+            "error": 7.602794986283357e-05,
+            "fails": 17,
+            "percent_fails": 17.0,
+            "avg_time": 0.022878563547708904
+        },
+        {
+            "population_size": 84,
+            "avg_generation": 5.5625,
+            "avg_error": 0.0053252847954068745,
+            "error": 0.0031122456122760767,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.01525082935889562
+        },
+        {
+            "population_size": 85,
+            "avg_generation": 6.5256410256410255,
+            "avg_error": 0.005392219143387807,
+            "error": 0.0007731402897617201,
+            "fails": 22,
+            "percent_fails": 22.0,
+            "avg_time": 0.01784966542170598
+        },
+        {
+            "population_size": 86,
+            "avg_generation": 6.821428571428571,
+            "avg_error": 0.005973726182267848,
+            "error": 0.004473500125430796,
+            "fails": 16,
+            "percent_fails": 16.0,
+            "avg_time": 0.018735618818373906
+        },
+        {
+            "population_size": 87,
+            "avg_generation": 7.295774647887324,
+            "avg_error": 0.003946692136409674,
+            "error": 0.004696569733997791,
+            "fails": 29,
+            "percent_fails": 29.0,
+            "avg_time": 0.02035396871432452
+        },
+        {
+            "population_size": 88,
+            "avg_generation": 7.0227272727272725,
+            "avg_error": 0.006455117761955534,
+            "error": 0.009592596757796557,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.019583981145511974
+        },
+        {
+            "population_size": 89,
+            "avg_generation": 9.348837209302326,
+            "avg_error": 0.004615592117921402,
+            "error": 0.006497220362505107,
+            "fails": 14,
+            "percent_fails": 14.0,
+            "avg_time": 0.024956378825875217
+        },
+        {
+            "population_size": 90,
+            "avg_generation": 5.294117647058823,
+            "avg_error": 0.0042771075112961925,
+            "error": 0.19470528366205597,
+            "fails": 15,
+            "percent_fails": 15.0,
+            "avg_time": 0.014901262171128218
+        },
+        {
+            "population_size": 91,
+            "avg_generation": 10.337662337662337,
+            "avg_error": 0.003981922337692658,
+            "error": 0.009918430968530068,
+            "fails": 23,
+            "percent_fails": 23.0,
+            "avg_time": 0.02808079162201324
+        },
+        {
+            "population_size": 92,
+            "avg_generation": 2.955056179775281,
+            "avg_error": 0.0058777692643281676,
+            "error": 0.008717017097397584,
+            "fails": 11,
+            "percent_fails": 11.0,
+            "avg_time": 0.009446653087487381
+        },
+        {
+            "population_size": 93,
+            "avg_generation": 11.268292682926829,
+            "avg_error": 0.003157200259656322,
+            "error": 0.0024207715361326265,
+            "fails": 18,
+            "percent_fails": 18.0,
+            "avg_time": 0.0308443191574841
+        },
+        {
+            "population_size": 94,
+            "avg_generation": 3.467391304347826,
+            "avg_error": 0.0032678824072540345,
+            "error": 0.0049300816177284545,
+            "fails": 8,
+            "percent_fails": 8.0,
+            "avg_time": 0.011057374270065971
+        },
+        {
+            "population_size": 95,
+            "avg_generation": 9.55813953488372,
+            "avg_error": 0.0038927097469474733,
+            "error": 0.0006949024298021911,
+            "fails": 14,
+            "percent_fails": 14.0,
+            "avg_time": 0.027009182198103086
+        },
+        {
+            "population_size": 96,
+            "avg_generation": 8.3875,
+            "avg_error": 0.005189941404087323,
+            "error": 0.007012009310225942,
+            "fails": 20,
+            "percent_fails": 20.0,
+            "avg_time": 0.024210205674171446
+        },
+        {
+            "population_size": 97,
+            "avg_generation": 6.3,
+            "avg_error": 0.005905505272756701,
+            "error": 0.006944978181836703,
+            "fails": 10,
+            "percent_fails": 10.0,
+            "avg_time": 0.018838503625657824
+        },
+        {
+            "population_size": 98,
+            "avg_generation": 7.95,
+            "avg_error": 0.0036177948759154644,
+            "error": 0.004113844315132731,
+            "fails": 20,
+            "percent_fails": 20.0,
+            "avg_time": 0.0233624666929245
+        },
+        {
+            "population_size": 99,
+            "avg_generation": 4.370786516853933,
+            "avg_error": 0.0031653942955880347,
+            "error": 0.0016056205074770347,
+            "fails": 11,
+            "percent_fails": 11.0,
+            "avg_time": 0.013839370748969945
+        },
+        {
+            "population_size": 100,
+            "avg_generation": 9.714285714285714,
+            "avg_error": 0.004474405156742842,
+            "error": 0.0018634435772106883,
+            "fails": 23,
+            "percent_fails": 23.0,
+            "avg_time": 0.028559966520829635
+        },
+        {
+            "population_size": 101,
+            "avg_generation": 8.858823529411765,
+            "avg_error": 0.005260320229428854,
+            "error": 0.010223570293866224,
+            "fails": 15,
+            "percent_fails": 15.0,
+            "avg_time": 0.026669855678782745
+        },
+        {
+            "population_size": 102,
+            "avg_generation": 5.449438202247191,
+            "avg_error": 0.004483039619740207,
+            "error": 0.009416496423449328,
+            "fails": 11,
+            "percent_fails": 11.0,
+            "avg_time": 0.017100320773178274
+        },
+        {
+            "population_size": 103,
+            "avg_generation": 7.285714285714286,
+            "avg_error": 0.003126126610065234,
+            "error": 0.01725382557831212,
+            "fails": 23,
+            "percent_fails": 23.0,
+            "avg_time": 0.022653722143792486
+        },
+        {
+            "population_size": 104,
+            "avg_generation": 5.580645161290323,
+            "avg_error": 0.0032113293909952116,
+            "error": 0.002632565768500683,
+            "fails": 7,
+            "percent_fails": 7.0,
+            "avg_time": 0.01774813026510259
+        },
+        {
+            "population_size": 105,
+            "avg_generation": 7.585106382978723,
+            "avg_error": 0.004312961159831157,
+            "error": 6.866700796015479e-05,
+            "fails": 6,
+            "percent_fails": 6.0,
+            "avg_time": 0.02375566452107531
+        },
+        {
+            "population_size": 106,
+            "avg_generation": 5.304347826086956,
+            "avg_error": 0.003977846288462809,
+            "error": 0.0015271519879735962,
+            "fails": 8,
+            "percent_fails": 8.0,
+            "avg_time": 0.017431624557660973
+        },
+        {
+            "population_size": 107,
+            "avg_generation": 5.505154639175258,
+            "avg_error": 0.005319092789848355,
+            "error": 0.006823208933468994,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.018322138442206627
+        },
+        {
+            "population_size": 108,
+            "avg_generation": 7.342465753424658,
+            "avg_error": 0.0031742095735715604,
+            "error": 0.34032519305448616,
+            "fails": 27,
+            "percent_fails": 27.0,
+            "avg_time": 0.023813022326116692
+        },
+        {
+            "population_size": 109,
+            "avg_generation": 10.240506329113924,
+            "avg_error": 0.006245713201968473,
+            "error": 0.0004600529561207267,
+            "fails": 21,
+            "percent_fails": 21.0,
+            "avg_time": 0.03230602529984486
+        },
+        {
+            "population_size": 110,
+            "avg_generation": 5.84375,
+            "avg_error": 0.004477235558806682,
+            "error": 0.00993090292851706,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.019853152334690094
+        },
+        {
+            "population_size": 111,
+            "avg_generation": 2.5543478260869565,
+            "avg_error": 0.004340358652949606,
+            "error": 0.2201379543512152,
+            "fails": 8,
+            "percent_fails": 8.0,
+            "avg_time": 0.0099407900934634
+        },
+        {
+            "population_size": 112,
+            "avg_generation": 6.445945945945946,
+            "avg_error": 0.005288657654527354,
+            "error": 0.004302996542704829,
+            "fails": 26,
+            "percent_fails": 26.0,
+            "avg_time": 0.021847016102558858
+        },
+        {
+            "population_size": 113,
+            "avg_generation": 6.329545454545454,
+            "avg_error": 0.004062585114585338,
+            "error": 0.005032636228937015,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.021793839606371792
+        },
+        {
+            "population_size": 114,
+            "avg_generation": 7.976744186046512,
+            "avg_error": 0.0060472770245161905,
+            "error": 0.04104751226537928,
+            "fails": 14,
+            "percent_fails": 14.0,
+            "avg_time": 0.027113548544950263
+        },
+        {
+            "population_size": 115,
+            "avg_generation": 3.56,
+            "avg_error": 0.0029606211565023654,
+            "error": 0.004576528583871031,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.013254544734954833
+        },
+        {
+            "population_size": 116,
+            "avg_generation": 7.2727272727272725,
+            "avg_error": 0.004657898307041927,
+            "error": 0.010965241574409035,
+            "fails": 23,
+            "percent_fails": 23.0,
+            "avg_time": 0.025049931043154235
+        },
+        {
+            "population_size": 117,
+            "avg_generation": 4.4935064935064934,
+            "avg_error": 0.006040824942179334,
+            "error": 0.009854769548403475,
+            "fails": 23,
+            "percent_fails": 23.0,
+            "avg_time": 0.016436610903058733
+        },
+        {
+            "population_size": 118,
+            "avg_generation": 2.453333333333333,
+            "avg_error": 0.0032664937545442345,
+            "error": 0.004126480375233221,
+            "fails": 25,
+            "percent_fails": 25.0,
+            "avg_time": 0.010412127176920572
+        },
+        {
+            "population_size": 119,
+            "avg_generation": 3.924731182795699,
+            "avg_error": 0.007521441862171598,
+            "error": 0.00041039475147597315,
+            "fails": 7,
+            "percent_fails": 7.0,
+            "avg_time": 0.014884935912265572
+        },
+        {
+            "population_size": 120,
+            "avg_generation": 5.181818181818182,
+            "avg_error": 0.0038642115419639297,
+            "error": 0.010627408155481799,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.019085599617524582
+        },
+        {
+            "population_size": 121,
+            "avg_generation": 2.7373737373737375,
+            "avg_error": 0.0064761869803149266,
+            "error": 0.005432182851430767,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.011454208932741725
+        },
+        {
+            "population_size": 122,
+            "avg_generation": 4.7439024390243905,
+            "avg_error": 0.006091787844292735,
+            "error": 0.00435507256554768,
+            "fails": 18,
+            "percent_fails": 18.0,
+            "avg_time": 0.017952008945185963
+        },
+        {
+            "population_size": 123,
+            "avg_generation": 3.9375,
+            "avg_error": 0.003740549556972811,
+            "error": 0.003859151894357815,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.015604073802630106
+        },
+        {
+            "population_size": 124,
+            "avg_generation": 4.023809523809524,
+            "avg_error": 0.005625136616582995,
+            "error": 0.007461716680507102,
+            "fails": 16,
+            "percent_fails": 16.0,
+            "avg_time": 0.0158978643871489
+        },
+        {
+            "population_size": 125,
+            "avg_generation": 9.885057471264368,
+            "avg_error": 0.004504192537455476,
+            "error": 0.0026006866183561073,
+            "fails": 13,
+            "percent_fails": 13.0,
+            "avg_time": 0.035674706272695256
+        },
+        {
+            "population_size": 126,
+            "avg_generation": 6.318181818181818,
+            "avg_error": 0.005911731459597003,
+            "error": 0.0037648483503787133,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.023765986615961247
+        },
+        {
+            "population_size": 127,
+            "avg_generation": 6.295454545454546,
+            "avg_error": 0.0043695292306558916,
+            "error": 0.0032679574291156754,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.023913350972262295
+        },
+        {
+            "population_size": 128,
+            "avg_generation": 5.826086956521739,
+            "avg_error": 0.0037194603583327913,
+            "error": 0.0028985384605677567,
+            "fails": 8,
+            "percent_fails": 8.0,
+            "avg_time": 0.02260260996611222
+        },
+        {
+            "population_size": 129,
+            "avg_generation": 7.602409638554217,
+            "avg_error": 0.006800614970956616,
+            "error": 0.0016061874660016073,
+            "fails": 17,
+            "percent_fails": 17.0,
+            "avg_time": 0.028670267886426074
+        },
+        {
+            "population_size": 130,
+            "avg_generation": 7.902439024390244,
+            "avg_error": 0.004913799529933857,
+            "error": 0.005220053943582492,
+            "fails": 18,
+            "percent_fails": 18.0,
+            "avg_time": 0.03010237216949463
+        },
+        {
+            "population_size": 131,
+            "avg_generation": 5.273809523809524,
+            "avg_error": 0.005059851909805999,
+            "error": 0.008799589905282179,
+            "fails": 16,
+            "percent_fails": 16.0,
+            "avg_time": 0.021122112160637266
+        },
+        {
+            "population_size": 132,
+            "avg_generation": 6.676923076923077,
+            "avg_error": 0.003990525065604909,
+            "error": 0.0020138423614572964,
+            "fails": 35,
+            "percent_fails": 35.0,
+            "avg_time": 0.026667118072509766
+        },
+        {
+            "population_size": 133,
+            "avg_generation": 6.0,
+            "avg_error": 0.005701484840976818,
+            "error": 0.0057875646621656784,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.02399762881170843
+        },
+        {
+            "population_size": 134,
+            "avg_generation": 2.1818181818181817,
+            "avg_error": 0.002888582278330344,
+            "error": 0.0059155464582199,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.010476991383716314
+        },
+        {
+            "population_size": 135,
+            "avg_generation": 5.533333333333333,
+            "avg_error": 0.00612396493812317,
+            "error": 0.006850348470637702,
+            "fails": 25,
+            "percent_fails": 25.0,
+            "avg_time": 0.02275251388549805
+        },
+        {
+            "population_size": 136,
+            "avg_generation": 4.105882352941176,
+            "avg_error": 0.0038523121245113406,
+            "error": 0.004271043348125669,
+            "fails": 15,
+            "percent_fails": 15.0,
+            "avg_time": 0.01761190751019646
+        },
+        {
+            "population_size": 137,
+            "avg_generation": 5.309523809523809,
+            "avg_error": 0.0036860523041950164,
+            "error": 0.09673868193923285,
+            "fails": 16,
+            "percent_fails": 16.0,
+            "avg_time": 0.02219036931083316
+        },
+        {
+            "population_size": 138,
+            "avg_generation": 5.222222222222222,
+            "avg_error": 0.005087804201554352,
+            "error": 0.0029250212330205194,
+            "fails": 10,
+            "percent_fails": 10.0,
+            "avg_time": 0.02209645907084147
+        },
+        {
+            "population_size": 139,
+            "avg_generation": 3.25,
+            "avg_error": 0.004599452134167712,
+            "error": 0.00015635843503325475,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.014820411205291747
+        },
+        {
+            "population_size": 140,
+            "avg_generation": 6.841463414634147,
+            "avg_error": 0.0053249440278487475,
+            "error": 0.00021186037339759878,
+            "fails": 18,
+            "percent_fails": 18.0,
+            "avg_time": 0.02841180708350205
+        },
+        {
+            "population_size": 141,
+            "avg_generation": 9.231707317073171,
+            "avg_error": 0.004315934369074772,
+            "error": 0.0005994870851635525,
+            "fails": 18,
+            "percent_fails": 18.0,
+            "avg_time": 0.03750943265310148
+        },
+        {
+            "population_size": 142,
+            "avg_generation": 2.7058823529411766,
+            "avg_error": 0.004138572812859951,
+            "error": 0.00696793243170557,
+            "fails": 15,
+            "percent_fails": 15.0,
+            "avg_time": 0.013188348096959731
+        },
+        {
+            "population_size": 143,
+            "avg_generation": 8.872093023255815,
+            "avg_error": 0.005542802551887187,
+            "error": 0.03473571539751941,
+            "fails": 14,
+            "percent_fails": 14.0,
+            "avg_time": 0.036622909612433856
+        },
+        {
+            "population_size": 144,
+            "avg_generation": 3.4838709677419355,
+            "avg_error": 0.0061129274419575025,
+            "error": 0.004247227736033032,
+            "fails": 7,
+            "percent_fails": 7.0,
+            "avg_time": 0.01640769230422153
+        },
+        {
+            "population_size": 145,
+            "avg_generation": 9.038461538461538,
+            "avg_error": 0.004355834657765416,
+            "error": 0.0074488346499062,
+            "fails": 22,
+            "percent_fails": 22.0,
+            "avg_time": 0.03779629254952455
+        },
+        {
+            "population_size": 146,
+            "avg_generation": 5.546666666666667,
+            "avg_error": 0.005057114880961003,
+            "error": 0.0014506483814740179,
+            "fails": 25,
+            "percent_fails": 25.0,
+            "avg_time": 0.024428091049194335
+        },
+        {
+            "population_size": 147,
+            "avg_generation": 6.220779220779221,
+            "avg_error": 0.004204055243914371,
+            "error": 0.006934678552126705,
+            "fails": 23,
+            "percent_fails": 23.0,
+            "avg_time": 0.02760161672319685
+        },
+        {
+            "population_size": 148,
+            "avg_generation": 4.417582417582418,
+            "avg_error": 0.004443830341062678,
+            "error": 0.000866285287343338,
+            "fails": 9,
+            "percent_fails": 9.0,
+            "avg_time": 0.020494882877056416
+        },
+        {
+            "population_size": 149,
+            "avg_generation": 4.628865979381444,
+            "avg_error": 0.005914658444225709,
+            "error": 0.007158868402335372,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.02123177911817413
+        },
+        {
+            "population_size": 150,
+            "avg_generation": 4.440860215053763,
+            "avg_error": 0.0038527557806177764,
+            "error": 0.003227031584960738,
+            "fails": 7,
+            "percent_fails": 7.0,
+            "avg_time": 0.020772367395380492
+        },
+        {
+            "population_size": 151,
+            "avg_generation": 5.415730337078652,
+            "avg_error": 0.0047328424738972774,
+            "error": 0.009361021908705247,
+            "fails": 11,
+            "percent_fails": 11.0,
+            "avg_time": 0.02468680263905043
+        },
+        {
+            "population_size": 152,
+            "avg_generation": 7.183908045977011,
+            "avg_error": 0.00414621020790541,
+            "error": 0.2813767760026602,
+            "fails": 13,
+            "percent_fails": 13.0,
+            "avg_time": 0.032189706276203024
+        },
+        {
+            "population_size": 153,
+            "avg_generation": 3.9895833333333335,
+            "avg_error": 0.00446508108741676,
+            "error": 0.0014585814652692264,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.01924021542072296
+        },
+        {
+            "population_size": 154,
+            "avg_generation": 5.8936170212765955,
+            "avg_error": 0.006076757019569256,
+            "error": 0.006430668510631232,
+            "fails": 6,
+            "percent_fails": 6.0,
+            "avg_time": 0.02717200238653954
+        },
+        {
+            "population_size": 155,
+            "avg_generation": 6.223529411764706,
+            "avg_error": 0.00306288008410536,
+            "error": 0.005896361613373813,
+            "fails": 15,
+            "percent_fails": 15.0,
+            "avg_time": 0.028922667222864486
+        },
+        {
+            "population_size": 156,
+            "avg_generation": 5.145833333333333,
+            "avg_error": 0.0028897713300429597,
+            "error": 0.0019909205897743476,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.024320262173811596
+        },
+        {
+            "population_size": 157,
+            "avg_generation": 2.4680851063829787,
+            "avg_error": 0.002455973919887547,
+            "error": 0.015704486479084956,
+            "fails": 6,
+            "percent_fails": 6.0,
+            "avg_time": 0.013379094448495419
+        },
+        {
+            "population_size": 158,
+            "avg_generation": 5.809523809523809,
+            "avg_error": 0.0036149137180940235,
+            "error": 0.040005007755248734,
+            "fails": 16,
+            "percent_fails": 16.0,
+            "avg_time": 0.027319757711319698
+        },
+        {
+            "population_size": 159,
+            "avg_generation": 5.872093023255814,
+            "avg_error": 0.006580301931235036,
+            "error": 0.008179952974703308,
+            "fails": 14,
+            "percent_fails": 14.0,
+            "avg_time": 0.027948523676672648
+        },
+        {
+            "population_size": 160,
+            "avg_generation": 2.6962025316455698,
+            "avg_error": 0.0036456092359293587,
+            "error": 0.00046748986448674756,
+            "fails": 21,
+            "percent_fails": 21.0,
+            "avg_time": 0.01460646979416473
+        },
+        {
+            "population_size": 161,
+            "avg_generation": 4.064516129032258,
+            "avg_error": 0.006391347540709463,
+            "error": 0.00709903151981095,
+            "fails": 7,
+            "percent_fails": 7.0,
+            "avg_time": 0.02050432082145445
+        },
+        {
+            "population_size": 162,
+            "avg_generation": 4.233766233766234,
+            "avg_error": 0.005203425565623897,
+            "error": 0.0039633861371961565,
+            "fails": 23,
+            "percent_fails": 23.0,
+            "avg_time": 0.021332592159122615
+        },
+        {
+            "population_size": 163,
+            "avg_generation": 5.873563218390805,
+            "avg_error": 0.004506578409300474,
+            "error": 0.0008137014477407334,
+            "fails": 13,
+            "percent_fails": 13.0,
+            "avg_time": 0.0285901831484389
+        },
+        {
+            "population_size": 164,
+            "avg_generation": 3.842696629213483,
+            "avg_error": 0.00449461190889512,
+            "error": 0.005847697483021719,
+            "fails": 11,
+            "percent_fails": 11.0,
+            "avg_time": 0.019946776079327874
+        },
+        {
+            "population_size": 165,
+            "avg_generation": 5.176470588235294,
+            "avg_error": 0.004159285454553796,
+            "error": 0.001904891806701503,
+            "fails": 32,
+            "percent_fails": 32.0,
+            "avg_time": 0.025930506341597614
+        },
+        {
+            "population_size": 166,
+            "avg_generation": 2.7954545454545454,
+            "avg_error": 0.0065496168105245774,
+            "error": 0.0061196478110141506,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.015413303266872059
+        },
+        {
+            "population_size": 167,
+            "avg_generation": 6.2,
+            "avg_error": 0.004748210015199738,
+            "error": 0.004592065057130057,
+            "fails": 15,
+            "percent_fails": 15.0,
+            "avg_time": 0.030893797032973347
+        },
+        {
+            "population_size": 168,
+            "avg_generation": 4.0227272727272725,
+            "avg_error": 0.0043633039814168625,
+            "error": 0.004836709384707483,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.02111397006294944
+        },
+        {
+            "population_size": 169,
+            "avg_generation": 3.077777777777778,
+            "avg_error": 0.0018862811410148438,
+            "error": 0.006988369987486642,
+            "fails": 10,
+            "percent_fails": 10.0,
+            "avg_time": 0.01701003975338406
+        },
+        {
+            "population_size": 170,
+            "avg_generation": 3.857142857142857,
+            "avg_error": 0.004422078938506012,
+            "error": 0.0007570146917750264,
+            "fails": 9,
+            "percent_fails": 9.0,
+            "avg_time": 0.020933015005929128
+        },
+        {
+            "population_size": 171,
+            "avg_generation": 2.348314606741573,
+            "avg_error": 0.004413281063107045,
+            "error": 0.0056876465941941845,
+            "fails": 11,
+            "percent_fails": 11.0,
+            "avg_time": 0.013996191239089108
+        },
+        {
+            "population_size": 172,
+            "avg_generation": 6.436781609195402,
+            "avg_error": 0.003968759409757201,
+            "error": 0.000260238539522728,
+            "fails": 13,
+            "percent_fails": 13.0,
+            "avg_time": 0.0328546858381951
+        },
+        {
+            "population_size": 173,
+            "avg_generation": 4.193181818181818,
+            "avg_error": 0.005651447346150993,
+            "error": 0.0076352116897773215,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.022575955499302258
+        },
+        {
+            "population_size": 174,
+            "avg_generation": 4.3882352941176475,
+            "avg_error": 0.0035071230752663496,
+            "error": 0.0003983808180434423,
+            "fails": 15,
+            "percent_fails": 15.0,
+            "avg_time": 0.02373651897206026
+        },
+        {
+            "population_size": 175,
+            "avg_generation": 6.531645569620253,
+            "avg_error": 0.00419870686056011,
+            "error": 0.00851452857815227,
+            "fails": 21,
+            "percent_fails": 21.0,
+            "avg_time": 0.03363154809686202
+        },
+        {
+            "population_size": 176,
+            "avg_generation": 3.183673469387755,
+            "avg_error": 0.0021317693399524164,
+            "error": 0.0024911864796277605,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.018196254360432526
+        },
+        {
+            "population_size": 177,
+            "avg_generation": 3.1123595505617976,
+            "avg_error": 0.004492631605540408,
+            "error": 0.00654388235352954,
+            "fails": 11,
+            "percent_fails": 11.0,
+            "avg_time": 0.018041650900680026
+        },
+        {
+            "population_size": 178,
+            "avg_generation": 3.9195402298850577,
+            "avg_error": 0.004982143025592392,
+            "error": 0.003700348374231943,
+            "fails": 13,
+            "percent_fails": 13.0,
+            "avg_time": 0.021998580844922996
+        },
+        {
+            "population_size": 179,
+            "avg_generation": 3.0,
+            "avg_error": 0.004305945255930947,
+            "error": 0.0018232686632648765,
+            "fails": 13,
+            "percent_fails": 13.0,
+            "avg_time": 0.01779149044519183
+        },
+        {
+            "population_size": 180,
+            "avg_generation": 3.488095238095238,
+            "avg_error": 0.004960874828798087,
+            "error": 0.006042917259634795,
+            "fails": 16,
+            "percent_fails": 16.0,
+            "avg_time": 0.020017904894692556
+        },
+        {
+            "population_size": 181,
+            "avg_generation": 2.648936170212766,
+            "avg_error": 0.004415984318215556,
+            "error": 0.005380478822861079,
+            "fails": 6,
+            "percent_fails": 6.0,
+            "avg_time": 0.01611644410072489
+        },
+        {
+            "population_size": 182,
+            "avg_generation": 4.797297297297297,
+            "avg_error": 0.00529512742350378,
+            "error": 0.0031713266639670223,
+            "fails": 26,
+            "percent_fails": 26.0,
+            "avg_time": 0.026725785152332204
+        },
+        {
+            "population_size": 183,
+            "avg_generation": 2.0638297872340425,
+            "avg_error": 0.004558526298360789,
+            "error": 0.0037754771111613294,
+            "fails": 6,
+            "percent_fails": 6.0,
+            "avg_time": 0.013432145118713379
+        },
+        {
+            "population_size": 184,
+            "avg_generation": 3.4175824175824174,
+            "avg_error": 0.0021865341532837355,
+            "error": 0.006908864104237189,
+            "fails": 9,
+            "percent_fails": 9.0,
+            "avg_time": 0.020045246396745955
+        },
+        {
+            "population_size": 185,
+            "avg_generation": 3.141304347826087,
+            "avg_error": 0.004504224576048497,
+            "error": 0.003937640384284347,
+            "fails": 8,
+            "percent_fails": 8.0,
+            "avg_time": 0.018884275270544964
+        },
+        {
+            "population_size": 186,
+            "avg_generation": 3.4657534246575343,
+            "avg_error": 0.0051981175301374204,
+            "error": 0.3248858714315608,
+            "fails": 27,
+            "percent_fails": 27.0,
+            "avg_time": 0.02078008325132605
+        },
+        {
+            "population_size": 187,
+            "avg_generation": 3.369565217391304,
+            "avg_error": 0.004245241041259306,
+            "error": 0.0031331401523821967,
+            "fails": 8,
+            "percent_fails": 8.0,
+            "avg_time": 0.020098401152569313
+        },
+        {
+            "population_size": 188,
+            "avg_generation": 3.8285714285714287,
+            "avg_error": 0.00435053256519456,
+            "error": 0.009237048801641556,
+            "fails": 30,
+            "percent_fails": 30.0,
+            "avg_time": 0.022782015800476074
+        },
+        {
+            "population_size": 189,
+            "avg_generation": 1.8452380952380953,
+            "avg_error": 0.0035272917941571538,
+            "error": 0.007935188383570324,
+            "fails": 16,
+            "percent_fails": 16.0,
+            "avg_time": 0.01272787366594587
+        },
+        {
+            "population_size": 190,
+            "avg_generation": 2.3404255319148937,
+            "avg_error": 0.005983001266662582,
+            "error": 0.004593342508914411,
+            "fails": 6,
+            "percent_fails": 6.0,
+            "avg_time": 0.01541628989767521
+        },
+        {
+            "population_size": 191,
+            "avg_generation": 5.083333333333333,
+            "avg_error": 0.005013716825169934,
+            "error": 0.0016760173309551263,
+            "fails": 28,
+            "percent_fails": 28.0,
+            "avg_time": 0.02932429975933499
+        },
+        {
+            "population_size": 192,
+            "avg_generation": 3.5652173913043477,
+            "avg_error": 0.002655736253794715,
+            "error": 0.0031879371422842695,
+            "fails": 8,
+            "percent_fails": 8.0,
+            "avg_time": 0.021897870561350948
+        },
+        {
+            "population_size": 193,
+            "avg_generation": 5.012195121951219,
+            "avg_error": 0.004371793625814751,
+            "error": 0.0029811032871500664,
+            "fails": 18,
+            "percent_fails": 18.0,
+            "avg_time": 0.029129391763268446
+        },
+        {
+            "population_size": 194,
+            "avg_generation": 4.732558139534884,
+            "avg_error": 0.004534457887979224,
+            "error": 0.0008718589949276989,
+            "fails": 14,
+            "percent_fails": 14.0,
+            "avg_time": 0.028354312098303507
+        },
+        {
+            "population_size": 195,
+            "avg_generation": 3.2268041237113403,
+            "avg_error": 0.0039853257688031675,
+            "error": 0.008521430140218555,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.02048132100056127
+        },
+        {
+            "population_size": 196,
+            "avg_generation": 4.458823529411765,
+            "avg_error": 0.0035427071545213054,
+            "error": 0.01038614563577056,
+            "fails": 15,
+            "percent_fails": 15.0,
+            "avg_time": 0.026587710661046645
+        },
+        {
+            "population_size": 197,
+            "avg_generation": 4.5978260869565215,
+            "avg_error": 0.004585776583159999,
+            "error": 0.0017695563548651982,
+            "fails": 8,
+            "percent_fails": 8.0,
+            "avg_time": 0.028814245825228485
+        },
+        {
+            "population_size": 198,
+            "avg_generation": 4.275862068965517,
+            "avg_error": 0.004270315456812413,
+            "error": 0.005924112549339888,
+            "fails": 13,
+            "percent_fails": 13.0,
+            "avg_time": 0.026136938182786965
+        },
+        {
+            "population_size": 199,
+            "avg_generation": 2.8068181818181817,
+            "avg_error": 0.005743261664843139,
+            "error": 0.0025103908264672015,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.01838256283239885
+        }
+    ]
+}

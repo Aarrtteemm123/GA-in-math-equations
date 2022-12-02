@@ -1,0 +1,914 @@
+{
+    "base_config": {
+        "attempts": 100,
+        "num_generations": 1000,
+        "num_parents_mating": 2,
+        "num_genes": 4,
+        "sol_per_pop": 10,
+        "accuracy": 0.01,
+        "crossover_type": "two_points",
+        "parallel_processing": 1
+    },
+    "mutation_probabilities": [
+        {
+            "mutation_probability": 0.0,
+            "avg_generation": 0,
+            "avg_error": 0,
+            "error": 3.8124605521081927,
+            "fails": 100,
+            "percent_fails": 100.0,
+            "avg_time": 0
+        },
+        {
+            "mutation_probability": 0.01,
+            "avg_generation": 28.13095238095238,
+            "avg_error": 0.005359903962437599,
+            "error": 0.0035136180394115257,
+            "fails": 16,
+            "percent_fails": 16.0,
+            "avg_time": 0.010555145286378406
+        },
+        {
+            "mutation_probability": 0.02,
+            "avg_generation": 44.87671232876713,
+            "avg_error": 0.005120098418337551,
+            "error": 0.023978710347932086,
+            "fails": 27,
+            "percent_fails": 27.0,
+            "avg_time": 0.01843019380961379
+        },
+        {
+            "mutation_probability": 0.03,
+            "avg_generation": 729.5773195876288,
+            "avg_error": -27363.38305190776,
+            "error": -77315.89925641847,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.3308366795176083
+        },
+        {
+            "mutation_probability": 0.04,
+            "avg_generation": 62.63414634146341,
+            "avg_error": 0.005041821570738543,
+            "error": 0.006459231936857712,
+            "fails": 18,
+            "percent_fails": 18.0,
+            "avg_time": 0.02961593720971084
+        },
+        {
+            "mutation_probability": 0.05,
+            "avg_generation": 1000.0,
+            "avg_error": -84903.4503574961,
+            "error": -168837.4923616134,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.4954625837730639
+        },
+        {
+            "mutation_probability": 0.06,
+            "avg_generation": 58.22093023255814,
+            "avg_error": 0.0045319544868975565,
+            "error": 0.009610103164110928,
+            "fails": 14,
+            "percent_fails": 14.0,
+            "avg_time": 0.02852835488873859
+        },
+        {
+            "mutation_probability": 0.07,
+            "avg_generation": 848.91,
+            "avg_error": -77682.25155917146,
+            "error": -182941.504170877,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.4493679928779602
+        },
+        {
+            "mutation_probability": 0.08,
+            "avg_generation": 917.6262626262626,
+            "avg_error": -98218.59816031944,
+            "error": -214357.3200650897,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.4965807789503926
+        },
+        {
+            "mutation_probability": 0.09,
+            "avg_generation": 870.1111111111111,
+            "avg_error": -97899.04889749692,
+            "error": -222997.30962301572,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.4761707012099449
+        },
+        {
+            "mutation_probability": 0.1,
+            "avg_generation": 94.9375,
+            "avg_error": 0.004430509203364315,
+            "error": 0.0006171584190424184,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.04972116152445475
+        },
+        {
+            "mutation_probability": 0.11,
+            "avg_generation": 358.65909090909093,
+            "avg_error": -14507.352016840307,
+            "error": -85296.80350953434,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.19818577441302213
+        },
+        {
+            "mutation_probability": 0.12,
+            "avg_generation": 49.96875,
+            "avg_error": 0.003948424086793588,
+            "error": 0.0023535781036958525,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.02715650697549184
+        },
+        {
+            "mutation_probability": 0.13,
+            "avg_generation": 744.98,
+            "avg_error": -87354.49753828008,
+            "error": -236332.70165529457,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.4202957510948181
+        },
+        {
+            "mutation_probability": 0.14,
+            "avg_generation": 115.76086956521739,
+            "avg_error": 0.00487340886357926,
+            "error": 0.0023660381109285034,
+            "fails": 8,
+            "percent_fails": 8.0,
+            "avg_time": 0.06316793483236562
+        },
+        {
+            "mutation_probability": 0.15,
+            "avg_generation": 798.4646464646464,
+            "avg_error": -109616.76449702919,
+            "error": -274175.0580929131,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.45708041239266445
+        },
+        {
+            "mutation_probability": 0.16,
+            "avg_generation": 48.90526315789474,
+            "avg_error": 0.005402818319810686,
+            "error": 0.009413824915818658,
+            "fails": 5,
+            "percent_fails": 5.0,
+            "avg_time": 0.027106362894961707
+        },
+        {
+            "mutation_probability": 0.17,
+            "avg_generation": 60.02173913043478,
+            "avg_error": 0.005557065276843781,
+            "error": 0.0030053207738127696,
+            "fails": 8,
+            "percent_fails": 8.0,
+            "avg_time": 0.03338891526927119
+        },
+        {
+            "mutation_probability": 0.18,
+            "avg_generation": 46.21052631578947,
+            "avg_error": 0.00358945836864279,
+            "error": 0.009168022363910566,
+            "fails": 5,
+            "percent_fails": 5.0,
+            "avg_time": 0.02604611547369706
+        },
+        {
+            "mutation_probability": 0.19,
+            "avg_generation": 86.63333333333334,
+            "avg_error": 0.005155897649533229,
+            "error": 0.006911449130317493,
+            "fails": 10,
+            "percent_fails": 10.0,
+            "avg_time": 0.048802844683329266
+        },
+        {
+            "mutation_probability": 0.2,
+            "avg_generation": 76.70652173913044,
+            "avg_error": 0.004612453479368093,
+            "error": 0.38626832286338075,
+            "fails": 8,
+            "percent_fails": 8.0,
+            "avg_time": 0.04335143773452095
+        },
+        {
+            "mutation_probability": 0.21,
+            "avg_generation": 59.3,
+            "avg_error": 0.0043012646958866235,
+            "error": 0.003013272719163851,
+            "fails": 10,
+            "percent_fails": 10.0,
+            "avg_time": 0.03390927049848769
+        },
+        {
+            "mutation_probability": 0.22,
+            "avg_generation": 64.71428571428571,
+            "avg_error": 0.005311019887763457,
+            "error": 0.0052330468570920274,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.037257462131733796
+        },
+        {
+            "mutation_probability": 0.23,
+            "avg_generation": 73.79569892473118,
+            "avg_error": 0.005812919806089362,
+            "error": 0.00425716741162141,
+            "fails": 7,
+            "percent_fails": 7.0,
+            "avg_time": 0.04297118289496309
+        },
+        {
+            "mutation_probability": 0.24,
+            "avg_generation": 84.43617021276596,
+            "avg_error": 0.00457197496699439,
+            "error": 0.0066285251295399306,
+            "fails": 6,
+            "percent_fails": 6.0,
+            "avg_time": 0.049092077194376194
+        },
+        {
+            "mutation_probability": 0.25,
+            "avg_generation": 736.67,
+            "avg_error": -119764.47990278488,
+            "error": -327689.8371585042,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.44501962661743166
+        },
+        {
+            "mutation_probability": 0.26,
+            "avg_generation": 37.26086956521739,
+            "avg_error": 0.004281058834050451,
+            "error": 0.004574720525765574,
+            "fails": 8,
+            "percent_fails": 8.0,
+            "avg_time": 0.022645929585332455
+        },
+        {
+            "mutation_probability": 0.27,
+            "avg_generation": 99.95652173913044,
+            "avg_error": 0.004587597716776144,
+            "error": 0.0023915393981583932,
+            "fails": 8,
+            "percent_fails": 8.0,
+            "avg_time": 0.06020854348721712
+        },
+        {
+            "mutation_probability": 0.28,
+            "avg_generation": 62.55789473684211,
+            "avg_error": 0.003903397840693714,
+            "error": 0.003113136729913535,
+            "fails": 5,
+            "percent_fails": 5.0,
+            "avg_time": 0.03745763427332828
+        },
+        {
+            "mutation_probability": 0.29,
+            "avg_generation": 97.5,
+            "avg_error": 0.004966452013500524,
+            "error": 0.0026414052801975174,
+            "fails": 12,
+            "percent_fails": 12.0,
+            "avg_time": 0.06062193350358443
+        },
+        {
+            "mutation_probability": 0.3,
+            "avg_generation": 69.78947368421052,
+            "avg_error": 0.005156809118087332,
+            "error": 0.00974655070430952,
+            "fails": 5,
+            "percent_fails": 5.0,
+            "avg_time": 0.04026076919154117
+        },
+        {
+            "mutation_probability": 0.31,
+            "avg_generation": 63.11578947368421,
+            "avg_error": 0.005617712868015249,
+            "error": 0.0010223307605210508,
+            "fails": 5,
+            "percent_fails": 5.0,
+            "avg_time": 0.03673307017276162
+        },
+        {
+            "mutation_probability": 0.32,
+            "avg_generation": 168.41052631578947,
+            "avg_error": -3555.5141192049045,
+            "error": -56372.76736479542,
+            "fails": 5,
+            "percent_fails": 5.0,
+            "avg_time": 0.10038503345690275
+        },
+        {
+            "mutation_probability": 0.33,
+            "avg_generation": 943.01,
+            "avg_error": -232178.7256091138,
+            "error": -488844.66190660454,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.569280571937561
+        },
+        {
+            "mutation_probability": 0.34,
+            "avg_generation": 67.3061224489796,
+            "avg_error": 0.004926252333697048,
+            "error": 0.009485640487632452,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.03989384855542864
+        },
+        {
+            "mutation_probability": 0.35,
+            "avg_generation": 69.8659793814433,
+            "avg_error": 0.005517123156022801,
+            "error": 0.005906419017299047,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.0416717529296875
+        },
+        {
+            "mutation_probability": 0.36,
+            "avg_generation": 74.03092783505154,
+            "avg_error": 0.005055702603379898,
+            "error": 0.006363353706416053,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.04426282951512288
+        },
+        {
+            "mutation_probability": 0.37,
+            "avg_generation": 47.54081632653061,
+            "avg_error": 0.004820358724851403,
+            "error": 0.005746543369842705,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.0286678781314772
+        },
+        {
+            "mutation_probability": 0.38,
+            "avg_generation": 78.92553191489361,
+            "avg_error": 0.004610975904269257,
+            "error": 0.002425533645958211,
+            "fails": 6,
+            "percent_fails": 6.0,
+            "avg_time": 0.04748988912460652
+        },
+        {
+            "mutation_probability": 0.39,
+            "avg_generation": 63.642857142857146,
+            "avg_error": 0.005407664609050663,
+            "error": 0.00875830627489016,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.038804051827411264
+        },
+        {
+            "mutation_probability": 0.4,
+            "avg_generation": 54.51546391752577,
+            "avg_error": 0.004197880409020168,
+            "error": 0.0006350257285419048,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.03333344410375221
+        },
+        {
+            "mutation_probability": 0.41,
+            "avg_generation": 50.704081632653065,
+            "avg_error": 0.004986351834723336,
+            "error": 0.005219201275330043,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.031151401753328284
+        },
+        {
+            "mutation_probability": 0.42,
+            "avg_generation": 78.36170212765957,
+            "avg_error": 0.004681328520547835,
+            "error": 0.008401528131217084,
+            "fails": 6,
+            "percent_fails": 6.0,
+            "avg_time": 0.04823179955178119
+        },
+        {
+            "mutation_probability": 0.43,
+            "avg_generation": 97.43157894736842,
+            "avg_error": 0.0037249451902408495,
+            "error": 0.0058735295120575515,
+            "fails": 5,
+            "percent_fails": 5.0,
+            "avg_time": 0.05995557433680484
+        },
+        {
+            "mutation_probability": 0.44,
+            "avg_generation": 65.84375,
+            "avg_error": 0.005392366420410531,
+            "error": 0.005725347097404132,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.04075575371583303
+        },
+        {
+            "mutation_probability": 0.45,
+            "avg_generation": 85.0,
+            "avg_error": 0.00466815543276633,
+            "error": 0.004732249881665318,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.0528900275627772
+        },
+        {
+            "mutation_probability": 0.46,
+            "avg_generation": 77.38383838383838,
+            "avg_error": 0.005358635369615011,
+            "error": 0.00421595733722846,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.04814362766766789
+        },
+        {
+            "mutation_probability": 0.47,
+            "avg_generation": 59.84848484848485,
+            "avg_error": 0.005057035892091025,
+            "error": 0.003409557896415727,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.037566206671974876
+        },
+        {
+            "mutation_probability": 0.48,
+            "avg_generation": 78.85416666666667,
+            "avg_error": 0.005621452006360078,
+            "error": 0.004429185284855919,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.0494095062216123
+        },
+        {
+            "mutation_probability": 0.49,
+            "avg_generation": 82.14432989690722,
+            "avg_error": 0.004823553292599204,
+            "error": 0.0026894592827058084,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.05166597956234647
+        },
+        {
+            "mutation_probability": 0.5,
+            "avg_generation": 63.03092783505155,
+            "avg_error": 0.004424698158065512,
+            "error": 0.009157781221150074,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.03973893037776357
+        },
+        {
+            "mutation_probability": 0.51,
+            "avg_generation": 71.94845360824742,
+            "avg_error": 0.005470984507525008,
+            "error": 0.003241565046985695,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.045352844847846276
+        },
+        {
+            "mutation_probability": 0.52,
+            "avg_generation": 67.96969696969697,
+            "avg_error": 0.005385440635540917,
+            "error": 0.0030197338013886466,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.043086059165723396
+        },
+        {
+            "mutation_probability": 0.53,
+            "avg_generation": 64.7,
+            "avg_error": 0.005003276684352453,
+            "error": 0.004633026174809984,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.04172822475433349
+        },
+        {
+            "mutation_probability": 0.54,
+            "avg_generation": 73.3030303030303,
+            "avg_error": 0.004951808404045448,
+            "error": 0.0053977436573564574,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.04688483536845506
+        },
+        {
+            "mutation_probability": 0.55,
+            "avg_generation": 68.81818181818181,
+            "avg_error": 0.005084111314175497,
+            "error": 0.00745249680336002,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.04426541472926284
+        },
+        {
+            "mutation_probability": 0.56,
+            "avg_generation": 186.0612244897959,
+            "avg_error": -5254.187178352624,
+            "error": -79008.07107419378,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.11926231578904756
+        },
+        {
+            "mutation_probability": 0.57,
+            "avg_generation": 84.50515463917526,
+            "avg_error": 0.005223605196343207,
+            "error": 0.0074000821929880445,
+            "fails": 3,
+            "percent_fails": 3.0,
+            "avg_time": 0.054132987543479685
+        },
+        {
+            "mutation_probability": 0.58,
+            "avg_generation": 72.1010101010101,
+            "avg_error": 0.005185158520288877,
+            "error": 0.0017742606073305467,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.04615942637125651
+        },
+        {
+            "mutation_probability": 0.59,
+            "avg_generation": 66.75757575757575,
+            "avg_error": 0.00504492204667138,
+            "error": 0.003522006545922274,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.04295572849235149
+        },
+        {
+            "mutation_probability": 0.6,
+            "avg_generation": 74.89795918367346,
+            "avg_error": 0.005270290182790698,
+            "error": 0.005821235554604343,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.04849258734255421
+        },
+        {
+            "mutation_probability": 0.61,
+            "avg_generation": 59.8,
+            "avg_error": 0.00486802173233011,
+            "error": 0.0037202584206990075,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.038946127891540526
+        },
+        {
+            "mutation_probability": 0.62,
+            "avg_generation": 74.16161616161617,
+            "avg_error": 0.0057199408232210475,
+            "error": 0.009416823445079103,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.04794255651608862
+        },
+        {
+            "mutation_probability": 0.63,
+            "avg_generation": 72.35,
+            "avg_error": 0.005218399948572561,
+            "error": 0.009321211442497201,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.04662497282028198
+        },
+        {
+            "mutation_probability": 0.64,
+            "avg_generation": 80.22222222222223,
+            "avg_error": 0.004735374494368098,
+            "error": 0.0078622287917689,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.051579309232307205
+        },
+        {
+            "mutation_probability": 0.65,
+            "avg_generation": 88.33333333333333,
+            "avg_error": 0.0055313638122249185,
+            "error": 0.006200733573987982,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.05667695132168857
+        },
+        {
+            "mutation_probability": 0.66,
+            "avg_generation": 69.95959595959596,
+            "avg_error": 0.004514552314291121,
+            "error": 0.00916057545400406,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.04511167304684417
+        },
+        {
+            "mutation_probability": 0.67,
+            "avg_generation": 78.06122448979592,
+            "avg_error": 0.005405954917580841,
+            "error": 0.007388895852977306,
+            "fails": 2,
+            "percent_fails": 2.0,
+            "avg_time": 0.05044661736001774
+        },
+        {
+            "mutation_probability": 0.68,
+            "avg_generation": 63.101010101010104,
+            "avg_error": 0.00523172846272254,
+            "error": 0.006358077895008307,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.04110217335248234
+        },
+        {
+            "mutation_probability": 0.69,
+            "avg_generation": 86.07,
+            "avg_error": 0.004904931032480997,
+            "error": 0.0035673131765561195,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.0562794828414917
+        },
+        {
+            "mutation_probability": 0.7,
+            "avg_generation": 80.63,
+            "avg_error": 0.005367716142424994,
+            "error": 0.007376241982372633,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.052818567752838136
+        },
+        {
+            "mutation_probability": 0.71,
+            "avg_generation": 75.45,
+            "avg_error": 0.004609871424198291,
+            "error": 0.004158164738539583,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.049358022212982175
+        },
+        {
+            "mutation_probability": 0.72,
+            "avg_generation": 59.14,
+            "avg_error": 0.00472790036716801,
+            "error": 0.0032907599053082492,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.03884603261947632
+        },
+        {
+            "mutation_probability": 0.73,
+            "avg_generation": 230.38,
+            "avg_error": -10190.739436535254,
+            "error": -120236.19987276915,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.1495499587059021
+        },
+        {
+            "mutation_probability": 0.74,
+            "avg_generation": 79.52,
+            "avg_error": 0.005211261648804362,
+            "error": 0.006044461893431219,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.05219053983688354
+        },
+        {
+            "mutation_probability": 0.75,
+            "avg_generation": 70.22,
+            "avg_error": 0.004241970759385056,
+            "error": 0.004002735219271081,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.0464856481552124
+        },
+        {
+            "mutation_probability": 0.76,
+            "avg_generation": 88.07070707070707,
+            "avg_error": 0.004309957987747224,
+            "error": 0.0084455335475635,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.057704041702578764
+        },
+        {
+            "mutation_probability": 0.77,
+            "avg_generation": 95.20202020202021,
+            "avg_error": -470.6164705634247,
+            "error": -23267.401498846768,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.06226743832983152
+        },
+        {
+            "mutation_probability": 0.78,
+            "avg_generation": 99.2,
+            "avg_error": 0.0051082147298444356,
+            "error": 0.006438575014716008,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.06498617172241211
+        },
+        {
+            "mutation_probability": 0.79,
+            "avg_generation": 87.4,
+            "avg_error": 0.004951855932939262,
+            "error": 0.005428143229784688,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.05740633726119995
+        },
+        {
+            "mutation_probability": 0.8,
+            "avg_generation": 73.66,
+            "avg_error": 0.0048724908842589934,
+            "error": 0.001244417477240134,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.0485103178024292
+        },
+        {
+            "mutation_probability": 0.81,
+            "avg_generation": 84.14,
+            "avg_error": 0.005053691036687092,
+            "error": 0.0019302693014715544,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.055391912460327146
+        },
+        {
+            "mutation_probability": 0.82,
+            "avg_generation": 87.27,
+            "avg_error": 0.004796822961771339,
+            "error": 0.002289410858001162,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.05754591941833496
+        },
+        {
+            "mutation_probability": 0.83,
+            "avg_generation": 117.79,
+            "avg_error": 0.0052589310572286685,
+            "error": 0.00864648769393117,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.07798143386840821
+        },
+        {
+            "mutation_probability": 0.84,
+            "avg_generation": 99.98,
+            "avg_error": 0.004242926993571494,
+            "error": 0.007588881867704345,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.06599338293075561
+        },
+        {
+            "mutation_probability": 0.85,
+            "avg_generation": 96.66,
+            "avg_error": 0.004640196788365385,
+            "error": 0.00879232420790288,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.06431785583496094
+        },
+        {
+            "mutation_probability": 0.86,
+            "avg_generation": 77.61,
+            "avg_error": 0.004748857524388077,
+            "error": 0.001236369892650302,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.051921229362487796
+        },
+        {
+            "mutation_probability": 0.87,
+            "avg_generation": 86.3,
+            "avg_error": 0.005544857416203142,
+            "error": 0.0074662926700455046,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.05804469585418701
+        },
+        {
+            "mutation_probability": 0.88,
+            "avg_generation": 87.68,
+            "avg_error": 0.005581864945077575,
+            "error": 0.0018320666858766543,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.05897229671478271
+        },
+        {
+            "mutation_probability": 0.89,
+            "avg_generation": 87.94,
+            "avg_error": 0.005292557084180496,
+            "error": 0.0009279491120421923,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.05952056646347046
+        },
+        {
+            "mutation_probability": 0.9,
+            "avg_generation": 87.35,
+            "avg_error": 0.005206205151237509,
+            "error": 0.006196135831658012,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.05911195516586304
+        },
+        {
+            "mutation_probability": 0.91,
+            "avg_generation": 97.01010101010101,
+            "avg_error": 0.005129801723738118,
+            "error": 0.00988831792603051,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.0656324950131503
+        },
+        {
+            "mutation_probability": 0.92,
+            "avg_generation": 86.44,
+            "avg_error": 0.005717021273020531,
+            "error": 0.006155694208461071,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.058613066673278806
+        },
+        {
+            "mutation_probability": 0.93,
+            "avg_generation": 98.3,
+            "avg_error": 0.004751273505414097,
+            "error": 0.00033193196048486584,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.06640245914459228
+        },
+        {
+            "mutation_probability": 0.94,
+            "avg_generation": 81.83,
+            "avg_error": 0.005798788889325461,
+            "error": 0.007625787273671136,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.05534185886383056
+        },
+        {
+            "mutation_probability": 0.95,
+            "avg_generation": 90.13131313131314,
+            "avg_error": 0.004666979699845571,
+            "error": 0.003717769009643934,
+            "fails": 1,
+            "percent_fails": 1.0,
+            "avg_time": 0.06092812316586273
+        },
+        {
+            "mutation_probability": 0.96,
+            "avg_generation": 117.3,
+            "avg_error": 0.005104865405858616,
+            "error": 0.0038690767404041537,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.08065391778945923
+        },
+        {
+            "mutation_probability": 0.97,
+            "avg_generation": 96.7,
+            "avg_error": 0.005183395757087368,
+            "error": 0.002622688064788825,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.06718148946762086
+        },
+        {
+            "mutation_probability": 0.98,
+            "avg_generation": 70.61,
+            "avg_error": 0.004389873421014361,
+            "error": 0.0018480155569160495,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.04914813756942749
+        },
+        {
+            "mutation_probability": 0.99,
+            "avg_generation": 96.05,
+            "avg_error": 0.004921028177417268,
+            "error": 0.0038454145742941037,
+            "fails": 0,
+            "percent_fails": 0.0,
+            "avg_time": 0.06686006546020508
+        }
+    ]
+}

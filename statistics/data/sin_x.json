@@ -1,0 +1,22 @@
+{
+    "avg_time": 0.009258074707951877,
+    "min_time": 0.002948760986328125,
+    "max_time": 0.16254234313964844,
+    "avg_generations_completed": 2.8188952303302077,
+    "avg_error": 0.0232201837631809,
+    "attempts": 10000,
+    "fails": 188,
+    "percent_fails": 1.88,
+    "x": 31.672713523658786,
+    "fitness": 28.71348628203415,
+    "equation": "4*math.sin(-2*x)+2",
+    "error": 0.03482684025819749,
+    "num_generations": 1000,
+    "num_parents_mating": 2,
+    "sol_per_pop": 50,
+    "num_genes": 10,
+    "crossover_type": "two_points",
+    "mutation_probability": 0.18,
+    "parallel_processing": 1,
+    "accuracy": 0.05
+}

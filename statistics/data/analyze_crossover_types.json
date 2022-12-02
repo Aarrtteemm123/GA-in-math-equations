@@ -1,0 +1,54 @@
+{
+    "base_config": {
+        "attempts": 100,
+        "num_generations": 5000,
+        "num_parents_mating": 2,
+        "num_genes": 5,
+        "sol_per_pop": 10,
+        "accuracy": 0.01,
+        "mutation_probability": 0.15,
+        "parallel_processing": 1
+    },
+    "crossover_types": [
+        {
+            "crossover_type": "single_point",
+            "num_genes": 5,
+            "avg_generation": 60.67032967032967,
+            "avg_error": 0.006061388818736869,
+            "error": 0.013864041217384493,
+            "fails": 9,
+            "percent_fails": 9.0,
+            "avg_time": 0.03212172120482057
+        },
+        {
+            "crossover_type": "two_points",
+            "num_genes": 5,
+            "avg_generation": 83.82417582417582,
+            "avg_error": 0.005187797864582926,
+            "error": 0.02173810620251171,
+            "fails": 9,
+            "percent_fails": 9.0,
+            "avg_time": 0.04597682219285231
+        },
+        {
+            "crossover_type": "uniform",
+            "num_genes": 5,
+            "avg_generation": 67.44791666666667,
+            "avg_error": 0.004842180333958251,
+            "error": 0.00687081168520054,
+            "fails": 4,
+            "percent_fails": 4.0,
+            "avg_time": 0.03578323870897293
+        },
+        {
+            "crossover_type": "scattered",
+            "num_genes": 5,
+            "avg_generation": 114.51063829787235,
+            "avg_error": 0.004502167951068709,
+            "error": 0.012921892854282468,
+            "fails": 6,
+            "percent_fails": 6.0,
+            "avg_time": 0.06301334563722001
+        }
+    ]
+}
